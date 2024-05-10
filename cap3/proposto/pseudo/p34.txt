@@ -1,0 +1,41 @@
+inicio
+    inteiro records <- 10
+    vetor inteiro maiorIdade[5] <- [0, 0, 0, 0, 0]
+    vetor inteiro idade[records]
+    vetor inteiro nota[records]
+    vetor inteiro notaCount[5] <- [0, 0, 0, 0, 0]
+    vetor real porcentual[5] <- [0, 0, 0, 0, 0]
+    inteiro maiorIruim <- 0
+    inteiro maiorIotimo <- 0
+    
+    inteiro i
+    real diferenca
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com idade do indivíduo n", i + 1)
+        leia(idade[i])
+        
+        escreva("Entrar com nota dada pelo indivíduo n", i + 1, " (1-5)")
+        leia(nota[i])
+        
+        notaCount[nota[i] - 1] <- notaCount[nota[i] - 1] + 1
+        
+        se maiorIdade[nota[i] - 1] < idade[i] então
+            maiorIdade[nota[i] - 1] <- idade[i]
+        fimse
+    fimpara
+    
+    porcentual[0] <- notaCount[4] / records * 100
+    porcentual[1] <- notaCount[3] / records * 100
+    porcentual[2] <- notaCount[2] / records * 100
+    porcentual[3] <- notaCount[1] / records * 100
+    porcentual[4] <- notaCount[0] / records * 100
+    
+    diferenca <- abs((porcentual[1] - porcentual[2]) * records) / records * 100
+    
+    escreva("Notas A (", notaCount[4], "/", records, "): ", porcentual[0], "%")
+    escreva("Diferença porcentual entre respostas boas (", notaCount[3], "/", records, ") e respostas regulares (", notaCount[2], "/", records, "): ", diferenca, "%")
+    escreva("Respostas péssimas (", notaCount[0], "/", records, "): ", porcentual[4], "%")
+    escreva("Maior idade de resposta péssima: ", maiorIdade[0])
+    escreva("A diferença de idade entre a maior idade que respondeu Ótimo (", maiorIdade[4], ") e a maior idade que respondeu Ruim (", maiorIdade[1], "): ", abs(maiorIdade[4] - maiorIdade[1]))
+fim

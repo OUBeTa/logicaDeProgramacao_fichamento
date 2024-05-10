@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 10:19:06 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjA2OjI1ICI7MjE2OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjEwOjE5OjA2ICI7MjsyMjgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <output expression="&quot;Qual a idade do nadador?&quot;" newline="True"/>
+            <input variable="i"/>
+            <if expression="i &gt;= 5 and i &lt;= 7">
+                <then>
+                    <output expression="&quot;Infantil A&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="i &gt;= 8 and i &lt;= 10">
+                        <then>
+                            <output expression="&quot;Infantil B&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="i &gt;= 11 and i &lt;= 13">
+                                <then>
+                                    <output expression="&quot;Juvenil A&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="i &gt;= 14 and i &lt;= 17">
+                                        <then>
+                                            <output expression="&quot;Juvenil B&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="i &gt;= 18">
+                                                <then>
+                                                    <output expression="&quot;Adulto&quot;" newline="True"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

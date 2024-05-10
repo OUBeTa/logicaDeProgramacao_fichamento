@@ -1,0 +1,41 @@
+inicio
+inteiro records = 5
+vetor de inteiro vMat[records]
+vetor de cadeia vCurso[records]
+vetor de cadeia vName[records]
+
+cadeia search <- "0"
+inteiro i
+
+para i de 0 até records - 1 passo 1 faça
+    escreva("Entra com nome do aluno n", i + 1)
+    leia vName[i]
+    
+    escreva("Entra com número da matrícula do aluno n", i + 1)
+    leia vMat[i]
+    
+    escreva("Entra com curso do aluno n", i + 1)
+    leia vCurso[i]
+fimpara
+
+escreva("//======= Começando expedição =======//")
+escreva("Entre com nome do curso em questão")
+leia search
+
+enquanto search ≠ "0" faça
+    para i de 0 até records - 1 passo 1 faça
+        se search = vCurso[i] então
+            escreva("[nome] : ", vName[i])
+            escreva("[curso] : ", vCurso[i])
+            escreva("[Número de matrícula] : ", vMat[i])
+            escreva("")
+        fimse
+    fimpara
+    
+    escreva("//======= Próxima busca =======//")
+    leia search
+fimenquanto
+
+escreva("//======= fim expedição =======//")
+
+fim

@@ -1,0 +1,20 @@
+inicio
+    inteiro ano
+    escreva("Insira o ano atual")
+    leia(ano)
+    
+    inteiro a
+    escreva("Qual o ano de nascimento do indivíduo?")
+    leia(a)
+    
+    inteiro i
+    i <- abs(ano - a)
+    
+    se i >= 18 então
+        escreva("Você já pode prestar habilitação")
+    senao se i >= 16 então
+        escreva("Você já pode fazer seu título de eleitor")
+    senao
+        escreva("Você ainda é menor de idade")
+    fimse
+fim

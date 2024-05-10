@@ -1,0 +1,19 @@
+inicio
+inteiro a, i
+
+escreva("Entrar com número inteiro\n")
+leia a
+
+escreva("Os divisores de ", a, " são : [", fim="")
+
+para i de 1 até a passo 1 faça
+    se a % i = 0 então
+        se i = a então
+            escreva(i, "]")
+        senão
+            escreva(i, ",", fim="")
+        fimse
+    fimse
+fimpara
+
+fim

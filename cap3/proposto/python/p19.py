@@ -1,0 +1,1 @@
+for control in range(50, 151, 1): print(f"Fahrenheit : {control} |  Celcius : {((control - 32) * (float(5) / 9))}")

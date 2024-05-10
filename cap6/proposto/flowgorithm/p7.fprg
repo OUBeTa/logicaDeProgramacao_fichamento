@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 01:53:36 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjQ5OjU1ICI7MjE4MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjUzOjM2ICI7MTsyMjgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, i" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Os divisores de &quot; &amp; a &amp; &quot; s&#227;o : [&quot;" newline="False"/>
+            <for variable="i" start="1" end="a" direction="inc" step="1">
+                <if expression="a % i == 0">
+                    <then>
+                        <if expression="i == a">
+                            <then>
+                                <output expression="i &amp; &quot;]&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="i &amp; &quot;,&quot;" newline="False"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

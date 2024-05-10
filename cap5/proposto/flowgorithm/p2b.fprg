@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-06 06:36:15 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjA1OjQ3OjIxICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjA1OjQ3OjUxICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNjsiMDI6MzE6MDAgIjtwMmEuZnByZzs1MzAy"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjA2OjM2OjE1ICI7MTsyMjg1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, diasMes" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="2"/>
+            <declare name="arquivoStr" type="String" array="True" size="records * 2"/>
+            <declare name="meses" type="String" array="True" size="24"/>
+            <declare name="arquivoInt" type="Integer" array="True" size="records * 4"/>
+            <assign variable="meses[0]" expression="&quot;Janeiro&quot;"/>
+            <assign variable="meses[2]" expression="&quot;Fevereiro&quot;"/>
+            <assign variable="meses[4]" expression="&quot;Mar&#231;o&quot;"/>
+            <assign variable="meses[6]" expression="&quot;Abril&quot;"/>
+            <assign variable="meses[8]" expression="&quot;Maio&quot;"/>
+            <assign variable="meses[10]" expression="&quot;Junho&quot;"/>
+            <assign variable="meses[12]" expression="&quot;Julho&quot;"/>
+            <assign variable="meses[14]" expression="&quot;Agosto&quot;"/>
+            <assign variable="meses[16]" expression="&quot;Setembro&quot;"/>
+            <assign variable="meses[18]" expression="&quot;Outubro&quot;"/>
+            <assign variable="meses[20]" expression="&quot;Novembro&quot;"/>
+            <assign variable="meses[22]" expression="&quot;Dezembro&quot;"/>
+            <for variable="i" start="0" end="11" direction="inc" step="1">
+                <assign variable="meses[i * 2 + 1]" expression="&quot;&quot;"/>
+            </for>
+            <output expression="&quot;//====== INICIANDO REGISTRO EM ARQUIVOS ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com nome do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoStr[i * 2]"/>
+                <output expression="&quot;Entrar com n&#176; do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoInt[i * 4]"/>
+                <output expression="&quot;Entrar com endere&#231;o do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoStr[i * 2 + 1]"/>
+                <output expression="&quot;Entrar com data de nascimento do s&#243;cio (ano) [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoInt[i * 4 + 1]"/>
+                <output expression="&quot;Entrar com data de nascimento do s&#243;cio (mes[1-12]) [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoInt[i * 4 + 2]"/>
+                <if expression="(arquivoInt[i * 4 + 2] &lt; 13) and (arquivoInt[i * 4 + 2] &gt; 0)">
+                    <then/>
+                    <else>
+                        <while expression="!((arquivoInt[i * 4 + 2] &lt; 13) and (arquivoInt[i * 4 + 2] &gt; 0))">
+                            <output expression="&quot;M&#234;s [&quot;&amp;arquivoInt[i * 4 + 2]&amp;&quot;] inv&#225;lido. Tente novamente (1-12)&quot;" newline="True"/>
+                            <input variable="arquivoInt[i * 4 + 2]"/>
+                        </while>
+                    </else>
+                </if>
+                <if expression="(arquivoInt[i * 4 + 2] == 1) or (arquivoInt[i * 4 + 2] == 3) or (arquivoInt[i * 4 + 2] == 5) or (arquivoInt[i * 4 + 2] == 7) or (arquivoInt[i * 4 + 2] == 8) or (arquivoInt[i * 4 + 2] == 10) or (arquivoInt[i * 4 + 2] == 12)">
+                    <then>
+                        <assign variable="diasMes" expression="31"/>
+                    </then>
+                    <else>
+                        <if expression="(arquivoInt[i * 4 + 2] == 2)">
+                            <then>
+                                <if expression="(arquivoInt[i * 4 + 1] % 4 == 0) and (arquivoInt[i * 4 + 1] % 100 != 0) or (arquivoInt[i * 4 + 1] % 400 == 0)">
+                                    <then>
+                                        <assign variable="diasMes" expression="29"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="diasMes" expression="28"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <assign variable="diasMes" expression="30"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Entrar com data de nascimento do s&#243;cio (dia[1-&quot;&amp;diasMes&amp;&quot;]) [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoInt[i * 4 + 3]"/>
+                <if expression="(arquivoInt[i * 4 + 3] &lt;= diasMes ) and (arquivoInt[i * 4 + 3] &gt; 0)">
+                    <then/>
+                    <else>
+                        <while expression="!((arquivoInt[i * 4 + 3] &lt; diasMes) and (arquivoInt[i * 4 + 3] &gt; 0))">
+                            <output expression="&quot;Dia [&quot;&amp;arquivoInt[i * 4 + 3]&amp;&quot;] inv&#225;lido. Tente novamente (1-&quot;&amp;diasMes&amp;&quot;)&quot;" newline="True"/>
+                            <input variable="arquivoInt[i * 4 + 3]"/>
+                        </while>
+                    </else>
+                </if>
+                <output expression="&quot;&quot;" newline="True"/>
+                <output expression="&quot;&quot;" newline="True"/>
+            </for>
+            <output expression="&quot;//====== FIM REGISTRO EM ARQUIVOS ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="meses[arquivoInt[i * 4 + 2] * 2 + 1]" expression="meses[arquivoInt[i * 4 + 2] * 2 + 1] &amp; &quot;+&quot;"/>
+            </for>
+            <for variable="i" start="0" end="11" direction="inc" step="1">
+                <output expression="&quot;S&#243;cios nascidos em [&quot;&amp;meses[i * 2]&amp;&quot;] : &quot; &amp; Len(meses[i * 2 + 1])" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

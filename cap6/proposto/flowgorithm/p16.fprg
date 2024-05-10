@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 04:14:03 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAzOjI3OjMzICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjA0OjE0OjAzICI7NDsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vLido" type="Real" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com valor real para vLido[&quot; &amp;i+1&amp; &quot;]&quot;" newline="True"/>
+                <input variable="vLido[i]"/>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;//====== Valores ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <call expression="print(vLido)"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;//====== soma dos valores ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <call expression="sum(vLido)"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;//====== m&#233;dia entre dos valores ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <call expression="media(vLido)"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;//====== desvio padr&#227;o entre valores ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <call expression="dp(vLido)"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;//====== valores negativos zerados ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <call expression="ngtv2zero(vLido)"/>
+            <output expression="&quot;&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="dp" type="None" variable="">
+        <parameters>
+            <parameter name="a" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="sum, media, dp" type="Real" array="False" size=""/>
+            <assign variable="sum" expression="0"/>
+            <assign variable="dp" expression="0"/>
+            <for variable="i" start="0" end="Size(a) - 1" direction="inc" step="1">
+                <assign variable="sum" expression="sum + a[i]"/>
+            </for>
+            <assign variable="media" expression="sum / Size(a)"/>
+            <for variable="i" start="0" end="Size(a) - 1" direction="inc" step="1">
+                <assign variable="dp" expression="dp + ((Abs(a[i] - media) * Abs(a[i] - media))) / Size(a)"/>
+            </for>
+            <output expression="&quot;[Desvio padr&#227;o] -&gt; &quot; &amp; Sqrt(Abs(dp))" newline="True"/>
+        </body>
+    </function>
+    <function name="media" type="None" variable="">
+        <parameters>
+            <parameter name="a" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i, count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <declare name="sum" type="Real" array="False" size=""/>
+            <assign variable="sum" expression="0"/>
+            <for variable="i" start="0" end="Size(a) - 1" direction="inc" step="1">
+                <assign variable="sum" expression="sum + a[i]"/>
+                <assign variable="count" expression="count + 1"/>
+            </for>
+            <output expression="&quot;[Media] -&gt; &quot; &amp; (sum / count)" newline="True"/>
+        </body>
+    </function>
+    <function name="ngtv2zero" type="None" variable="">
+        <parameters>
+            <parameter name="a" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="clone" type="Real" array="True" size="Size(a)"/>
+            <for variable="i" start="0" end="Size(a) - 1" direction="inc" step="1">
+                <if expression="a[i] &gt; 0">
+                    <then>
+                        <assign variable="clone[i]" expression="a[i]"/>
+                    </then>
+                    <else>
+                        <assign variable="clone[i]" expression="0"/>
+                    </else>
+                </if>
+            </for>
+            <for variable="i" start="0" end="Size(a) - 1 " direction="inc" step="1">
+                <if expression="i == 0">
+                    <then>
+                        <output expression="&quot;[n &gt; 0 -&gt; n == 0] : [&quot; &amp; clone[i] &amp;&quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="(i &gt; 0) and (i &lt; Size(a) - 1)">
+                    <then>
+                        <output expression="clone[i] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i == Size(a) - 1">
+                    <then>
+                        <output expression="clone[i] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="print" type="None" variable="">
+        <parameters>
+            <parameter name="a" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(a) - 1" direction="inc" step="1">
+                <output expression="&quot;[&quot;&amp;i&amp;&quot;] -&gt; &quot; &amp; a[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="sum" type="None" variable="">
+        <parameters>
+            <parameter name="a" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="sum" type="Real" array="False" size=""/>
+            <assign variable="sum" expression="0"/>
+            <for variable="i" start="0" end="Size(a) - 1" direction="inc" step="1">
+                <assign variable="sum" expression="sum + a[i]"/>
+            </for>
+            <output expression="&quot;[Soma] -&gt; &quot; &amp; sum" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

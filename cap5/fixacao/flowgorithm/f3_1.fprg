@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 11:06:59 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEwOjE4OjQ5ICI7MjE3OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjExOjA2OjU5ICI7MjsyMjg2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vMat" type="Integer" array="True" size="records"/>
+            <declare name="vCurso, vName" type="String" array="True" size="records"/>
+            <declare name="search" type="String" array="False" size=""/>
+            <assign variable="search" expression="&quot;0&quot;"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entra com nome do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vName[i]"/>
+                <output expression="&quot;Entra n&#250;mero da matr&#237;cula do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vMat[i]"/>
+                <output expression="&quot;Entra com curso do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vCurso[i]"/>
+            </for>
+            <output expression="&quot;//======= Come&#231;ando expedi&#231;&#227;o =======//&quot;" newline="True"/>
+            <output expression="&quot;Entre com nome do curso em quest&#227;o : &quot;" newline="False"/>
+            <input variable="search"/>
+            <while expression="search != &quot;0&quot;">
+                <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="search == vCurso[i]">
+                        <then>
+                            <output expression="&quot;[nome] : &quot; &amp; vName[i]" newline="True"/>
+                            <output expression="&quot;[curso] : &quot; &amp; vCurso[i]" newline="True"/>
+                            <output expression="&quot;[N&#250;mero de matr&#237;cula] : &quot; &amp; vMat[i]" newline="True"/>
+                            <output expression="&quot;&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <output expression="&quot;//======= Pr&#243;xima busca =======//&quot;" newline="True"/>
+                <input variable="search"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

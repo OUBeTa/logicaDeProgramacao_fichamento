@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-27 05:05:49 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA1OjAyOjI4ICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA1OjAyOjMwICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNC0yNzsiMDQ6NDY6NTcgIjtwMTMuZnByZzs1MjY3"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA1OjA1OjQ5ICI7MTsyMjg5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, ac, b, bc, r" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com primeiro n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="a"/>
+            <assign variable="a" expression="Abs(a)"/>
+            <assign variable="ac" expression="a"/>
+            <output expression="&quot;Entrar com segundo n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="b"/>
+            <assign variable="b" expression="Abs(b)"/>
+            <assign variable="bc" expression="b"/>
+            <output expression="&quot;O MMC entre &quot;  &amp; a &amp; &quot; e &quot; &amp; b &amp; &quot; &#233; : &quot;" newline="True"/>
+            <while expression="b != 0">
+                <assign variable="r" expression="a % b"/>
+                <assign variable="a" expression="b"/>
+                <assign variable="b" expression="r"/>
+            </while>
+            <output expression="(ac * bc) / (a)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

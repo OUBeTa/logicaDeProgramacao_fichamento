@@ -1,0 +1,17 @@
+inicio
+    inteiro n
+    escreva("Entre com um inteiro")
+    leia(n)
+    
+    se n = 0 então
+        escreva(n, "! : 0")
+    senao
+        inteiro f <- 1
+        
+        para v de 1 até n faça
+            f <- f * v
+        fimpara
+        
+        escreva(n, "! : ", f)
+    fimse
+fim

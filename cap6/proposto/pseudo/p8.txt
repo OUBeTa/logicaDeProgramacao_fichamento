@@ -1,0 +1,24 @@
+inicio
+inteiro a, b, aa, bb, x, y, aux
+
+escreva("Entrar com número inteiro")
+leia a
+
+aa <- a
+x <- a
+
+escreva("Entrar com número inteiro")
+leia b
+
+bb <- b
+y <- b
+
+enquanto y != 0 faça
+    aux <- y
+    y <- a % y
+    a <- aux
+fimenquanto
+
+escreva("Máximo múltiplo comum entre ", aa, " e ", bb, " é: ", (aa * bb) // a)
+
+fim

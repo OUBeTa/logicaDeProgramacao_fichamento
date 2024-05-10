@@ -1,0 +1,39 @@
+inicio
+inteiro a, b, c
+
+escreva("Entre com A")
+leia a
+
+escreva("Entre com B")
+leia b
+
+escreva("Entrar com C")
+leia c
+
+escreva("Lista original: [", a, ", ", b, ", ", c, "]")
+
+se a < c e b < c então
+    escreva("Lista ordenada: [", a, ", ", b, ", ", c, "]")
+fimse
+
+se a < c e c < b então
+    escreva("Lista ordenada: [", a, ", ", c, ", ", b, "]")
+fimse
+
+se b < a e a < c então
+    escreva("Lista ordenada: [", b, ", ", a, ", ", c, "]")
+fimse
+
+se b < c e c < a então
+    escreva("Lista ordenada: [", b, ", ", c, ", ", a, "]")
+fimse
+
+se c < a e a < b então
+    escreva("Lista ordenada: [", c, ", ", a, ", ", b, "]")
+fimse
+
+se c < b e b < a então
+    escreva("Lista ordenada: [", c, ", ", b, ", ", a, "]")
+fimse
+
+fim

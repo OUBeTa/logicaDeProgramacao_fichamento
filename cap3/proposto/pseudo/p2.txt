@@ -1,0 +1,11 @@
+inicio
+    real r
+    real a
+    
+    escreva("Insira o raio da esfera")
+    leia(r)
+    
+    a <- 3.1416 * (r * r)
+    
+    escreva("A área de um círculo com raio ", r, " é: ", a)
+fim

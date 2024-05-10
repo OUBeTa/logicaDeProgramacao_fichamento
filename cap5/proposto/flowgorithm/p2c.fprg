@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-06 09:50:49 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjA2OjUwOjUwICI7MjE3Mg=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjA5OjUwOjQ5ICI7NjsyMjk2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, auxInt, j, ji, index" type="Integer" array="False" size=""/>
+            <declare name="found" type="Boolean" array="False" size=""/>
+            <declare name="auxStr" type="String" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="arqStr" type="String" array="True" size="2 * records"/>
+            <declare name="arqInt" type="Integer" array="True" size="records * 2"/>
+            <output expression="&quot;//====== INICIO REGISTROS ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com nome do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arqStr[i * 2]"/>
+                <output expression="&quot;Entre com n&#250;mero do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arqInt[i*2]"/>
+                <output expression="&quot;Entre com data de nascimento do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arqStr[i * 2 + 1]"/>
+                <output expression="&quot;Entre com n&#250;mero de dependentes do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arqInt[i*2+1]"/>
+                <output expression="&quot;&quot;" newline="True"/>
+                <output expression="&quot;&quot;" newline="True"/>
+            </for>
+            <output expression="&quot;//====== FIM REGISTROS ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Deseja alterar ou excluir um registro?(1 - 2)&quot;" newline="True"/>
+            <input variable="j"/>
+            <while expression="j != 0">
+                <if expression="(j &lt; 3) and (j &gt; 0)">
+                    <then/>
+                    <else>
+                        <while expression="!((j &lt; 3) and (j &gt; 0))">
+                            <output expression="&quot;Op&#231;&#227;o [&quot;&amp;j&amp;&quot;] inv&#225;lida. Tente novamente (alterar -&gt; 1 | excluir -&gt; 2 )&quot;" newline="True"/>
+                            <input variable="j"/>
+                        </while>
+                    </else>
+                </if>
+                <if expression="j == 1">
+                    <then>
+                        <output expression="&quot;&quot;" newline="True"/>
+                        <output expression="&quot;&quot;" newline="True"/>
+                        <output expression="&quot;Qual campo voc&#234; deseja atualizar?&quot;" newline="True"/>
+                        <output expression="&quot;[Nome] -&gt; 1&quot;" newline="True"/>
+                        <output expression="&quot;[N&#250;mero do s&#243;cio] -&gt; 2&quot;" newline="True"/>
+                        <output expression="&quot;[N&#250;mero de dependentes] -&gt; 3&quot;" newline="True"/>
+                        <input variable="ji"/>
+                        <if expression="(ji &lt; 4) and (j &gt; 0)">
+                            <then/>
+                            <else>
+                                <while expression="!((ji &lt; 4) and (ji &gt; 0))">
+                                    <output expression="&quot;Op&#231;&#227;o [&quot;&amp;ji&amp;&quot;] inv&#225;lida. Tente novamente (nome -&gt; 1 | n&#176; -&gt; 2 | dependentes -&gt; 3 )&quot;" newline="True"/>
+                                    <input variable="ji"/>
+                                </while>
+                            </else>
+                        </if>
+                        <output expression="&quot;&quot;" newline="True"/>
+                        <output expression="&quot;Qual registro voc&#234; deseja alterar?&quot;" newline="True"/>
+                        <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                            <if expression="arqStr[i * 2 + 1] != &quot;X&quot;">
+                                <then>
+                                    <output expression="&quot;[&quot; &amp; i + 1 &amp; &quot;] -&gt; n&#176;&quot; &amp; arqInt[i * 2]" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </for>
+                        <input variable="j"/>
+                        <if expression="arqStr[j * 2 + 1] != &quot;X&quot;">
+                            <then>
+                                <if expression="(j &lt; records) and (j &gt; 0)">
+                                    <then/>
+                                    <else>
+                                        <while expression="!((j &lt;= records) and (j &gt; 0))">
+                                            <output expression="&quot;Op&#231;&#227;o [&quot;&amp;j&amp;&quot;] inv&#225;lida. Tente novamente (1 - &quot;&amp;records&amp;&quot;)&quot;" newline="True"/>
+                                            <input variable="j"/>
+                                        </while>
+                                    </else>
+                                </if>
+                                <output expression="&quot;Entre com novo valor de campo&quot;" newline="True"/>
+                                <if expression="ji == 1">
+                                    <then>
+                                        <input variable="arqStr[(j - 1) * 2]"/>
+                                    </then>
+                                    <else>
+                                        <if expression="ji == 2">
+                                            <then>
+                                                <input variable="arqInt[(j - 1) * 2]"/>
+                                            </then>
+                                            <else>
+                                                <input variable="arqInt[(j - 1) * 2 + 1]"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                                <output expression="&quot;&quot;" newline="True"/>
+                                <output expression="&quot;Novo valor atribuido ao campo com sucesso!&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Registro excluido!&quot;" newline="True"/>
+                                <output expression="&quot;Expedi&#231;&#227;o interrompida&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <output expression="&quot;Insira o n&#250;mero do registro&quot;" newline="True"/>
+                        <input variable="j"/>
+                        <assign variable="found" expression="false"/>
+                        <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                            <if expression="arqInt[i * 2] == j">
+                                <then>
+                                    <assign variable="found" expression="true"/>
+                                    <assign variable="index" expression="i"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </for>
+                        <if expression="found">
+                            <then>
+                                <output expression="&quot;Registro de n&#176;&quot; &amp; arqInt[index * 2] &amp; &quot; foi enconrado com sucesso. Deseja excluir?&quot;" newline="True"/>
+                                <input variable="found"/>
+                                <if expression="found">
+                                    <then>
+                                        <assign variable="arqInt[index * 2]" expression="0"/>
+                                        <assign variable="arqInt[index * 2 + 1]" expression="0"/>
+                                        <assign variable="arqStr[index * 2]" expression="&quot;X&quot;"/>
+                                        <assign variable="arqStr[index * 2 + 1]" expression="&quot;X&quot;"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Expedi&#231;&#227;o interrompida&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <output expression="&quot;Registro n&#227;o encontrado!&quot;" newline="True"/>
+                                <output expression="&quot;Expedi&#231;&#227;o interrompida&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;&quot;" newline="True"/>
+                <output expression="&quot;&quot;" newline="True"/>
+                <output expression="&quot;Deseja alterar ou excluir um registro?(1 - 2)&quot;" newline="True"/>
+                <input variable="j"/>
+            </while>
+            <output expression="&quot;//====== FIM DA EXPEDI&#199;&#194;O ======//&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

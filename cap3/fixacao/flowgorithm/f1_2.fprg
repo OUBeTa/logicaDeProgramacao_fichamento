@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 09:57:13 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDY7IjA5OjI0OjA1ICI7MjE3NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjA5OjU3OjEzICI7MzsyMjky"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="d" type="Real" array="False" size=""/>
+            <declare name="x1, x2, y1, y2" type="Integer" array="False" size=""/>
+            <output expression="&quot;Calculando a dist&#226;ncia entre dois pontos&quot;" newline="True"/>
+            <output expression="&quot;Selecione o valor desejado para x1&quot;" newline="True"/>
+            <input variable="x1"/>
+            <output expression="&quot;Selecione o valor desejado para x2&quot;" newline="True"/>
+            <input variable="x2"/>
+            <output expression="&quot;Selecione o valor desejado para y1&quot;" newline="True"/>
+            <input variable="y1"/>
+            <output expression="&quot;Selecione o valor desejado para y2&quot;" newline="True"/>
+            <input variable="y2"/>
+            <assign variable="d" expression="Sqrt(((x2 - x1)^ 2 ) + ((y1 - y2)^ 2))"/>
+            <output expression="&quot;Dist&#226;ncia : &quot; &amp; d" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

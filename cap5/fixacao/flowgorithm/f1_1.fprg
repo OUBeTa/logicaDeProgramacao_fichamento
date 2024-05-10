@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 01:35:35 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEyOjQ5OjA3ICI7MjE3OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjAxOjM1OjM1ICI7NTsyMjg0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="desire" type="String" array="False" size=""/>
+            <declare name="vName, vAutor, vAssunto" type="String" array="True" size="records"/>
+            <declare name="vDoado" type="Boolean" array="True" size="records"/>
+            <declare name="vCode, vPag" type="Integer" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com c&#243;digo do livro n&quot; &amp;i+1" newline="True"/>
+                <input variable="vCode[i]"/>
+                <output expression="&quot;Entre com (Doado?) n&quot; &amp;i+1" newline="True"/>
+                <input variable="vDoado[i]"/>
+                <output expression="&quot;Entre com assunto do livro n&quot; &amp;i+1" newline="True"/>
+                <input variable="vAssunto[i]"/>
+                <output expression="&quot;Entre com nome do autor de livro n&quot; &amp;i+1" newline="True"/>
+                <input variable="vAutor[i]"/>
+                <output expression="&quot;Entre com nome do livro n&quot; &amp;i+1" newline="True"/>
+                <input variable="vName[i]"/>
+                <output expression="&quot;Entre com n&#250;mero de p&#225;ginas de livro n&quot; &amp;i+1" newline="True"/>
+                <input variable="vPag[i]"/>
+            </for>
+            <output expression="&quot;Qual assunto voc&#234; procura dentre os livros da biblioteca?&quot;" newline="True"/>
+            <input variable="desire"/>
+            <output expression="&quot;Lista de livros deste assunto dispon&#237;veis&quot;" newline="True"/>
+            <output expression="&quot;//====================//&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="vAssunto[i] == desire">
+                    <then>
+                        <output expression="&quot;[nome] : &quot; &amp; vName[i]" newline="True"/>
+                        <output expression="&quot;[Autor] : &quot; &amp; vAutor[i]" newline="True"/>
+                        <output expression="&quot;[Assunto] : &quot; &amp; vAssunto[i]" newline="True"/>
+                        <output expression="&quot;[n/Paginas] : &quot; &amp; vPag[i]" newline="True"/>
+                        <if expression="vDoado[i]">
+                            <then>
+                                <output expression="&quot;[doado] : sim&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;[doado] : n&#227;o&quot;" newline="True"/>
+                            </else>
+                        </if>
+                        <output expression="&quot;[c&#243;digo] : &quot; &amp; vCode[i]" newline="True"/>
+                        <output expression="&quot;//====================//&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

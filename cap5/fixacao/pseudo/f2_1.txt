@@ -1,0 +1,60 @@
+inicio
+inteiro records = 5
+inteiro nNotas = 4
+inteiro search = 1
+real mediaTotal = 0
+vetor de real vNotas[records * 4]
+vetor de cadeia vName[records]
+vetor de inteiro vNum[records]
+vetor de real medias[records]
+inteiro i, j
+
+para i de 0 até records - 1 passo 1 faça
+    escreva("Entrar com nome do aluno n°", i + 1)
+    leia vName[i]
+    
+    escreva("Entrar com número do aluno n°", i + 1)
+    leia vNum[i]
+    
+    para j de 0 até nNotas - 1 passo 1 faça
+        escreva("Entrar com nota n°", j + 1, " do aluno ", i + 1)
+        leia vNotas[i * records + j]
+        medias[i] <- medias[i] + vNotas[i * records + j]
+    fimpara
+    
+    medias[i] <- medias[i] / nNotas
+fimpara
+
+enquanto search ≠ 0 faça
+    booleano find <- falso
+    escreva("Número do aluno em questão: ")
+    leia search
+    
+    para i de 0 até records - 1 passo 1 faça
+        se search = vNum[i] então
+            find <- verdadeiro
+            escreva("[Nome]: ", vName[i])
+            escreva("[Notas]: [", vNotas[i * records + 0], ",", vNotas[i * records + 1], ",", vNotas[i * records + 2], ",", vNotas[i * records + 3], "]")
+            escreva("[Média]: ", medias[i])
+            escreva("[status]: ", fim)
+            
+            se medias[i] >= 7 então
+                escreva("Aprovado")
+            senão se medias[i] < 7 e medias[i] >= 5 então
+                escreva("Recuperação")
+            senão
+                escreva("Reprovado")
+            fimse
+        fimse
+    fimpara
+    
+    escreva("//============//")
+    
+    se não find então
+        escreva("Nenhum aluno referente ao número [", search, "] foi encontrado")
+    fimse
+fimenquanto
+
+escreva("Expedição encerrada")
+
+fim

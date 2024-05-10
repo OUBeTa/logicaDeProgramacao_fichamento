@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 01:27:48 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjI2OjQ3ICI7MjE3Nw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjI2OjQ4ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDI6MTE6MDAgIjtwMi5mcHJnOzUyMDQ="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjI3OjQ4ICI7MTsyMjg3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <output expression="&quot;Entrar com divisor&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Entrar com dividendo&quot;" newline="True"/>
+            <input variable="b"/>
+            <while expression="a &gt;= b">
+                <assign variable="a" expression="a - b"/>
+                <assign variable="count" expression="count + 1"/>
+            </while>
+            <output expression="&quot;Divis&#227;o inteira : &quot; &amp; count" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

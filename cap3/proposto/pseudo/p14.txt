@@ -1,0 +1,25 @@
+inicio
+    inteiro a, ac, b, bc, r
+    
+    escreva("Entrar com primeiro número inteiro")
+    leia a
+    
+    a <- valor absoluto de a
+    ac <- a
+    
+    escreva("Entrar com segundo número inteiro")
+    leia b
+    
+    b <- valor absoluto de b
+    bc <- b
+    
+    escreva("O MMC entre ", ac, " e ", bc, " é: ")
+    
+    enquanto b ≠ 0 faça
+        r <- a % b
+        a <- b
+        b <- r
+    fimenquanto
+    
+    escreva(ac * bc / a)
+fim

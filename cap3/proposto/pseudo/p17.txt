@@ -1,0 +1,20 @@
+inicio
+    inteiro termA, termB, aux, i
+    
+    escreva("Entre com primeiro termo")
+    leia termA
+    
+    escreva("Entre com segundo termo")
+    leia termB
+    
+    escreva("termo 1 : ", termA)
+    escreva("termo 2 : ", termB)
+    
+    para i de 3 até 20 passo 1 faça
+        aux <- termA + termB
+        termA <- termB
+        termB <- aux
+        
+        escreva("termo ", i, " : ", aux)
+    fimpara
+fim

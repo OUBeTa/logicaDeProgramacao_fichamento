@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 04:31:22 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjE5OjQxICI7MjE3NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjMxOjIyICI7MjsyMjc2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="h" type="Real" array="False" size=""/>
+            <declare name="n, v" type="Integer" array="False" size=""/>
+            <assign variable="h" expression="0"/>
+            <output expression="&quot;Entre com n&quot;" newline="True"/>
+            <input variable="n"/>
+            <for variable="v" start="1" end="(n + 1)" direction="inc" step="1">
+                <assign variable="h" expression="h + (1 / v)"/>
+            </for>
+            <output expression="&quot;O resultado da s&#233;rie : &quot; &amp; h" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-08 01:24:17 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjAxOjIxOjAwICI7MjE1NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDg7IjAxOjI0OjE3ICI7MjsyMjgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="grCode, meCode, peCode, miCode" type="String" array="False" size=""/>
+            <declare name="gr, me, pe, mi, i" type="Integer" array="False" size=""/>
+            <declare name="codigo, porte" type="String" array="True" size="records"/>
+            <declare name="funcionarios" type="Integer" array="True" size="records"/>
+            <assign variable="gr" expression="0"/>
+            <assign variable="me" expression="0"/>
+            <assign variable="pe" expression="0"/>
+            <assign variable="mi" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com porte da empresa n&#250;mero &quot; &amp; ToString(i + 1) &amp; &quot; (grande{gr} m&#233;dia{me} pequena{pe} micro{mi})&quot;" newline="True"/>
+                <input variable="porte[i]"/>
+                <output expression="&quot;Entrar com c&#243;digo da emrpesa n&#250;mero &quot; &amp; ToString(i + 1)" newline="True"/>
+                <input variable="codigo[i]"/>
+                <output expression="&quot;Entrar com n&#250;mero de funcion&#225;rios da empresa n&#250;mero &quot; &amp; ToString(i + 1)" newline="True"/>
+                <input variable="funcionarios[i]"/>
+                <if expression="(porte[i] == &quot;gr&quot;) and (funcionarios[i] &gt; gr)">
+                    <then>
+                        <assign variable="grCode" expression="codigo[i]"/>
+                        <assign variable="gr" expression="funcionarios[i]"/>
+                    </then>
+                    <else>
+                        <if expression="(porte[i] == &quot;me&quot;) and (funcionarios[i] &gt; me)">
+                            <then>
+                                <assign variable="meCode" expression="codigo[i]"/>
+                                <assign variable="me" expression="funcionarios[i]"/>
+                            </then>
+                            <else>
+                                <if expression="(porte[i] == &quot;pe&quot;) and (funcionarios[i] &gt; pe)">
+                                    <then>
+                                        <assign variable="peCode" expression="codigo[i]"/>
+                                        <assign variable="pe" expression="funcionarios[i]"/>
+                                    </then>
+                                    <else>
+                                        <if expression="(porte[i] == &quot;mi&quot;) and (funcionarios[i] &gt; mi)">
+                                            <then>
+                                                <assign variable="miCode" expression="codigo[i]"/>
+                                                <assign variable="mi" expression="funcionarios[i]"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;maior empresa de grande porte : &quot; &amp; grCode &amp; &quot; x &quot; &amp; gr" newline="True"/>
+            <output expression="&quot;maior empresa de medio porte : &quot; &amp; meCode &amp; &quot; x &quot; &amp; me" newline="True"/>
+            <output expression="&quot;maior empresa de pequeno porte : &quot; &amp; peCode &amp; &quot; x &quot; &amp; pe" newline="True"/>
+            <output expression="&quot;maior empresa de micro porte : &quot; &amp; miCode &amp; &quot; x &quot; &amp; mi" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

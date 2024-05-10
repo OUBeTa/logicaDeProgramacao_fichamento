@@ -1,0 +1,69 @@
+inicio
+    classe Vinho:
+        atributo produto
+        atributo casca
+        atributo safra
+        
+        método __init__(self, produto, casca, safra):
+            self.produto <- produto
+            self.casca <- casca
+            self.safra <- safra
+        fim método
+        
+        método __repr__(self):
+            retornar "[" + self.produto + "] : casca [" + self.casca + "] | safra[" + self.safra + "])"
+        fim método
+    fim classe
+    
+    classe Adega:
+        atributo adega
+        
+        método __init__(self):
+            self.adega <- []
+        fim método
+        
+        função insert(self, vinho):
+            adicionar vinho a self.adega
+        fim função
+        
+        função chooseWine(self):
+            se comprimento(self.adega) > 0 então
+                retornar remover o último elemento de self.adega
+            senão
+                retornar nenhum
+            fimse
+        fim função
+        
+        função oldWines(self):
+            retornar self.adega
+        fim função
+    fim classe
+    
+    lista adega <- Adega()
+    adicionar Vinho(produto="Vinho Tinto", casca="Vermelha", safra="2020") a adega
+    adicionar Vinho(produto="Vinho Branco", casca="Amarela", safra="2019") a adega
+    adicionar Vinho(produto="Vinho Rosé", casca="Rosada", safra="2021") a adega
+    adicionar Vinho(produto="Vinho Espumante", casca="Branca", safra="2022") a adega
+    adicionar Vinho(produto="Vinho Tinto Reserva", casca="Vermelha", safra="2018") a adega
+    
+    cadeia name <- ""
+    cadeia casca, safra
+    
+    escreva("\n//====== COMEÇO REGISTRO ======//\n")
+    
+    enquanto name.minúscula() != "x" faça
+        name <- leia("Entre com nome do novo vinho (X para sair)\n")
+        
+        se name.minúscula() != "x" então
+            casca <- leia("Entra com casca de [" + name + "]\n")
+            safra <- leia("\nEntra com safra referente a [" + name + "]\n")
+            
+            adicionar Vinho(produto=name, casca=casca, safra=safra) a adega
+            
+            escreva("Vinho ", name, " registrado com sucesso!\n")
+        fimse
+    fimenquanto
+    
+    escreva("\n//====== FIM REGISTRO ======//\n")
+    
+    escreva("//== AQUISIÇÕES DAS MENOS AS MAIS ANT

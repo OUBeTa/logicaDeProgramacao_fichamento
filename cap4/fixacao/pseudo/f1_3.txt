@@ -1,0 +1,34 @@
+inicio
+    inteiro records <- 10
+    vetor real vResultado[records] <- [0] * records
+    vetor inteiro v1[records]
+    vetor inteiro v2[records]
+    
+    real mid <- records / 2
+    inteiro left <- mid - 1
+    inteiro right <- mid
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com v1[", i + 1, "]")
+        leia(v1[i])
+        
+        escreva("Entre com v2[", i + 1, "]")
+        leia(v2[i])
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        se v2[i] != 0 então
+            se i % 2 = 0 então
+                vResultado[right] <- v1[i] * (1 / v2[i])
+                right <- right + 1
+            senao
+                vResultado[left] <- v1[i] * (1 / v2[i])
+                left <- left - 1
+            fimse
+        fimse
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("n ", i + 1, " : ", vResultado[i])
+    fimpara
+fim

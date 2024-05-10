@@ -1,0 +1,56 @@
+inicio
+    vetor inteiro meses[12] <- [31,28,31,30,31,30,31,31,30,31,30,31]
+
+    escreva("Entrar com dia de nascimento (1-31)")
+    inteiro d1
+    leia(d1)
+
+    escreva("Entrar com dia atual")
+    inteiro d2
+    leia(d2)
+
+    escreva("Entrar com mês de nascimento (1-12)")
+    inteiro m1
+    leia(m1)
+
+    escreva("Entrar com mês atual (1-12)")
+    inteiro m2
+    leia(m2)
+
+    escreva("Entrar com ano de nascimento")
+    inteiro y1
+    leia(y1)
+
+    escreva("Entrar com ano atual")
+    inteiro y2
+    leia(y2)
+
+    inteiro dd <- 0
+    inteiro md <- 0
+    inteiro yd <- abs(y1 - y2)
+
+    se m2 < m1 ou (m2 = m1 e d2 < d1) então
+        yd <- yd - 1
+        m2 <- m2 + 12
+    fimse
+    
+    se d2 < d1 então
+        m2 <- m2 - 1
+        se m2 < 0 então
+            m2 <- m2 + 12
+            yd <- yd - 1
+        fimse
+        
+        se y2 % 4 = 0 e (y2 % 100 != 0 ou y2 % 400 = 0) então
+            meses[1] <- 29
+        fimse
+        
+        d2 <- d2 + meses[m2 - 1]
+    fimse
+    
+    dd <- abs(d2 - d1)
+    md <- abs(m2 - m1)
+
+    escreva("Anos: ", yd)
+    escreva("Meses: ", md)
+    

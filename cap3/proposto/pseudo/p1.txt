@@ -1,0 +1,23 @@
+inicio
+    inteiro records, i
+    real vReal[6], vWeight[6]
+    real soma, den
+    
+    records <- 6
+    den <- 0
+    soma <- 0
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com valor número ", i + 1, "\n")
+        leia vReal[i]
+        vWeight[i] <- i + 1
+        den <- den + (i + 1)
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        soma <- soma + vWeight[i] * vReal[i]
+    fimpara
+    
+    escreva("Média ponderada: ", soma / den)
+fim
+

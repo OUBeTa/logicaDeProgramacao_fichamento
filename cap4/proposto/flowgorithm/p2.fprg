@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-04 10:11:43 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA5OjM4OjIyICI7MjE3OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjEwOjA4OjUyICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDY6MjA6NDQgIjsyXzRjLmZwcmc7NTMzOQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjEwOjExOjQzICI7MjsyMjcz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="30"/>
+            <declare name="vLido, vResult" type="Integer" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com n&#250;mero n&quot; &amp; i+1" newline="True"/>
+                <input variable="vLido[i]"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="vResult[i]" expression="vLido[(records - 1) - i]"/>
+            </for>
+            <output expression="&quot;vetor lido&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="i == 0">
+                    <then>
+                        <output expression="&quot;[&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i &lt; records - 1">
+                    <then>
+                        <output expression="vLido[i] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i == records - 1">
+                    <then>
+                        <output expression="vLido[i] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;vetor ordenado inversamente&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="i == 0">
+                    <then>
+                        <output expression="&quot;[&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i &lt; records - 1">
+                    <then>
+                        <output expression="vResult[i] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i == records - 1">
+                    <then>
+                        <output expression="vResult[i] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

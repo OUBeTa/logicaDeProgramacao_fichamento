@@ -1,0 +1,16 @@
+inicio
+    inteiro idade
+    
+    escreva("Entrar com idade")
+    leia idade
+    
+    se idade <= 15 então
+        escreva("não votante")
+    senão
+        se idade >= 16 e idade <= 65 então
+            escreva("voto obrigatório")
+        senão
+            escreva("voto opcional")
+        fimse
+    fimse
+fim

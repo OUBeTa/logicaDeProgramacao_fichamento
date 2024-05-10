@@ -1,0 +1,42 @@
+inicio
+    funcao fixDecimal(valor, digitos)
+        retorno formatar("%.*f", digitos, valor)
+    fimfuncao
+    
+    inteiro records <- 50
+    vetor real vLido[records]
+    vetor real porcentagem[records]
+    inteiro below <- 0
+    inteiro above <- 0
+    real media <- 0.0
+    
+    para i de 0 até records - 1 passo 1 faça
+        porcentagem[i] <- 0
+        escreva("Entrar com nota n°", i + 1)
+        leia(vLido[i])
+        media <- media + vLido[i]
+    fimpara
+    
+    media <- media / records
+    
+    para i de 0 até records - 1 passo 1 faça
+        se vLido[i] = media então
+            escreva("Nota n°", i + 1, "(", vLido[i], ") na média (", media, ")")
+        senao
+            porcentagem[i] <- abs((vLido[i] - media) / media) * 100
+            
+            se vLido[i] < media então
+                escreva("Nota n°", i + 1, "(", vLido[i], ") : ", fixDecimal(porcentagem[i], 2), "% abaixo da média (", media, ")")
+                below <- below + 1
+            fimse
+            
+            se vLido[i] > media então
+                escreva("Nota n°", i + 1, "(", vLido[i], ") : ", fixDecimal(porcentagem[i], 2), "% acima da média (", media, ")")
+                above <- above + 1
+            fimse
+        fimse
+    fimpara
+    
+    escreva("Alunos pelo menos 10% acima da média: ", above)
+    escreva("Alunos pelo menos 10% abaixo da média: ", below)
+fim

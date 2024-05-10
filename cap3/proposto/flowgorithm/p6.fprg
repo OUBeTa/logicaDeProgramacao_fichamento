@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-25 04:08:31 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjAzOjQyOjU2ICI7MjE3Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA0OjA4OjMxICI7MTsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="valorInicial, acrs, valorFinal, prejuizo" type="Real" array="False" size=""/>
+            <output expression="&quot;entrar com valor da presta&#231;&#227;o&quot;" newline="True"/>
+            <input variable="valorInicial"/>
+            <assign variable="acrs" expression="valorInicial + (valorInicial * 0.1)"/>
+            <assign variable="valorFinal" expression="acrs - (acrs * 0.1)"/>
+            <assign variable="prejuizo" expression="Abs(valorInicial - valorFinal)"/>
+            <output expression="valorInicial &amp; &quot;/&quot; &amp; acrs &amp; &quot;/&quot; &amp; valorFinal &amp; &quot;/&quot; &amp; prejuizo" newline="True"/>
+            <output expression="&quot;valor com desconto de 10% sob acr&#233;scimo de 10%: R$&quot; &amp; valorFinal" newline="True"/>
+            <output expression="&quot;prejuizo do comerciante : R$&quot; &amp; prejuizo" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

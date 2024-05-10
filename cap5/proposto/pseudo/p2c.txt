@@ -1,0 +1,113 @@
+inicio
+    inteiro records = 5
+    vetor de cadeia arqStr[2 * records]
+    vetor de inteiro arqInt[records * 2]
+    
+    escreva("//====== INICIO REGISTROS ======//")
+    escreva("")
+    escreva("")
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com nome do sócio [", i + 1, "]")
+        leia arqStr[i * 2]
+        
+        escreva("Entre com número do sócio [", i + 1, "]")
+        leia arqInt[i * 2]
+        
+        escreva("Entre com data de nascimento do sócio [", i + 1, "]")
+        leia arqStr[i * 2 + 1]
+        
+        escreva("Entre com número de dependentes do sócio [", i + 1, "]")
+        leia arqInt[i * 2 + 1]
+        
+        escreva("")
+        escreva("")
+    fimpara
+    
+    escreva("//====== FIM REGISTROS ======//")
+    escreva("")
+    escreva("")
+    
+    j <- inteiro(leia("Deseja alterar ou excluir um registro?(1 - 2)"))
+    
+    enquanto j ≠ 0 faça
+        enquanto não (j < 3 e j > 0) faça
+            j <- inteiro(leia("Opção [", j, "] inválida. Tente novamente (alterar -> 1 | excluir -> 2)"))
+        fimenquanto
+        
+        se j = 1 então
+            escreva("")
+            escreva("")
+            ji <- inteiro(leia("Qual campo você deseja atualizar\n[Nome] -> 1\n[Número do sócio] -> 2\n[Número de dependentes] -> 3"))
+            
+            enquanto não (ji < 4 e ji > 0) faça
+                ji <- inteiro(leia("Opção [", ji, "] inválida. Tente novamente (nome -> 1 | n° -> 2 | dependentes -> 3)"))
+            fimenquanto
+            
+            escreva("")
+            escreva("Qual registro você deseja alterar?")
+            
+            para i de 0 até records - 1 passo 1 faça
+                se arqStr[i * 2 + 1] ≠ "X" então
+                    escreva("[", i + 1, "] -> n°", arqInt[i * 2])
+                fimse
+            fimpara
+            
+            j <- inteiro(leia())
+            
+            se arqStr[j * 2 + 1] ≠ "X" então
+                enquanto não (j < records e j > 0) faça
+                    j <- inteiro(leia("Opção [", j, "] inválida. Tente novamente (1 - ", records, ")"))
+                fimenquanto
+                
+                escreva("Entre com novo valor de campo")
+                
+                se ji = 1 então
+                    arqStr[(j - 1) * 2] <- leia()
+                senão se ji = 2 então
+                    arqInt[(j - 1) * 2] <- inteiro(leia())
+                senão
+                    arqInt[(j - 1) * 2 + 1] <- inteiro(leia())
+                fimse
+                
+                escreva("")
+                escreva("Novo valor atribuído ao campo com sucesso!")
+            senão
+                escreva("Registro excluído!")
+                escreva("Expedição interrompida")
+            fimse
+        
+        senão
+            j <- inteiro(leia("Insira o número do registro"))
+            encontrado <- falso
+            para i de 0 até records - 1 passo 1 faça
+                se arqInt[i * 2] = j então
+                    encontrado <- verdadeiro
+                    índice <- i
+                fimse
+            fimpara
+            
+            se encontrado então
+                escreva("Registro de n°", arqInt[índice * 2], " foi encontrado com sucesso. Deseja excluir?")
+                excluído <- (leia().minúsculo() = 'true')
+                
+                se excluído então
+                    arqInt[índice * 2] <- 0
+                    arqInt[índice * 2 + 1] <- 0
+                    arqStr[índice * 2] <- "X"
+                    arqStr[índice * 2 + 1] <- "X"
+                senão
+                    escreva("Expedição interrompida")
+                fimse
+            senão
+                escreva("Registro não encontrado!")
+                escreva("Expedição interrompida")
+            fimse
+        
+        fimse
+        
+        j <- inteiro(leia("\n\nDeseja alterar ou excluir um registro?(1 - 2)"))
+    fimenquanto
+    
+    escreva("//====== FIM DA EXPEDIÇÃO ======//")
+fim

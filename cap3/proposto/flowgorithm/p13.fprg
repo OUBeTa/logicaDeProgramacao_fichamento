@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-27 04:57:05 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA0OjQ2OjU3ICI7MjE4NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA0OjU3OjA1ICI7MjsyMjg4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, r" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com primeiro n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Entrar com segundo n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="b"/>
+            <output expression="&quot;O MDC entre &quot;  &amp; a &amp; &quot; e &quot; &amp; b &amp; &quot; &#233; : &quot;" newline="True"/>
+            <while expression="b != 0">
+                <assign variable="r" expression="a % b"/>
+                <assign variable="a" expression="b"/>
+                <assign variable="b" expression="r"/>
+            </while>
+            <output expression="a" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

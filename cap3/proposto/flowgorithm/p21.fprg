@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 11:54:28 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA5OjM5OjE3ICI7MjE4MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjExOjU0OjI4ICI7MjsyMjg3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="votos" type="Integer" array="True" size="6"/>
+            <declare name="porcentual" type="Real" array="True" size="6"/>
+            <declare name="control, sum" type="Integer" array="False" size=""/>
+            <for variable="control" start="0" end="3" direction="inc" step="1">
+                <output expression="&quot;Entrar com n&#250;mero de votos para o candidato n&#250;mero &quot; &amp; ToString(control + 1)" newline="True"/>
+                <input variable="votos[control]"/>
+            </for>
+            <output expression="&quot;entrar com quantia de votos nulos&quot;" newline="True"/>
+            <input variable="votos[4]"/>
+            <output expression="&quot;entrar com quantia de votos em branco&quot;" newline="True"/>
+            <input variable="votos[5]"/>
+            <assign variable="sum" expression="votos[0] + votos[1] + votos[2] + votos[3] + votos[4] + votos[5]"/>
+            <for variable="control" start="0" end="5" direction="inc" step="1">
+                <assign variable="porcentual[control]" expression="(votos[control] / sum) * 100"/>
+            </for>
+            <output expression="&quot;votos para o primeiro candidato {&quot; &amp; votos[0] &amp; &quot; / &quot;&amp; sum &amp; &quot;} : &quot; &amp; ToFixed(porcentual[0],2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;votos para o segundo candidato {&quot; &amp; votos[1] &amp; &quot; / &quot;&amp; sum &amp; &quot;} : &quot; &amp; ToFixed(porcentual[1],2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;votos para o terceiro candidato {&quot; &amp; votos[2] &amp; &quot; / &quot;&amp; sum &amp; &quot;} : &quot; &amp; ToFixed(porcentual[2],2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;votos para o quarto candidato {&quot; &amp; votos[3] &amp; &quot; / &quot;&amp; sum &amp; &quot;} : &quot; &amp; ToFixed(porcentual[3],2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;votos nulos {&quot; &amp; votos[4] &amp; &quot; / &quot;&amp; sum &amp; &quot;} : &quot; &amp; ToFixed(porcentual[4],2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;votos em branco {&quot; &amp; votos[5] &amp; &quot; / &quot;&amp; sum &amp; &quot;} : &quot; &amp; ToFixed(porcentual[5],2) &amp; &quot;%&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

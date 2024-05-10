@@ -1,0 +1,57 @@
+inicio
+    funcao fixDecimal(valor, digitos)
+        retorno formatar("%.*f", digitos, valor)
+    fimfuncao
+
+    inteiro records <- 10
+    vetor caractere sexo[records]
+    vetor caractere olho[records]
+    vetor caractere cabelo[records]
+    vetor inteiro idade[records]
+    inteiro mCountA <- 0
+    inteiro fCountA <- 0
+    inteiro mCountB <- 0
+    inteiro fCountB <- 0
+    inteiro maiorIdade
+    inteiro i
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com sexo do indivíduo ", i + 1, " (m/f)")
+        leia(sexo[i])
+        
+        escreva("Entrar com cor dos olhos do indivíduo ", i + 1, " (c -> castanho / v -> verde / a -> azul)")
+        leia(olho[i])
+        
+        escreva("Entrar com cor do cabelo do indivíduo ", i + 1, " (l -> loiro / c -> castanho / p -> preto)")
+        leia(cabelo[i])
+        
+        escreva("Entrar com idade do indivíduo ", i + 1)
+        leia(idade[i])
+    fimpara
+    
+    maiorIdade <- idade[0]
+    
+    para i de 1 até records - 1 passo 1 faça
+        se idade[i] > maiorIdade então
+            maiorIdade <- idade[i]
+        fimse
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        se sexo[i] = "m" então
+            mCountA <- mCountA + 1
+            se idade[i] >= 18 e idade[i] <= 35 então
+                mCountB <- mCountB + 1
+            fimse
+        senao
+            fCountA <- fCountA + 1
+            se idade[i] >= 18 e idade[i] <= 35 e olho[i] = "v" e cabelo[i] = "l" então
+                fCountB <- fCountB + 1
+            fimse
+        fimse
+    fimpara
+    
+    escreva("Maior idade entre os habitantes: ", maiorIdade)
+    escreva("Porcentagem entre os indivíduos do sexo masculino, cuja idade está entre 18 e 35 anos (", mCountB, "/", mCountA, "): ", fixDecimal((mCountB / mCountA) * 100, 2), "%")
+    escreva("Porcentagem do total de indivíduos do sexo feminino entre 18 e 35 anos, e que tenham olhos verdes e cabelos loiros (", fCountB, "/", fCountA, "): ", fixDecimal((fCountB / (mCountA + fCountA)) * 100, 2), "%")
+fim

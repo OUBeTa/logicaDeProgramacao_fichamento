@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-02 06:32:34 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA2OjMxOjEyICI7MjE2NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA2OjMxOjE0ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wMjsiMDY6MTY6NDAgIjsxXzQuZnByZzs1MjM1"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA2OjMyOjM0ICI7MTsyMjc4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, aux, n" type="Integer" array="False" size=""/>
+            <declare name="ordered" type="Boolean" array="False" size=""/>
+            <assign variable="records" expression="20"/>
+            <declare name="vLido" type="Integer" array="True" size="records"/>
+            <assign variable="n" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com termo n&#250;mero &quot; &amp; i + 1 &amp; &quot; da lista&quot;" newline="True"/>
+                <input variable="vLido[i]"/>
+            </for>
+            <assign variable="ordered" expression="false"/>
+            <while expression="!ordered">
+                <assign variable="ordered" expression="true"/>
+                <assign variable="n" expression="n+1"/>
+                <output expression="&quot;itera&#231;&#227;o : &quot; &amp; n" newline="True"/>
+                <for variable="i" start="0" end="records - 2" direction="inc" step="1">
+                    <if expression="vLido[i+1] &gt; vLido[i]">
+                        <then>
+                            <assign variable="aux" expression="vLido[i]"/>
+                            <assign variable="vLido[i]" expression="vLido[i + 1]"/>
+                            <assign variable="vLido[i + 1]" expression="aux"/>
+                            <assign variable="ordered" expression="false"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </while>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Lista ordenada : &quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="vLido[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

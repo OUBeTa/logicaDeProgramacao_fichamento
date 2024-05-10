@@ -1,0 +1,31 @@
+inicio
+    real a
+    real b
+    real c
+    
+    escreva("Digite o valor desejado para a")
+    leia(a)
+    
+    escreva("Digite o valor desejado para b")
+    leia(b)
+    
+    escreva("Digite o valor desejado para c")
+    leia(c)
+    
+    real d <- b * b - 4 * a * c
+    
+    real x1
+    real x2
+    
+    se d > 0 então
+        x1 <- (-b + raiz(d)) / (2 * a)
+        x2 <- (-b - raiz(d)) / (2 * a)
+        escreva("As raízes são: [", x1, ",", x2, "]")
+    senao se d = 0 então
+        x1 <- -b / (2 * a)
+        escreva("Apenas uma raiz é real!")
+        escreva("Raiz: ", x1)
+    senao
+        escreva("Ambas as raízes são imaginárias!")
+    fimse
+fim

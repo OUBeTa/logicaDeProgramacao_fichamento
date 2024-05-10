@@ -1,0 +1,24 @@
+inicio
+inteiro a, b, aux, aa, bb
+
+less
+
+escreva("Entrar com número inteiro")
+leia a
+
+aa <- a
+
+escreva("Entrar com número inteiro")
+leia b
+
+bb <- b
+
+enquanto b != 0 faça
+    aux <- b
+    b <- a % b
+    a <- aux
+fimenquanto
+
+escreva("Máximo divisor comum entre ", aa, " e ", bb, " é: ", a)
+
+fim

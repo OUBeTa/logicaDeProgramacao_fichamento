@@ -1,0 +1,30 @@
+inicio
+    booleano isPrime
+    inteiro a
+    inteiro b
+    inteiro count <- 0
+    
+    escreva("Entre com o primeiro número")
+    leia(a)
+    
+    escreva("Entre com o segundo número")
+    leia(b)
+    
+    para a de a + 1 até b - 1 passo 1 faça
+        isPrime <- verdadeiro
+        
+        para i de 2 até raiz(a) passo 1 faça
+            se a % i = 0 então
+                isPrime <- falso
+                pare
+            fimse
+        fimpara
+        
+        se isPrime então
+            count <- count + 1
+            escreva(a)
+        fimse
+    fimpara
+    
+    escreva(count, " número", se count = 1 então "" senão "s", " primo", se count = 1 então "" senão "s", " no total!")
+fim

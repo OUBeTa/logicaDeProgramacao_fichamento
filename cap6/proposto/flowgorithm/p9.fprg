@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 02:08:44 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjAzOjQyICI7MjE2OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjA4OjQ0ICI7MTsyMjgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, aux, aa, bb" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="a"/>
+            <assign variable="aa" expression="a"/>
+            <output expression="&quot;Entrar com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="b"/>
+            <assign variable="bb" expression="b"/>
+            <while expression="b != 0">
+                <assign variable="aux" expression="b"/>
+                <assign variable="b" expression="a % b"/>
+                <assign variable="a" expression="aux"/>
+            </while>
+            <output expression="&quot;M&#225;ximo d&#237;visor comum entre &quot;&amp;aa&amp;&quot; e &quot;&amp;bb&amp;&quot; : &quot; &amp; a" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,31 @@
+inicio
+
+tipo RegEmbarque:
+    inteiro NumPas, Idade
+    caracter Nome, Data, Origem, Destino, Hor
+fimregistro
+
+tipo VetEmbarque:
+    vetor [1..44] de RegEmbarque
+
+vetorEmbarque: Onibus
+
+inteiro i 
+inteiro SI 
+real MI 
+SI = 0
+
+para i de 1 até 44 faça
+    SI = SI + Onibus[i].Idade
+fimpara
+
+MI = SI / 44
+escreva(MI)
+
+para i de 1 até 44 faça
+    se Onibus[i].Idade > MI então
+        escreva(Onibus[i].Nome)
+    fimse
+fimpara
+
+fim

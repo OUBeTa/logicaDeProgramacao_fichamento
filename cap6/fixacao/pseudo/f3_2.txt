@@ -1,0 +1,76 @@
+inicio
+inteiro records = 2
+vetor de cadeia arq[records * 5]
+
+para i de 0 até records - 1 passo 1 faça
+    escreva("Entre com número de identidade [", i + 1, "]")
+    leia arq[i * 5]
+    
+    escreva("Entre com nome [", i + 1, "]")
+    leia arq[i * 5 + 1]
+    
+    escreva("Entre com altura [", i + 1, "]")
+    leia arq[i * 5 + 2]
+    
+    escreva("Entre com sexo (m/f)[", i + 1, "]")
+    leia arq[i * 5 + 3]
+    
+    escreva("Entre com idade [", i + 1, "]")
+    leia arq[i * 5 + 4]
+fimpara
+
+escreva("\n//====== COMEÇO EXPEDIÇÂO =======//\n")
+
+searchA <- inteiro(leia("Escolha um registro (1 - ", records, ") : "))
+
+enquanto não (searchA <= records e searchA >= 0) faça
+    searchA <- inteiro(leia("Entrada [", i + 1, "] inválida, tente novamente."))
+fimenquanto
+
+searchB <- inteiro(leia("Escolha um segundo registro (1 - ", records, ") : "))
+
+enquanto não (searchB <= records e searchB >= 0) faça
+    searchB <- inteiro(leia("Entrada [", i + 1, "] inválida, tente novamente."))
+fimenquanto
+
+escreva("")
+
+enquanto searchA ≠ 0 e searchB ≠ 0 faça
+    se arq[(searchA - 1) * 5] = arq[(searchB - 1) * 5] então
+        escreva("[Número de identidade] : ", arq[(searchA - 1) * 5], " == ", arq[(searchB - 1) * 5])
+    fimse
+    
+    se arq[(searchA - 1) * 5 + 1] = arq[(searchB - 1) * 5 + 1] então
+        escreva("[Nome] : ", arq[(searchA - 1) * 5 + 1], " == ", arq[(searchB - 1) * 5 + 1])
+    fimse
+    
+    se arq[(searchA - 1) * 5 + 2] = arq[(searchB - 1) * 5 + 2] então
+        escreva("[Altura] : ", arq[(searchA - 1) * 5 + 2], " == ", arq[(searchB - 1) * 5 + 2])
+    fimse
+    
+    se arq[(searchA - 1) * 5 + 3] = arq[(searchB - 1) * 5 + 3] então
+        escreva("[Sexo] : ", arq[(searchA - 1) * 5 + 3], " == ", arq[(searchB - 1) * 5 + 3])
+    fimse
+    
+    se arq[(searchA - 1) * 5 + 4] = arq[(searchB - 1) * 5 + 4] então
+        escreva("[Idade] : ", arq[(searchA - 1) * 5 + 4], " == ", arq[(searchB - 1) * 5 + 4])
+    fimse
+    
+    escreva("")
+    
+    searchA <- inteiro(leia("Escolha um registro (1 - ", records, ") : "))
+    
+    enquanto não (searchA <= records e searchA >= 0) faça
+        searchA <- inteiro(leia("Entrada [", i + 1, "] inválida, tente novamente."))
+    fimenquanto
+    
+    searchB <- inteiro(leia("Escolha um segundo registro (1 - ", records, ") : "))
+    
+    enquanto não (searchB <= records e searchB >= 0) faça
+        searchB <- inteiro(leia("Entrada [", i + 1, "] inválida, tente novamente."))
+    fimenquanto
+fimenquanto
+
+escreva("\n\n//====== FIM EXPEDIÇÂO ======//")
+
+fim

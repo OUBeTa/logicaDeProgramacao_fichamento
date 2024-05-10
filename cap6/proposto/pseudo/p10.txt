@@ -1,0 +1,17 @@
+inicio
+    inteiro base, exp, result, i
+    
+    escreva("Entre com base")
+    leia base
+    
+    result <- base
+    
+    escreva("Entre com expoente")
+    leia exp
+    
+    para i de 1 até exp passo 1 faça
+        result <- result * base
+    fimpara
+    
+    escreva(base, " ^ ", exp, " = ", result)
+fim

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 02:15:13 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjEzOjEwICI7MjE2NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjE1OjEzICI7MTsyMjc3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, result" type="Real" array="False" size=""/>
+            <output expression="&quot;Entre com n&#250;mero real&quot;" newline="True"/>
+            <input variable="a"/>
+            <if expression="a &lt; 0">
+                <then>
+                    <assign variable="result" expression="a * -1"/>
+                </then>
+                <else>
+                    <assign variable="result" expression="a"/>
+                </else>
+            </if>
+            <output expression="&quot;| &quot;&amp;a&amp;&quot; | -&gt; | &quot;&amp;result&amp;&quot; |&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

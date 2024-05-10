@@ -1,0 +1,16 @@
+inicio
+inteiro a, b
+
+escreva("Entrar com divisor")
+leia a
+
+escreva("Entrar com dividendo")
+leia b
+
+enquanto a >= b faça
+    a <- a - b
+fimenquanto
+
+escreva("Resto da divisão inteira: ", a)
+
+fim

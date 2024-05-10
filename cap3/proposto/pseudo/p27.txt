@@ -1,0 +1,18 @@
+inicio
+    real resultado <- 0
+    inteiro denominador <- 500
+    inteiro i
+    
+    para i de 2 até 11 passo 1 faça
+        se i % 2 = 0 então
+            resultado <- resultado + (2 / denominador)
+        senao
+            resultado <- resultado - (5 / denominador)
+        fimse
+        
+        denominador <- denominador - 50
+    fimpara
+    
+    escreva("S = 2/500 - 5/450 + 2/400 - 5/350 + ...")
+    escreva("S = ", resultado)
+fim

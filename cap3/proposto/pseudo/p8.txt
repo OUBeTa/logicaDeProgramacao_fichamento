@@ -1,0 +1,45 @@
+inicio
+    booleano dataValida <- verdadeiro
+    inteiro dia
+    inteiro mes
+    inteiro ano
+    
+    escreva("Entre com dia (1-31)")
+    leia(dia)
+    
+    escreva("Entre com mês (1-12)")
+    leia(mes)
+    
+    escreva("Entre com ano")
+    leia(ano)
+    
+    se não (dia <= 0 ou dia > 31 ou (mes <= 0 ou mes > 12) ou ano <= 0) então
+        se mes = 2 então
+            se ano % 4 = 0 e (ano % 100 != 0 ou ano % 400 = 0) então
+                se não (dia >= 1 e dia <= 29) então
+                    dataValida <- falso
+                fimse
+            senao
+                se não (dia >= 1 e dia <= 28) então
+                    dataValida <- falso
+                fimse
+            fimse
+        senao se mes = 4 ou mes = 6 ou mes = 9 ou mes = 11 então
+            se não (dia >= 1 e dia <= 30) então
+                dataValida <- falso
+            fimse
+        senao
+            se não (dia >= 1 e dia <= 31) então
+                dataValida <- falso
+            fimse
+        fimse
+    senao
+        dataValida <- falso
+    fimse
+    
+    se dataValida então
+        escreva("Data ", dia, "/", mes, "/", ano, " é válida")
+    senao
+        escreva("Data ", dia, "/", mes, "/", ano, " é inválida")
+    fimse
+fim

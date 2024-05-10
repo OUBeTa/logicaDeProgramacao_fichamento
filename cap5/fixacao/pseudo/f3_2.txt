@@ -1,0 +1,43 @@
+inicio
+inteiro records = 5
+vetor de inteiro vMat[records]
+vetor de inteiro vCurso[records]
+vetor de cadeia vName[records]
+vetor de cadeia vSexo[records]
+vetor de cadeia cursos[6] <- ["farmácia", "ciência da computação", "cinema", "Artes visuais", "Segurança da informação", "engenharia civil"]
+
+scss
+
+cadeia search <- "0"
+inteiro i
+
+para i de 0 até records - 1 passo 1 faça
+    escreva("Entre com nome do aluno n", i + 1)
+    leia vName[i]
+    
+    escreva("Entre com sexo do aluno n", i + 1)
+    leia vSexo[i]
+    
+    escreva("Entre com número da matrícula do aluno n", i + 1)
+    leia vMat[i]
+    
+    escreva("Entre com o código do curso do aluno n", i + 1, " (1 - 6)")
+    leia vCurso[i]
+fimpara
+
+escreva("//======= Começando expedição =======//")
+escreva("")
+
+para i de 0 até records - 1 passo 1 faça
+    se vSexo[i].minúscula() = "m" então
+        escreva("[nome] : ", vName[i])
+        escreva("[sexo] : ", vSexo[i])
+        escreva("[curso] : ", cursos[vCurso[i] - 1])
+        escreva("[Número de matrícula] : ", vMat[i])
+        escreva("")
+    fimse
+fimpara
+
+escreva("//======= Fim expedição =======//")
+
+fim

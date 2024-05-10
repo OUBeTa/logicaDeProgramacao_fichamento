@@ -1,0 +1,13 @@
+inicio
+    real valorInicial
+    escreva("Entrar com valor da prestação")
+    leia(valorInicial)
+    
+    real acrs <- valorInicial + (valorInicial * 0.1)
+    real valorFinal <- acrs - (acrs * 0.1)
+    real prejuizo <- abs(valorInicial - valorFinal)
+    
+    escreva(valorInicial, "/", acrs, "/", valorFinal, "/", prejuizo)
+    escreva("Valor com desconto de 10% sob acréscimo de 10%: R$ ", valorFinal)
+    escreva("Prejuízo do comerciante: R$ ", prejuizo)
+fim

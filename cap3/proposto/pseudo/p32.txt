@@ -1,0 +1,21 @@
+inicio
+    inteiro ana <- 150
+    inteiro fel <- 110
+    inteiro ano <- 0
+    
+    enquanto verdadeiro faça
+        escreva("Altura de Anacleto: ", ana, " cm")
+        escreva("Altura de Felisberto: ", fel, " cm")
+        
+        ano <- ano + 1
+        ana <- ana + 2
+        fel <- fel + 3
+        
+        se fel > ana então
+            pare
+        fimse
+    fimenquanto
+    
+    escreva("")
+    escreva("Em ", ano, " ano", se ano = 1 então "" senão "s", ", Felisberto estará com ", fel, " cm de altura, superando Anacleto, que no mesmo ano terá: ", ana, " cm de altura")
+fim

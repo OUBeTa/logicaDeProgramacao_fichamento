@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-08 02:06:03 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjEwOjExOjQ0ICI7MjE2NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjEwOjE1OjIxICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDk6Mzg6MjIgIjtwMi5mcHJnOzUyMDc="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDg7IjAyOjA2OjAzICI7NDsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, maiorSeq, currentSeq" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="50"/>
+            <declare name="vLido" type="Integer" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com n&#250;mero n&quot; &amp; i+1" newline="True"/>
+                <input variable="vLido[i]"/>
+            </for>
+            <assign variable="maiorSeq" expression="1"/>
+            <assign variable="currentSeq" expression="1"/>
+            <output expression="&quot;Dentro da lista : &quot;" newline="False"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="maiorSeq" expression="0"/>
+                <if expression="i == 0">
+                    <then>
+                        <output expression="&quot;[&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i &lt; records - 1">
+                    <then>
+                        <output expression="vLido[i] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i == records - 1">
+                    <then>
+                        <output expression="vLido[i] &amp; &quot;] &quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="i" start="0" end="records - 2" direction="inc" step="1">
+                <if expression="vLido[i+1] &gt; vLido[i]">
+                    <then>
+                        <assign variable="currentSeq" expression="currentSeq + 1"/>
+                    </then>
+                    <else>
+                        <if expression="currentSeq &gt; maiorSeq">
+                            <then>
+                                <assign variable="maiorSeq" expression="currentSeq"/>
+                                <assign variable="currentSeq" expression="1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <if expression="currentSeq &gt; maiorSeq">
+                <then>
+                    <assign variable="maiorSeq" expression="currentSeq"/>
+                    <assign variable="currentSeq" expression="1"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;a maior sequ&#234;ncia de n&#250;meros em ordem crescente tem : &quot; &amp; maiorSeq &amp; &quot; elementos&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

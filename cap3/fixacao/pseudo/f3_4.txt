@@ -1,0 +1,13 @@
+inicio
+    real h <- 0
+    inteiro n
+    
+    escreva("Entre com N")
+    leia(n)
+    
+    para v de 1 até n faça
+        h <- h + 1 / v
+    fimpara
+    
+    escreva("O resultado da série: ", h)
+fim

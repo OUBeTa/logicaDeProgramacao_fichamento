@@ -1,0 +1,35 @@
+inicio
+    inteiro records <- 20
+    vetor inteiro vLido[records]
+    inteiro n <- 0
+    booleano ordered <- falso
+    
+    inteiro i
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com termo número ", i + 1, " da lista")
+        leia(vLido[i])
+    fimpara
+    
+    enquanto não ordered faça
+        ordered <- verdadeiro
+        n <- n + 1
+        escreva("Iteração: ", n)
+        
+        para i de 0 até records - 2 passo 1 faça
+            se vLido[i + 1] > vLido[i] então
+                aux <- vLido[i]
+                vLido[i] <- vLido[i + 1]
+                vLido[i + 1] <- aux
+                ordered <- falso
+            fimse
+        fimpara
+    fimenquanto
+    
+    escreva("")
+    escreva("Lista ordenada: ")
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva(vLido[i])
+    fimpara
+fim

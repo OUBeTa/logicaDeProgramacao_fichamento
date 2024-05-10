@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-01 11:36:26 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjA2OjI2OjI4ICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjExOjM2OjI2ICI7MTsyMjc4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ana, fel, ano" type="Integer" array="False" size=""/>
+            <assign variable="ana" expression="150"/>
+            <assign variable="fel" expression="110"/>
+            <assign variable="ano" expression="0"/>
+            <do expression="fel &lt;= ana">
+                <output expression="&quot;Altura de Anacleto : &quot; &amp; ana &amp; &quot;cm&quot;" newline="True"/>
+                <output expression="&quot;Altura de Felisberto : &quot; &amp; fel &amp; &quot;cm&quot;" newline="True"/>
+                <assign variable="ano" expression="ano + 1"/>
+                <assign variable="ana" expression="ana + 2"/>
+                <assign variable="fel" expression="fel + 3"/>
+            </do>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;em &quot; &amp; ano &amp; &quot; anos, Felisberto estar&#225; com &quot; &amp; fel &amp; &quot;cm de altura, superando Anacleto, que no mesmo ano ter&#225; : &quot; &amp; ana &amp; &quot;cm de altura&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

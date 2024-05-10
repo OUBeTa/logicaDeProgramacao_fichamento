@@ -1,0 +1,15 @@
+inicio
+    inteiro a <- 1
+    inteiro b <- 1
+    inteiro c
+    
+    escreva("Fibonacci n 1: 1")
+    escreva("Fibonacci n 2: 1")
+    
+    para v de 3 até 20 passo 1 faça
+        c <- a + b
+        escreva("Fibonacci n ", v, ": ", c)
+        a <- b
+        b <- c
+    fimpara
+fim

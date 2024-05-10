@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-01 01:14:51 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjEyOjQ4OjIwICI7MjE2OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjAxOjE0OjUxICI7MjsyMjcy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, denominador" type="Integer" array="False" size=""/>
+            <declare name="result" type="Real" array="False" size=""/>
+            <assign variable="result" expression="0"/>
+            <assign variable="denominador" expression="500"/>
+            <for variable="i" start="2" end="11" direction="inc" step="1">
+                <if expression="i % 2 == 0">
+                    <then>
+                        <assign variable="result" expression="result + 2 / denominador"/>
+                    </then>
+                    <else>
+                        <assign variable="result" expression="result - 5 / denominador"/>
+                    </else>
+                </if>
+                <assign variable="denominador" expression="denominador - 50"/>
+            </for>
+            <output expression="&quot;S = 2/500 - 5/450 + 2/400 - 5/350 + ...&quot;" newline="True"/>
+            <output expression="&quot;S = &quot; &amp; result" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

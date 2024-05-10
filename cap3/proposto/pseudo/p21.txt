@@ -1,0 +1,34 @@
+inicio
+    funcao toFixed(valor, digitos)
+        retorno formatar("%.*f", digitos, valor)
+    fimfuncao
+
+    vetor inteiro votos[6]
+    vetor real porcentual[6]
+    inteiro i
+    real soma
+
+    para i de 0 até 3 passo 1 faça
+        escreva("Entrar com número de votos para o candidato número ", i + 1)
+        leia(votos[i])
+    fimpara
+    
+    escreva("Entrar com quantia de votos nulos")
+    leia(votos[4])
+    
+    escreva("Entrar com quantia de votos em branco")
+    leia(votos[5])
+    
+    soma <- somar(votos)
+    
+    para i de 0 até 5 passo 1 faça
+        porcentual[i] <- (real) votos[i] / soma * 100
+    fimpara
+    
+    escreva("Votos para o primeiro candidato (", votos[0], "/", soma, ") : ", toFixed(porcentual[0], 2), "%")
+    escreva("Votos para o segundo candidato (", votos[1], "/", soma, ") : ", toFixed(porcentual[1], 2), "%")
+    escreva("Votos para o terceiro candidato (", votos[2], "/", soma, ") : ", toFixed(porcentual[2], 2), "%")
+    escreva("Votos para o quarto candidato (", votos[3], "/", soma, ") : ", toFixed(porcentual[3], 2), "%")
+    escreva("Votos nulos (", votos[4], "/", soma, ") : ", toFixed(porcentual[4], 2), "%")
+    escreva("Votos em branco (", votos[5], "/", soma, ") : ", toFixed(porcentual[5], 2), "%")
+fim

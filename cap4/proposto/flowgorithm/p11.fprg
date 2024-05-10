@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 10:09:04 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA2OjIwOjQ0ICI7MjE3MA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA2OjI3OjE0ICI7Njtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDM6NDI6MDMgIjsyXzRhLmZwcmc7NTM0Mg=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA2OjQ2OjI1ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDY6MjA6NDQgIjsyXzRiLmZwcmc7NTM0NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA4OjUzOjQ3ICI7Mjtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDY6MjA6NDQgIjtwMTAuZnByZzs1MjY1"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA5OjIwOjQ1ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNTsiMDY6Mjk6MDIgIjtwOS5mcHJnOzUyMjE="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEwOjA5OjA0ICI7MTk7MjMzNA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j, aux" type="Integer" array="False" size=""/>
+            <declare name="isOrdered" type="Boolean" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="vLido, menor" type="Integer" array="True" size="records * records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <output expression="&quot;Entre com [&quot;&amp;i&amp;&quot;][&quot;&amp;j&amp;&quot;]&quot;" newline="True"/>
+                    <input variable="vLido[i * records + j]"/>
+                    <assign variable="menor[j * records + i]" expression="vLido[i * records + j]"/>
+                </for>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Linha n&quot; &amp; i &amp; &quot; (maior at&#233; o menor) : &quot;" newline="False"/>
+                <assign variable="isOrdered" expression="False"/>
+                <while expression="!isOrdered">
+                    <assign variable="isOrdered" expression="True"/>
+                    <for variable="j" start="0" end="records - 2" direction="inc" step="1">
+                        <assign variable="aux" expression="vLido[i * records + j]"/>
+                        <if expression="aux &lt; vLido[i * records + (j + 1)]">
+                            <then>
+                                <assign variable="vLido[i * records + j]" expression="vLido[i * records + (j + 1)]"/>
+                                <assign variable="vLido[i * records + (j + 1)]" expression="aux"/>
+                                <assign variable="isOrdered" expression="False"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                </while>
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;coluna n&quot; &amp; i &amp; &quot; (menor at&#233; o maior) : &quot;" newline="False"/>
+                <assign variable="isOrdered" expression="False"/>
+                <while expression="!isOrdered">
+                    <assign variable="isOrdered" expression="True"/>
+                    <for variable="j" start="0" end="records - 2" direction="inc" step="1">
+                        <assign variable="aux" expression="menor[i * records + j]"/>
+                        <if expression="aux &lt; menor[i * records + (j + 1)]">
+                            <then>
+                                <assign variable="menor[i * records + j]" expression="menor[i * records + (j + 1)]"/>
+                                <assign variable="menor[i * records + (j + 1)]" expression="aux"/>
+                                <assign variable="isOrdered" expression="False"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                </while>
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; menor[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; menor[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

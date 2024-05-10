@@ -1,0 +1,53 @@
+inicio
+    funcao fixDecimal(valor, digitos)
+        retorno formatar("%.*f", digitos, valor)
+    fimfuncao
+    
+    inteiro records <- 4
+    vetor texto vName[records] <- [""] * records
+    vetor real vCusto[records] <- [0] * records
+    vetor real vPreco[records] <- [0] * records
+    vetor real vPorcentagem[records] <- [0] * records
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com o nome do produto n", i + 1)
+        leia(vName[i])
+        
+        escreva("Entre com custo do produto n", i + 1)
+        leia(vCusto[i])
+        
+        escreva("Entrar com preço do produto n", i + 1)
+        leia(vPreco[i])
+        
+        vPorcentagem[i] <- abs((vPreco[i] - vCusto[i]) / vCusto[i]) * 100
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        se vPreco[i] = vCusto[i] então
+            escreva("[", vName[i], "] : (preço/custo) ", vCusto[i], "/", vPreco[i], ") -> 0% de lucro")
+        senao
+            escreva("[", vName[i], "] : (preço/custo) (", vCusto[i], "/", vPreco[i], ") -> ", fixDecimal(vPorcentagem[i], 2), "% de ", se vPreco[i] < vCusto[i] então "prejuízo" senao "lucro")
+        fimse
+    fimpara
+    
+    escreva("\nLucro < 10%")
+    para i de 0 até records - 1 passo 1 faça
+        se vCusto[i] < vPreco[i] e vPorcentagem[i] < 10 então
+            escreva("[", vName[i], "] : ", fixDecimal(vPorcentagem[i], 2), "%")
+        fimse
+    fimpara
+    
+    escreva("\nLucro > 10% < 30%")
+    para i de 0 até records - 1 passo 1 faça
+        se vCusto[i] < vPreco[i] e vPorcentagem[i] > 10 e vPorcentagem[i] < 30 então
+            escreva("[", vName[i], "] : ", fixDecimal(vPorcentagem[i], 2), "%")
+        fimse
+    fimpara
+    
+    escreva("\nLucro > 30%")
+    para i de 0 até records - 1 passo 1 faça
+        se vCusto[i] < vPreco[i] e vPorcentagem[i] > 30 então
+            escreva("[", vName[i], "] : ", fixDecimal(vPorcentagem[i], 2), "%")
+        fimse
+    fimpara
+fim

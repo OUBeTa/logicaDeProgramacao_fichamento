@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 05:14:06 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjAzOjU0OjIwICI7MjE2OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA1OjE0OjA2ICI7MjsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j, search, nNotas" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <assign variable="nNotas" expression="4"/>
+            <declare name="vNotas" type="Real" array="True" size="records * 4"/>
+            <declare name="vName" type="String" array="True" size="records"/>
+            <declare name="vNum" type="Integer" array="True" size="records"/>
+            <declare name="medias" type="Real" array="True" size="records"/>
+            <declare name="mediaTotal" type="Real" array="False" size=""/>
+            <declare name="find" type="Boolean" array="False" size=""/>
+            <assign variable="mediaTotal" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="medias[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com nome do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vName[i]"/>
+                <output expression="&quot;Entrar com n&#250;mero do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vNum[i]"/>
+                <for variable="j" start="0" end="nNotas - 1" direction="inc" step="1">
+                    <output expression="&quot;Entrar com nota n&quot; &amp; j+1 &amp; &quot; do aluno n&quot; &amp; i + 1" newline="True"/>
+                    <input variable="vNotas[i * records + j]"/>
+                    <assign variable="medias[i]" expression="medias[i] + vNotas[i * records + j]"/>
+                </for>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="medias[i]" expression="medias[i] / nNotas"/>
+            </for>
+            <assign variable="search" expression="1"/>
+            <while expression="search != 0">
+                <assign variable="find" expression="False"/>
+                <output expression="&quot;N&#250;mero do aluno em quest&#227;o : &quot;" newline="True"/>
+                <input variable="search"/>
+                <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="search == vNum[i]">
+                        <then>
+                            <assign variable="find" expression="True"/>
+                            <output expression="&quot;[Nome] : &quot; &amp; vName[i]" newline="True"/>
+                            <output expression="&quot;[Notas] : [&quot; &amp; vNotas[i * records + 0] &amp;&quot;,&quot;&amp; vNotas[i * records + 1] &amp;&quot;,&quot;&amp; vNotas[i * records + 2] &amp;&quot;,&quot;&amp; vNotas[i * records + 3] &amp; &quot;]&quot;" newline="True"/>
+                            <output expression="&quot;[M&#233;dia] : &quot; &amp; medias[i]" newline="True"/>
+                            <output expression="&quot;[status] : &quot;" newline="False"/>
+                            <if expression="medias[i] &gt;= 7">
+                                <then>
+                                    <output expression="&quot;Aprovado&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="(medias[i] &lt; 7) and (medias[i] &gt;=5)">
+                                        <then>
+                                            <output expression="&quot;Recupera&#231;&#227;o&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Reprovado&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <output expression="&quot;//============//&quot;" newline="True"/>
+                <if expression="!find">
+                    <then>
+                        <output expression="&quot;Nenhum aluno referente ao n&#250;mero &quot; &amp; search &amp; &quot; foi encontrado&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <output expression="&quot;Expedi&#231;&#227;o encerrada&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,40 @@
+inicio
+    inteiro a
+    inteiro b
+    inteiro c
+    
+    escreva("Selecione o valor desejado para a")
+    leia(a)
+    
+    escreva("Selecione o valor desejado para b")
+    leia(b)
+    
+    escreva("Selecione o valor desejado para c")
+    leia(c)
+    
+    se a = b ou b = c então
+        escreva("Dentre os três, existem números iguais")
+    senao
+        se a > b e a > c então
+            se b > c então
+                escreva("Os números escolhidos em ordem decrescente: a: ", a, " | b: ", b, " | c: ", c)
+            senao
+                escreva("Os números escolhidos em ordem decrescente: a: ", a, " | c: ", c, " | b: ", b)
+            fimse
+        senao se b > a e b > c então
+            se a > c então
+                escreva("Os números escolhidos em ordem decrescente: b: ", b, " | a: ", a, " | c: ", c)
+            senao
+                escreva("Os números escolhidos em ordem decrescente: b: ", b, " | c: ", c, " | a: ", a)
+            fimse
+        senao
+            se c > a e c > b então
+                se a > b então
+                    escreva("Os números escolhidos em ordem decrescente: c: ", c, " | a: ", a, " | b: ", b)
+                senao
+                    escreva("Os números escolhidos em ordem decrescente: c: ", c, " | b: ", b, " | a: ", a)
+                fimse
+            fimse
+        fimse
+    fimse
+fim

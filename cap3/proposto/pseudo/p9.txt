@@ -1,0 +1,41 @@
+inicio
+    inteiro mes
+    inteiro dia
+    texto signo
+    
+    escreva("Entrar com mês de nascimento (1-12)")
+    leia(mes)
+    
+    escreva("Entrar com dia de nascimento (0-31)")
+    leia(dia)
+    
+    se mes = 1 então
+        signo <- se dia >= 1 e dia <= 19 então "capricórnio" senao "aquário"
+    senao se mes = 2 então
+        signo <- se dia >= 1 e dia <= 18 então "aquário" senao "peixes"
+    senao se mes = 3 então
+        signo <- se dia >= 1 e dia <= 20 então "peixes" senao "áries"
+    senao se mes = 4 então
+        signo <- se dia >= 1 e dia <= 20 então "áries" senao "touro"
+    senao se mes = 5 então
+        signo <- se dia >= 1 e dia <= 19 então "touro" senao "gêmeos"
+    senao se mes = 6 então
+        signo <- se dia >= 1 e dia <= 20 então "gêmeos" senao "câncer"
+    senao se mes = 7 então
+        signo <- se dia >= 1 e dia <= 22 então "câncer" senao "leão"
+    senao se mes = 8 então
+        signo <- se dia >= 1 e dia <= 22 então "leão" senao "virgem"
+    senao se mes = 9 então
+        signo <- se dia >= 1 e dia <= 22 então "virgem" senao "libra"
+    senao se mes = 10 então
+        signo <- se dia >= 1 e dia <= 22 então "libra" senao "escorpião"
+    senao se mes = 11 então
+        signo <- se dia >= 1 e dia <= 21 então "escorpião" senao "sagitário"
+    senao se mes = 12 então
+        signo <- se dia >= 1 e dia <= 21 então "sagitário" senao "capricórnio"
+    senao
+        signo <- "inválido"
+    fimse
+    
+    escreva("Signo: ", signo)
+fim

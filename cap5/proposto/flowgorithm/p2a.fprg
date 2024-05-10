@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-06 05:46:49 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjAyOjMxOjAwICI7MjE2Mg=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjAyOjMxOjAyICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNjsiMTI6NTE6NTEgIjtwMS5mcHJnOzUxOTk="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjA1OjQ2OjQ5ICI7NDsyMjk1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, sum" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="2"/>
+            <assign variable="sum" expression="0"/>
+            <declare name="arquivoStr" type="String" array="True" size="records * 3"/>
+            <declare name="arquivoInt" type="Integer" array="True" size="records * 3"/>
+            <for variable="i" start="0" end="Size(arquivoStr) - 1" direction="inc" step="1">
+                <assign variable="arquivoStr[i]" expression="&quot;&quot;"/>
+            </for>
+            <for variable="i" start="0" end="Size(arquivoInt) - 1" direction="inc" step="1">
+                <assign variable="arquivoInt[i]" expression="0"/>
+            </for>
+            <output expression="&quot;//====== INICIANDO REGISTRO EM ARQUIVOS ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com nome do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoStr[i * 3]"/>
+                <output expression="&quot;Entrar com n&#176; do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoInt[i * 3]"/>
+                <output expression="&quot;Entrar com n&#250;mero de dependentes do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoInt[i * 3 + 1]"/>
+                <output expression="&quot;Entrar com endere&#231;o do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoStr[i * 3 + 1]"/>
+                <output expression="&quot;entrar com data de associa&#231;&#227;o do s&#243;cio [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoStr[i * 3 + 2]"/>
+                <output expression="&quot;Entrar com valor da mensalidade do s&#243;cio [&quot;&amp; i + 1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arquivoInt[i * 3 + 2]"/>
+                <output expression="&quot;&quot;" newline="True"/>
+                <output expression="&quot;&quot;" newline="True"/>
+            </for>
+            <output expression="&quot;//====== FIM REGISTRO EM ARQUIVOS ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="sum" expression="sum + (1 + arquivoInt[i * 3 + 1])"/>
+            </for>
+            <output expression="&quot;N&#250;mero total de poss&#237;veis frequentadores do clube : &quot; &amp; sum" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,34 @@
+inicio
+    funcao getNumberId(v)
+        inteiro result <- 0
+        
+        para i de 0 até comprimento(v) - 2 passo 1 faça
+            se v[result] < v[i + 1] então
+                result <- i + 1
+            fimse
+        fimpara
+        
+        retorno result
+    fimfuncao
+    
+    inteiro records <- 200
+    vetor inteiro vNota[records]
+    vetor texto vNome[records]
+    
+    inteiro i
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com nome de aluno n°", i + 1)
+        leia(vNome[i])
+        
+        escreva("Entre com nota de aluno n°", i + 1)
+        leia(vNota[i])
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        se vNota[getNumberId(vNota)] > 70 então
+            escreva("n°", i + 1, ": ", vNome[getNumberId(vNota)], " | ", vNota[getNumberId(vNota)], "Pts")
+            vNota[getNumberId(vNota)] <- 0
+        fimse
+    fimpara
+fim

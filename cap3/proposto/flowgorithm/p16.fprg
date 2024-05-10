@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-30 08:07:42 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA2OjQ5OjQ0ICI7MjE3OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA3OjI0OjAwICI7Mjtyc2FsZDtPVUJFVEE7MjAyNC0wNC0yNzsiMDU6MDU6NTEgIjtwMTUuZnByZzs1MjU3"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA4OjA3OjQyICI7MjsyMjgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="base, exp, result, control" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com denominador&quot;" newline="True"/>
+            <input variable="base"/>
+            <output expression="&quot;entrar com expoente&quot;" newline="True"/>
+            <input variable="exp"/>
+            <assign variable="result" expression="base"/>
+            <for variable="control" start="1" end="exp - 1 " direction="inc" step="1">
+                <assign variable="result" expression="result * result"/>
+            </for>
+            <output expression="result" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

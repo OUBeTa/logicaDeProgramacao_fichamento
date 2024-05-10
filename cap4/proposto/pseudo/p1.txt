@@ -1,0 +1,18 @@
+inicio
+    inteiro records <- 30
+    vetor inteiro vLido[records]
+    vetor inteiro vResult[records]
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com termo número n", i + 1)
+        leia(vLido[i])
+        
+        se i % 2 = 0 então
+            vResult[i] <- vLido[i] * 2
+        senao
+            vResult[i] <- vLido[i] * 3
+        fimse
+    fimpara
+    
+    escreva(vResult)
+fim

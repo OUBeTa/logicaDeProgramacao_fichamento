@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 04:51:28 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMTU7IjAyOjAzOjI5ICI7MjE3MA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjUxOjI4ICI7MzsyMjg1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, v" type="Integer" array="False" size=""/>
+            <declare name="p" type="String" array="False" size=""/>
+            <input variable="n"/>
+            <assign variable="p" expression="&quot;S&quot;"/>
+            <for variable="v" start="n-1" end="2" direction="dec" step="1">
+                <if expression="n%v == 0">
+                    <then>
+                        <assign variable="p" expression="&quot;N&quot;"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <if expression="p == &quot;S&quot;">
+                <then>
+                    <output expression="&quot;o n&#250;mero &quot; &amp; n &amp; &quot; &#233; primo&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;o n&#250;mero &quot; &amp; n &amp; &quot; n&#227;o &#233; primo&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

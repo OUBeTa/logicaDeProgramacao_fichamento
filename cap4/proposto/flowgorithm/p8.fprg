@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 06:29:01 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjExOjEwOjU1ICI7MjE2Nw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEyOjE1OjMwICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMTA6Mjc6MTggIjtwNi5mcHJnOzUyMDk="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA2OjI5OjAxICI7MjsyMjgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="200"/>
+            <declare name="vNota" type="Integer" array="True" size="records"/>
+            <declare name="vNome" type="String" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com nome de aluno n&quot; &amp; i+1" newline="True"/>
+                <input variable="vNome[i]"/>
+                <output expression="&quot;Entre com nota de aluno n&quot; &amp; i+1" newline="True"/>
+                <input variable="vNota[i]"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="vNota[getNumberId(vNota)] &gt; 70">
+                    <then>
+                        <output expression="&quot;n&quot; &amp; i + 1 &amp; &quot; : &quot; &amp; vNome[getNumberId(vNota)] &amp;&quot; | &quot;&amp; vNota[getNumberId(vNota)]&amp;&quot;Pts |&quot;" newline="True"/>
+                        <assign variable="vNota[getNumberId(vNota)]" expression="0"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="getNumberId" type="Integer" variable="result">
+        <parameters>
+            <parameter name="v" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="result, i" type="Integer" array="False" size=""/>
+            <assign variable="result" expression="0"/>
+            <for variable="i" start="0" end="Size(v) - 2" direction="inc" step="1">
+                <if expression="v[result] &lt; v[i + 1]">
+                    <then>
+                        <assign variable="result" expression="i + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

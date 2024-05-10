@@ -1,0 +1,20 @@
+inicio
+    caractere s
+    real h
+    
+    escreva("Defina o sexo do indivíduo (M/F)")
+    leia(s)
+    
+    escreva("Defina a altura do indivíduo")
+    leia(h)
+    
+    real p
+    
+    se s = "M" ou s = "m" então
+        p <- 72.7 * h - 58
+    senao se s = "F" ou s = "f" então
+        p <- 62.1 * h - 44.7
+    fimse
+    
+    escreva("O peso recomendado para um indivíduo deste sexo é: ", p)
+fim

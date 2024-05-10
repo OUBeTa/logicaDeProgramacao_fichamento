@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 01:33:12 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjMxOjA5ICI7MjE3MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjMxOjExICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDI6MTE6MDAgIjtwMi5mcHJnOzUxOTA="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjMzOjEyICI7MTsyMjc1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com divisor&quot;" newline="True"/>
+            <input variable="a"/>
+            <assign variable="c" expression="a"/>
+            <assign variable="b" expression="6"/>
+            <while expression="a &gt;= b">
+                <assign variable="a" expression="a - b"/>
+            </while>
+            <if expression="a == 0">
+                <then>
+                    <output expression="c &amp; &quot; &#233; divis&#237;vel por 6&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="c &amp; &quot; n&#227;o &#233; divis&#237;vel por 6&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

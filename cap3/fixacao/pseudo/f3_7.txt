@@ -1,0 +1,26 @@
+inicio
+    inteiro maior
+    inteiro menor
+    inteiro n
+    
+    para con de 1 até 20 passo 1 faça
+        escreva("Entrar com n°", con)
+        leia(n)
+        
+        se con = 1 então
+            maior <- n
+            menor <- n
+        senao
+            se n > maior então
+                maior <- n
+            fimse
+            
+            se n < menor então
+                menor <- n
+            fimse
+        fimse
+    fimpara
+    
+    escreva("Maior número: ", maior)
+    escreva("Menor número: ", menor)
+fim

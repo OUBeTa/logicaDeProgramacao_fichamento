@@ -1,0 +1,38 @@
+inicio
+    funcao fixDecimal(valor, digitos)
+        retorno formatar("%.*f", digitos, valor)
+    fimfuncao
+    
+    real a
+    real b
+    real c
+    
+    escreva("Entre com valor para a")
+    leia(a)
+    
+    escreva("Entre com valor para b")
+    leia(b)
+    
+    escreva("Entre com valor para c")
+    leia(c)
+    
+    real d <- b * b - 4 * a * c
+    
+    se d <= 0 então
+        se d = 0 então
+            escreva("Raiz única: ", -b / (2 * a))
+        senao
+            escreva("Ambas as raízes são imaginárias")
+            
+            real parteReal <- -b / (2 * a)
+            real parteImaginaria <- raiz(-d) / (2 * a)
+            
+            escreva("Raiz 1: ", parteReal, " + ", fixDecimal(parteImaginaria, 2), "i")
+            escreva("Raiz 2: ", parteReal, " - ", fixDecimal(parteImaginaria, 2), "i")
+        fimse
+    senao
+        escreva("Ambas as raízes são reais")
+        escreva("Raiz 1: ", (-b + raiz(d)) / (2 * a))
+        escreva("Raiz 2: ", (-b - raiz(d)) / (2 * a))
+    fimse
+fim

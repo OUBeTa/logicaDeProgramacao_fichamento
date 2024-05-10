@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 10:46:21 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEwOjA5OjA2ICI7MjE3MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEwOjQ2OjIxICI7NDsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vLido, a, b, c, d, e, f, g, h" type="Integer" array="True" size="records * records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <output expression="&quot;Entre com [&quot; &amp; i &amp; &quot;][&quot; &amp; j &amp; &quot;]&quot;" newline="True"/>
+                    <input variable="vLido[i * records + j]"/>
+                </for>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == i">
+                        <then>
+                            <assign variable="a[i * records + j]" expression="vLido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="a[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                    <if expression="j &gt; i">
+                        <then>
+                            <assign variable="b[i * records + j]" expression="vLido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="b[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                    <if expression="j &lt; i">
+                        <then>
+                            <assign variable="c[i * records + j]" expression="vLido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="c[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                    <if expression="j != i">
+                        <then>
+                            <assign variable="d[i * records + j]" expression="vLido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="d[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                    <if expression="(j + i) == (records - 1)">
+                        <then>
+                            <assign variable="e[i * records + j]" expression="vlido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="e[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                    <if expression="(j + i) &lt; (records - 1)">
+                        <then>
+                            <assign variable="f[i * records + j]" expression="vLido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="f[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                    <if expression="(j + i) &gt; (records - 1)">
+                        <then>
+                            <assign variable="g[i * records + j]" expression="vLido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="g[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                    <if expression="(j + i) != (records - 1)">
+                        <then>
+                            <assign variable="h[i * records + j]" expression="vLido[i * records + j]"/>
+                        </then>
+                        <else>
+                            <assign variable="h[i * records + j]" expression="0"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Diagonal principal&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="a[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; a[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="a[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; a[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Tri&#226;ngulo superior a diagonal principal&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="b[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; b[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="b[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; b[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Tri&#226;ngulo inferior a diagonal principal&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="c[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; c[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="c[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; c[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Tudo exceto a diagonal principal&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="d[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; d[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="d[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; d[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Diagonal secund&#225;rio&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="e[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; e[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="e[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; e[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Tri&#226;ngulo superior &#224; diagonal secund&#225;ria&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="f[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; f[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="f[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; f[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Tri&#226;ngulo inferior &#224; diagonal secund&#225;ria&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="g[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; g[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="g[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; g[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Tudo exceto &#224; diagonal secund&#225;ria&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1 " direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <if expression="h[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; h[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="h[i * records + j] == 0">
+                                <then>
+                                    <output expression="&quot; | - | &quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot; | &quot; &amp; h[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

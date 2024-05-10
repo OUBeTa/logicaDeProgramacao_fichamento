@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 04:42:42 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjAxOjAzOjE2ICI7MjE2Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjQyOjQyICI7MjsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="r, v" type="Real" array="False" size=""/>
+            <output expression="&quot;Calcular o volume de uma esfera&quot;" newline="True"/>
+            <output expression="&quot;Insira o raio da esfera&quot;" newline="True"/>
+            <input variable="r"/>
+            <assign variable="v" expression="(4/3) * 3.1416 * (r^3)"/>
+            <output expression="&quot;O volume de uma esfera com raio &quot; &amp; r &amp; &quot; &#233; &quot; &amp; v" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-02 07:06:31 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA2OjE2OjQwICI7MjE2OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA3OjA2OjMxICI7NTsyMjgx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, ii, menor, aux, n" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="20"/>
+            <declare name="vLido" type="Integer" array="True" size="records"/>
+            <assign variable="i" expression="0"/>
+            <assign variable="n" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com termo n&#250;mero &quot; &amp; i + 1 &amp; &quot; da lista&quot;" newline="True"/>
+                <input variable="vLido[i]"/>
+            </for>
+            <for variable="i" start="0" end="records - 2" direction="inc" step="1">
+                <assign variable="menor" expression="i"/>
+                <assign variable="n" expression="n + 1"/>
+                <output expression="&quot;Itera&#231;&#227;o n&#250;mero : &quot; &amp; n" newline="True"/>
+                <for variable="ii" start="i + 1" end="records - 1" direction="inc" step="1">
+                    <if expression="vLido[ii] &lt; vLido[menor]">
+                        <then>
+                            <assign variable="menor" expression="ii"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <if expression="menor != i">
+                    <then>
+                        <assign variable="aux" expression="vLido[i]"/>
+                        <assign variable="vLido[i]" expression="vLido[menor]"/>
+                        <assign variable="vLido[menor]" expression="aux"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="vLido[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

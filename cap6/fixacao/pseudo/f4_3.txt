@@ -1,0 +1,26 @@
+inicio
+    inteiro num, oldNum, reverse, dig, newNum, soma
+    
+    escreva("Entrar com número inteiro")
+    leia num
+    
+    enquanto não (num > 1000 e num <= 99999) faça
+        escreva("Número deve possuir exatos cinco dígitos")
+        leia num
+    fimenquanto
+    
+    oldNum <- num
+    reverse <- 0
+    
+    enquanto num ≠ 0 faça
+        dig <- num % 10
+        reverse <- reverse * 10 + dig
+        num <- num // 10
+    fimenquanto
+    
+    newNum <- oldNum + reverse
+    
+    soma <- ((newNum % 10) * 6) + (((newNum // 10) % 10) * 5) + (((newNum // 100) % 10) * 4) + (((newNum // 1000) % 10) * 3) + (((newNum // 10000) % 10) * 2) + (((newNum // 100000) % 10) * 1)
+    
+    escreva("[", oldNum, "] -> ", soma % 10)
+fim

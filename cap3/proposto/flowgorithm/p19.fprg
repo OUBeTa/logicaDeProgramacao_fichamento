@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-30 08:53:41 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA4OjQ3OjMzICI7MjE3Nw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA4OjUzOjQxICI7MTsyMjgx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="control" type="Integer" array="False" size=""/>
+            <for variable="control" start="50" end="150" direction="inc" step="1">
+                <output expression="&quot;Fahrenheit : &quot; &amp; control &amp; &quot;  |  Celcius : &quot; &amp; ToString((control - 32) * (5/9))" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

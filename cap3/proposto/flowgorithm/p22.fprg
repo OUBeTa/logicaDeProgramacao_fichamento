@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-30 10:07:39 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjEwOjA0OjM1ICI7MjE2NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjEwOjA3OjM5ICI7MTsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="soma, d1, d2" type="Integer" array="False" size=""/>
+            <for variable="d1" start="1" end="6" direction="inc" step="1">
+                <for variable="d2" start="1" end="6" direction="inc" step="1">
+                    <output expression="d1 &amp; &quot;-&quot; &amp; d2" newline="True"/>
+                    <if expression="(d1 + d2) == 7">
+                        <then>
+                            <output expression="d1 &amp; &quot; + &quot; &amp; d2 &amp; &quot; = 7&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

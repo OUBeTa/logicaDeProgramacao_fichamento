@@ -1,0 +1,21 @@
+inicio
+inteiro c, num, numOld
+
+c <- 0
+escreva("Entrar com número\n")
+leia num
+
+num <- valor absoluto de num
+numOld <- num
+
+enquanto num ≠ 0 faça
+    c <- c + 1
+    num <- num // 10
+fimenquanto
+
+escreva("O dígito ", numOld, " possui ", c, " dígito")
+se c ≠ 1 então
+    escreva("s")
+fimse
+
+fim

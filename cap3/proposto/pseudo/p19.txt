@@ -1,0 +1,7 @@
+inicio
+    para control de 50 até 150 passo 1 faça
+        Fahrenheit <- control
+        Celcius <- (Fahrenheit - 32) * (5.0 / 9)
+        escreva("Fahrenheit: ", Fahrenheit, " | Celsius: ", Celcius)
+    fimpara
+fim

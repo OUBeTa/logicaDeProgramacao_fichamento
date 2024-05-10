@@ -1,0 +1,23 @@
+inicio
+    inteiro records <- 10
+    vetor inteiro inputV[records]
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("valor número: ", i + 1)
+        leia(inputV[i])
+    fimpara
+    
+    inteiro menor <- inputV[0]
+    inteiro maior <- inputV[0]
+    
+    para i de 0 até records - 2 passo 1 faça
+        se inputV[i + 1] < menor então
+            menor <- inputV[i + 1]
+        fimse
+        
+        se inputV[i + 1] > maior então
+            maior <- inputV[i + 1]
+        fimse
+    fimpara
+    
+    escreva("O maior valor do conjunto dado é

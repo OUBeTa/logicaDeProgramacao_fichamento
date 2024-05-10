@@ -1,0 +1,19 @@
+inicio
+    inteiro a, b, soma, div
+    
+    escreva("Entrar com primeiro número")
+    leia a
+    
+    escreva("Entrar com segundo número")
+    leia b
+    
+    soma <- 0
+    div <- 0
+    
+    enquanto soma + b <= a faça
+        soma <- soma + b
+        div <- div + 1
+    fimenquanto
+    
+    escreva(div)
+fim

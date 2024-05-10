@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-08 08:20:03 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjA0OjE0OjA3ICI7MjE3Mw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDg7IjA4OjIwOjAzICI7MjsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, a, tAnterior, tAtual, pTermo" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entre com a quantia de termos fibonacci a serem exibidos&quot;" newline="True"/>
+            <input variable="a"/>
+            <if expression="!(a == 0)">
+                <then>
+                    <assign variable="tAnterior" expression="1"/>
+                    <assign variable="tAtual" expression="1"/>
+                    <output expression="&quot;f&quot; &amp;a&amp; &quot; -&gt; [&quot;" newline="False"/>
+                    <if expression="a == 1">
+                        <then>
+                            <output expression="&quot;1&quot;" newline="False"/>
+                        </then>
+                        <else>
+                            <if expression="a == 2">
+                                <then>
+                                    <output expression="&quot;1,1&quot;" newline="False"/>
+                                </then>
+                                <else>
+                                    <if expression="a &gt;= 2">
+                                        <then>
+                                            <output expression="&quot;1,1,&quot;" newline="False"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <assign variable="i" expression="2"/>
+                    <while expression="i &lt; a">
+                        <assign variable="pTermo" expression="tAnterior + tAtual"/>
+                        <if expression="i + 1 == a">
+                            <then>
+                                <output expression="pTermo" newline="False"/>
+                            </then>
+                            <else>
+                                <output expression="pTermo &amp; &quot;,&quot;" newline="False"/>
+                            </else>
+                        </if>
+                        <assign variable="tAnterior" expression="tAtual"/>
+                        <assign variable="tAtual" expression="pTermo"/>
+                        <assign variable="i" expression="i + 1"/>
+                    </while>
+                </then>
+                <else>
+                    <output expression="&quot;[&quot;" newline="False"/>
+                </else>
+            </if>
+            <output expression="&quot;]&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

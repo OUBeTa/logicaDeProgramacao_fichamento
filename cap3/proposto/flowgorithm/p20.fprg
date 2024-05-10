@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-30 09:37:35 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA4OjU1OjE2ICI7MjE3Nw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA5OjM3OjM1ICI7MTsyMjg3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;O monge dever&#225; receber &quot; &amp; ToString((2^63) - 1) &amp; &quot; gr&#227;os, isto &#233;, 18,446,744,073,709,551,615 gr&#227;os no total&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

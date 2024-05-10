@@ -1,0 +1,52 @@
+inicio
+inteiro records = 20
+inteiro nNotas = 2
+inteiro maxIntegrantes = 5
+inteiro maxEquipes = 4
+vetor de real vNotas[records * nNotas]
+vetor de real meEquipes[maxEquipes]
+vetor de real notaEquipes[maxIntegrantes * maxEquipes]
+vetor de cadeia vName[records]
+vetor de real medias[records]
+vetor de inteiro integrantes[maxIntegrantes]
+inteiro i, j, group
+
+para i de 0 até records - 1 passo 1 faça
+    escreva("Entrar com nome do aluno n", i + 1)
+    leia vName[i]
+    
+    escreva("Entrar com número do grupo em que o aluno n", i + 1, " está (1 - ", maxEquipes, ")")
+    leia group
+    
+    enquanto não group <= maxEquipes ou integrantes[group - 1] >= maxIntegrantes faça
+        se not group <= maxEquipes então
+            escreva("Não existe grupo n", group, ". Tente outro grupo (1 - ", maxEquipes, ")")
+            leia group
+        senão
+            escreva("O grupo ", group, " está cheio. Entre com outro grupo (1 - ", maxEquipes, " != [", group, "])")
+            leia group
+        fimse
+    fimenquanto
+    
+    para j de 0 até nNotas - 1 passo 1 faça
+        escreva("Entrar com nota n", j + 1, " do aluno n", i + 1)
+        leia vNotas[i * nNotas + j]
+        medias[i] <- medias[i] + vNotas[i * nNotas + j]
+    fimpara
+    
+    medias[i] <- medias[i] / nNotas
+    notaEquipes[(group - 1) * maxIntegrantes + integrantes[group - 1]] <- medias[i]
+    integrantes[group - 1] <- integrantes[group - 1] + 1
+fimpara
+
+para i de 0 até maxEquipes - 1 passo 1 faça
+    meEquipes[i] <- 0
+    para j de 0 até maxIntegrantes - 1 passo 1 faça
+        meEquipes[i] <- meEquipes[i] + notaEquipes[i * maxIntegrantes + j]
+    fimpara
+    
+    meEquipes[i] <- meEquipes[i] / maxIntegrantes
+    escreva("Média da equipe n", i + 1, " : ", meEquipes[i])
+fimpara
+
+fim

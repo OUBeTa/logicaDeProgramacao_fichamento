@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 01:30:32 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjI3OjUwICI7MjE3Mg=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjMwOjMyICI7MTsyMjc0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, result" type="Integer" array="False" size=""/>
+            <assign variable="result" expression="0"/>
+            <output expression="&quot;Entre com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="a"/>
+            <while expression="result * result &lt;= a">
+                <assign variable="result" expression="result + 1"/>
+            </while>
+            <output expression="&quot;Raiz inteira de &quot; &amp; a &amp; &quot; : &quot; &amp; result - 1" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

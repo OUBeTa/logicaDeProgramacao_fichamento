@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 01:49:51 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjMzOjE0ICI7MjE2OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjM3OjU1ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDE6Mjc6NTAgIjtwNC5mcHJnOzUyMTc="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjQ5OjUxICI7MjsyMjg2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num, i, control" type="Integer" array="False" size=""/>
+            <declare name="bb" type="String" array="False" size=""/>
+            <output expression="&quot;Entre com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="num"/>
+            <assign variable="i" expression="num"/>
+            <assign variable="bb" expression="&quot;&quot;"/>
+            <if expression="num &lt;= 2">
+                <then>
+                    <assign variable="bb" expression="num &amp; &quot; n&#227;o &#233; primo&quot;"/>
+                </then>
+                <else>
+                    <assign variable="bb" expression="num &amp; &quot; &#233; primo&quot;"/>
+                    <for variable="control" start="2" end="num^0.5" direction="inc" step="1">
+                        <if expression="num % control == 0">
+                            <then>
+                                <assign variable="bb" expression="num &amp; &quot; n&#227;o &#233; primo&quot;"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                </else>
+            </if>
+            <output expression="bb" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

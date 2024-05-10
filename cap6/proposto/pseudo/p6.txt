@@ -1,0 +1,23 @@
+inicio
+inteiro num, i
+cadeia bb
+
+escreva("Entre com número inteiro")
+leia num
+
+se num <= 2 então
+    bb <- num, " não é primo"
+senão
+    bb <- num, " é primo"
+    
+    para i de 2 até inteiro(raiz(num)) + 1 passo 1 faça
+        se num % i = 0 então
+            bb <- num, " não é primo"
+            interrompa
+        fimse
+    fimpara
+fimse
+
+escreva(bb)
+
+fim

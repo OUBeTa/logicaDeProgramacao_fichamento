@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-07 09:39:57 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA5OjI2OjM5ICI7MjE4NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA5OjM5OjU3ICI7MTsyMjk2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c, d, x1, x2" type="Real" array="False" size=""/>
+            <output expression="&quot;Digite o valor desejado para a&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Digite o valor desejado para b&quot;" newline="True"/>
+            <input variable="b"/>
+            <output expression="&quot;Digite o valor desejado para c&quot;" newline="True"/>
+            <input variable="c"/>
+            <assign variable="d" expression="(b*b) - (4*a*c)"/>
+            <if expression="d &gt; 0">
+                <then>
+                    <assign variable="x1" expression="(-b + (d^0.5)) / (2*a)"/>
+                    <assign variable="x2" expression="(-b - (d^0.5)) / (2*a)"/>
+                    <output expression="&quot;As raizes s&#227;o: [&quot; &amp; x1 &amp; &quot;,&quot; &amp; x2 &amp; &quot;]&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="d == 0">
+                        <then>
+                            <assign variable="x1" expression="-b / (2*a)"/>
+                            <output expression="&quot;Apenas uma raiz &#233; real!&quot;" newline="True"/>
+                            <output expression="&quot;raiz : &quot; &amp; x1" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Ambas as raizes s&#227;o imagin&#225;rias!&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

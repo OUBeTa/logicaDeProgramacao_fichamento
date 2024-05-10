@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-04 09:38:21 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA5OjE5OjAzICI7MjE3Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA5OjM2OjMwICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDY6MjA6NDQgIjtsYWJlbC5mcHJnOzU1NjA="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA5OjM4OjIxICI7MzsyMjg3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="30"/>
+            <declare name="vLido, vResult" type="Integer" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;entre com termo n&#250;mero n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vLido[i]"/>
+                <if expression="i % 2 == 0">
+                    <then>
+                        <assign variable="vResult[i]" expression="vLido[i] * 2"/>
+                    </then>
+                    <else>
+                        <assign variable="vResult[i]" expression="vLido[i] * 3"/>
+                    </else>
+                </if>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="i == 0">
+                    <then>
+                        <output expression="&quot;[&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i &lt; (records - 1)">
+                    <then>
+                        <output expression="vResult[i] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i == (records - 1)">
+                    <then>
+                        <output expression="vResult[i] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

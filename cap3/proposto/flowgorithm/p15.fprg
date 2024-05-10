@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 11:41:52 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA1OjA1OjUxICI7MjE3NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjExOjQxOjUyICI7MjsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, sum" type="Integer" array="False" size=""/>
+            <declare name="div" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com primeiro n&#250;mero&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;entrar com segundo n&#250;mero&quot;" newline="True"/>
+            <input variable="b"/>
+            <assign variable="sum" expression="0"/>
+            <assign variable="div" expression="0"/>
+            <while expression="(sum + b) &lt;= a">
+                <assign variable="sum" expression="sum + b"/>
+                <assign variable="div" expression="div + 1"/>
+            </while>
+            <output expression="div" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

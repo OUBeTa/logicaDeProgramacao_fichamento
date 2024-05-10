@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 04:45:35 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA4OjI1OjUxICI7MjE3Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjQ1OjM1ICI7MzsyMjg2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c" type="Integer" array="False" size=""/>
+            <output expression="&quot;Citando tr&#234;s n&#250;meros diferentes em ordem decrescente&quot;" newline="True"/>
+            <output expression="&quot;Selecione o valor desejado para a&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Selecione o valor desejado para b&quot;" newline="True"/>
+            <input variable="b"/>
+            <output expression="&quot;Selecione o valor desejado para b&quot;" newline="True"/>
+            <input variable="c"/>
+            <if expression="a == b or b == c">
+                <then>
+                    <output expression="&quot;Dentre os tr&#234;s, existem n&#250;meros iguais&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="a &gt; b and a &gt; c">
+                        <then>
+                            <if expression="b &gt; c">
+                                <then>
+                                    <output expression="&quot;Os n&#250;meros escolhidos em ordem decrescente:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;a : &quot; &amp; a &amp; ToChar(13) &amp;&#13;&#10;&quot;b : &quot; &amp; b &amp; ToChar(13) &amp;&#13;&#10;&quot;c : &quot; &amp; c" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Os n&#250;meros escolhidos em ordem decrescente:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;a : &quot; &amp; a &amp; ToChar(13) &amp;&#13;&#10;&quot;c : &quot; &amp; c &amp; ToChar(13) &amp;&#13;&#10;&quot;b : &quot; &amp; b" newline="True"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="b &gt; a and b &gt; c">
+                                <then>
+                                    <if expression="a &gt; c">
+                                        <then>
+                                            <output expression="&quot;Os n&#250;meros escolhidos em ordem decrescente:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;b : &quot; &amp; b &amp; ToChar(13) &amp;&#13;&#10;&quot;a : &quot; &amp; a &amp; ToChar(13) &amp;&#13;&#10;&quot;c : &quot; &amp; c" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Os n&#250;meros escolhidos em ordem decrescente:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;b : &quot; &amp; b &amp; ToChar(13) &amp;&#13;&#10;&quot;c : &quot; &amp; c &amp; ToChar(13) &amp;&#13;&#10;&quot;a : &quot; &amp; a" newline="True"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="c &gt; b and c &gt; a">
+                                        <then>
+                                            <if expression="a &gt; b">
+                                                <then>
+                                                    <output expression="&quot;Os n&#250;meros escolhidos em ordem decrescente:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;c : &quot; &amp; c &amp; ToChar(13) &amp;&#13;&#10;&quot;a : &quot; &amp; a &amp; ToChar(13) &amp;&#13;&#10;&quot;b : &quot; &amp; b" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;Os n&#250;meros escolhidos em ordem decrescente:&quot; &amp; ToChar(13)&amp;&#13;&#10;&quot;c : &quot; &amp; c &amp; ToChar(13) &amp;&#13;&#10;&quot;b : &quot; &amp; b &amp; ToChar(13) &amp;&#13;&#10;&quot;a : &quot; &amp; a" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

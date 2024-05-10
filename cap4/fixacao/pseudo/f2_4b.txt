@@ -1,0 +1,25 @@
+inicio
+    inteiro records <- 4
+    matriz inteiro matrix[records][records]
+    inteiro soma <- 0
+    
+    inteiro i
+    inteiro j
+    
+    escreva("Entrar com localidade inicial")
+    leia(i)
+    
+    enquanto i != 0 faça
+        escreva("Entrar com próxima localidade")
+        leia(j)
+        
+        se i != j e j != 0 então
+            soma <- soma + matrix[i][j]
+        fimse
+        
+        i <- j
+        escreva("Distância do percurso atualmente: ", soma)
+    fimenquanto
+    
+    escreva("Distância total: ", soma)
+fim

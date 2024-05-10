@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-02 12:01:00 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjExOjM2OjI3ICI7MjE3MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjEyOjAxOjAwICI7MTsyMjY0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, maiorTempo, mCount, fCount, pCount, sum" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com n&#250;mero de crian&#231;as&quot;" newline="True"/>
+            <input variable="records"/>
+            <declare name="sexo" type="String" array="True" size="records"/>
+            <declare name="incubadora" type="Integer" array="True" size="records"/>
+            <assign variable="maiorTempo" expression="0"/>
+            <assign variable="mCount" expression="0"/>
+            <assign variable="fCount" expression="0"/>
+            <assign variable="pCount" expression="0"/>
+            <assign variable="sum" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com sexo do beb&#234; n&quot; &amp; i+1" newline="True"/>
+                <input variable="sexo[i]"/>
+                <output expression="&quot;Entrar com tempo, em dias, que o beb&#234; n&quot; &amp; i+1 &amp; &quot; ficou na incubadora, se ficou&quot;" newline="True"/>
+                <input variable="incubadora[i]"/>
+            </for>
+            <for variable="i" start="0" end="records - 2" direction="inc" step="1">
+                <if expression="incubadora[i + 1] &gt; maiorTempo">
+                    <then>
+                        <assign variable="maiorTempo" expression="incubadora[i + 1]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="incubadora[i] &gt; 0">
+                    <then>
+                        <assign variable="sum" expression="sum + incubadora[i]"/>
+                        <assign variable="pCount" expression="pCount + 1"/>
+                        <if expression="sexo[i] == &quot;f&quot;">
+                            <then>
+                                <assign variable="fCount" expression="fCount + 1"/>
+                            </then>
+                            <else>
+                                <assign variable="mCount" expression="mCount + 1"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;Porcentagem de recem-nascidos prematuros (&quot; &amp; pCount &amp;&quot;/&quot;&amp; records &amp;&quot;) : &quot; &amp; ToFixed((pCount / records) * 100,2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Porcentagem de prematuros do sexo masculino (&quot;&amp;mCount&amp;&quot;/&quot;&amp; pCount&amp;&quot;) : &quot; &amp; ToFixed((mCount/pCount)*100,2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Porcentagem de prematuros do sexo feminino(&quot;&amp;fCount&amp;&quot;/&quot;&amp; pCount&amp;&quot;) : &quot; &amp; ToFixed((fCount/pCount)*100,2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;M&#233;dia de dias na incubadora : &quot; &amp; sum/records" newline="True"/>
+            <output expression="&quot;Maior tempo na incubadora : &quot; &amp; maiorTempo" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

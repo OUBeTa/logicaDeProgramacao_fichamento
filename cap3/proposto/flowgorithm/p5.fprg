@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-25 03:42:39 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjAxOjI5OjQwICI7MjE3Mg=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjAzOjQyOjM5ICI7MTsyMjg1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="d1, m1, y1, d2, m2, y2, dd, md, yd, mounthControl" type="Integer" array="False" size=""/>
+            <declare name="meses" type="Real" array="True" size="12"/>
+            <assign variable="meses[0]" expression="31"/>
+            <assign variable="meses[1]" expression="28"/>
+            <assign variable="meses[2]" expression="31"/>
+            <assign variable="meses[3]" expression="30"/>
+            <assign variable="meses[4]" expression="31"/>
+            <assign variable="meses[5]" expression="30"/>
+            <assign variable="meses[6]" expression="31"/>
+            <assign variable="meses[7]" expression="31"/>
+            <assign variable="meses[8]" expression="30"/>
+            <assign variable="meses[9]" expression="31"/>
+            <assign variable="meses[10]" expression="30"/>
+            <assign variable="meses[11]" expression="31"/>
+            <output expression="&quot;entrar com dia de nascimento e dia atual(1-31)&quot;" newline="True"/>
+            <input variable="d1"/>
+            <input variable="d2"/>
+            <output expression="&quot;Entrar com m&#234;s de nascimento e m&#234;s atual (1-12)&quot;" newline="True"/>
+            <input variable="m1"/>
+            <input variable="m2"/>
+            <output expression="&quot;Entre com ano de nascimento e ano atual&quot;" newline="True"/>
+            <input variable="y1"/>
+            <input variable="y2"/>
+            <assign variable="dd" expression="0"/>
+            <assign variable="md" expression="0"/>
+            <assign variable="yd" expression="Abs(y1 - y2)"/>
+            <if expression="m2 &lt; m1 or (m2 = m1 and d2 &lt; d1)">
+                <then>
+                    <assign variable="yd" expression="yd -1"/>
+                    <assign variable="m2" expression="m2 + 12"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="d2 &lt; d1">
+                <then>
+                    <assign variable="m2" expression="m2 - 1"/>
+                    <if expression="m2 &lt; 0">
+                        <then>
+                            <assign variable="m2" expression="m2 + 12"/>
+                            <assign variable="yd" expression="yd - 1"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="(y2 % 4 = 0) and ((y2 % 100 &lt;&gt; 0) or (y2 % 400 = 0))">
+                        <then>
+                            <assign variable="meses[1]" expression="29"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <assign variable="d2" expression="d2 + meses[m2 - 1]"/>
+                </then>
+                <else/>
+            </if>
+            <assign variable="dd" expression="Abs(d2 - d1)"/>
+            <assign variable="md" expression="Abs(m2 - m1)"/>
+            <output expression="&quot;anos : &quot; &amp; yd" newline="True"/>
+            <output expression="&quot;Meses : &quot; &amp; md" newline="True"/>
+            <output expression="&quot;Dias : &quot; &amp; dd" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

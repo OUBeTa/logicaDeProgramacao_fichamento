@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-04 11:44:30 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjEwOjUzOjE3ICI7MjE3MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjExOjQ0OjMwICI7MjsyMjc2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, below, above" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="50"/>
+            <declare name="vLido, porcentagem" type="Real" array="True" size="records"/>
+            <declare name="media" type="Real" array="False" size=""/>
+            <assign variable="media" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="porcentagem[i]" expression="0"/>
+                <output expression="&quot;Entrar com nota n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vLido[i]"/>
+                <assign variable="media" expression="media + vLido[i]"/>
+            </for>
+            <assign variable="media" expression="media / records"/>
+            <assign variable="below" expression="0"/>
+            <assign variable="above" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="vLido[i] == media">
+                    <then>
+                        <output expression="&quot;Nota n&quot; &amp; i + 1 &amp; &quot; (&quot; &amp; vLido[i] &amp; &quot;) : na m&#233;dia (&quot; &amp; media &amp; &quot;)&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <assign variable="porcentagem[i]" expression="Abs( (( vLido[i] - media)/records) * 100)"/>
+                    </else>
+                </if>
+                <if expression="vLido[i] &lt; media">
+                    <then>
+                        <output expression="&quot;Nota n&quot; &amp; i + 1 &amp; &quot; (&quot; &amp; vLido[i] &amp; &quot;) : &quot; &amp; ToFixed(porcentagem[i],2) &amp; &quot;% abaixo da m&#233;dia (&quot; &amp; media &amp; &quot;)&quot;" newline="True"/>
+                        <assign variable="below" expression="below + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="vLido[i] &gt; media">
+                    <then>
+                        <output expression="&quot;Nota n&quot; &amp; i + 1 &amp; &quot; (&quot; &amp; vLido[i] &amp; &quot;) : &quot; &amp; ToFixed(porcentagem[i],2) &amp; &quot;% acima da m&#233;dia (&quot; &amp; media &amp; &quot;)&quot;" newline="True"/>
+                        <assign variable="above" expression="above + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;Alunos pelo menos 10% acima da m&#233;dia : &quot; &amp; above" newline="True"/>
+            <output expression="&quot;Alunos pelo menos 10% abaixo da m&#233;dia : &quot; &amp; below" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

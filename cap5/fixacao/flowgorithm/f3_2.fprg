@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-06 12:00:12 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjExOjA3OjMyICI7MjE2OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjExOjA3OjM1ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNTsiMTA6MTg6NDkgIjszXzEuZnByZzs1MjQ4"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjEyOjAwOjEyICI7MTsyMjcw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vMat, vCurso" type="Integer" array="True" size="records"/>
+            <declare name="vName, vSexo" type="String" array="True" size="records"/>
+            <declare name="search" type="String" array="False" size=""/>
+            <assign variable="search" expression="&quot;0&quot;"/>
+            <declare name="cursos" type="String" array="True" size="6"/>
+            <assign variable="cursos[0]" expression="&quot;farm&#225;cia&quot;"/>
+            <assign variable="cursos[1]" expression="&quot;ci&#234;ncia da computa&#231;&#227;o&quot;"/>
+            <assign variable="cursos[2]" expression="&quot;cinema&quot;"/>
+            <assign variable="cursos[3]" expression="&quot;Artes visuais&quot;"/>
+            <assign variable="cursos[4]" expression="&quot;Seguran&#231;a da informa&#231;&#227;o&quot;"/>
+            <assign variable="cursos[5]" expression="&quot;engenharia civil&quot;"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entra com nome do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vName[i]"/>
+                <output expression="&quot;Entre com sexo do aluno n&quot; &amp;i+1" newline="True"/>
+                <input variable="vSexo[i]"/>
+                <output expression="&quot;Entra n&#250;mero da matr&#237;cula do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vMat[i]"/>
+                <output expression="&quot;Entra com o c&#243;igo do curso do aluno n&quot; &amp; i + 1 &amp; &quot; (1 - 6)&quot;" newline="True"/>
+                <input variable="vCurso[i]"/>
+            </for>
+            <output expression="&quot;//======= Come&#231;ando expedi&#231;&#227;o =======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="(vSexo[i] == &quot;M&quot;) or (vSexo[i] == &quot;m&quot;)">
+                    <then>
+                        <output expression="&quot;[nome] : &quot; &amp; vName[i]" newline="True"/>
+                        <output expression="&quot;[sexo] : &quot; &amp; vSexo[i]" newline="True"/>
+                        <output expression="&quot;[curso] : &quot; &amp; cursos[vCurso[i] - 1]" newline="True"/>
+                        <output expression="&quot;[N&#250;mero de matr&#237;cula] : &quot; &amp; vMat[i]" newline="True"/>
+                        <output expression="&quot;&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;//======= Fim expedi&#231;&#227;o =======//&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

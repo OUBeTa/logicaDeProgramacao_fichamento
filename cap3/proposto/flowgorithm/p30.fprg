@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-01 04:06:48 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjAzOjIyOjE2ICI7MjE2NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjAzOjU1OjM5ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNC0yNzsiMDU6MDU6NTEgIjtwMTUuZnByZzs1MjY3"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjA0OjA2OjQ4ICI7MzsyMjgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, sm, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="1"/>
+            <declare name="cpf, dependentes, rendaB" type="Integer" array="True" size="records"/>
+            <declare name="imposto, rendaL" type="Real" array="True" size="records"/>
+            <output expression="&quot;Entre com sal&#225;rio m&#237;nimo&quot;" newline="True"/>
+            <input variable="sm"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com cpf do indiv&#237;duo n&#250;mero &quot; &amp; i + 1" newline="True"/>
+                <input variable="cpf[i]"/>
+                <output expression="&quot;Entre com renda mensal, em reais, do indiv&#237;duo&quot;" newline="True"/>
+                <input variable="rendaB[i]"/>
+                <output expression="&quot;Entre com n&#250;mero de dependentes do induv&#237;duo&quot;" newline="True"/>
+                <input variable="dependentes[i]"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="rendaL[i]" expression="rendaB[i] - ((rendaB[i]/100) * (5*dependentes[i]))"/>
+                <if expression="div(rendaL[i],sm) &lt;= 2 or (rendaL[i] &lt; sm)">
+                    <then>
+                        <assign variable="imposto[i]" expression="0"/>
+                    </then>
+                    <else>
+                        <if expression="div(rendaL[i],sm) &lt;= 3">
+                            <then>
+                                <assign variable="imposto[i]" expression="rendaL[i] * 0.05"/>
+                            </then>
+                            <else>
+                                <if expression="div(rendaL[i],sm) &lt;= 5">
+                                    <then>
+                                        <assign variable="imposto[i]" expression="rendaL[i] * 0.1"/>
+                                    </then>
+                                    <else>
+                                        <if expression="div(rendaL[i],sm) &lt;= 7">
+                                            <then>
+                                                <assign variable="imposto[i]" expression="rendaL[i] * 0.15"/>
+                                            </then>
+                                            <else>
+                                                <assign variable="imposto[i]" expression="rendaL[i] * 0.2"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;||==  INDIV&#205;DUO N&quot; &amp; i+1 &amp; &quot;  ==||&quot;" newline="True"/>
+                <output expression="&quot;CPF : &quot; &amp; cpf[i]" newline="True"/>
+                <output expression="&quot;Renda bruta : R$&quot; &amp; rendaB[i]" newline="True"/>
+                <output expression="&quot;Desconto por dependentes : &quot; &amp; dependentes[i] * 5 &amp; &quot;% {R$&quot;  &amp; rendaL[i] &amp; &quot;}&quot;" newline="True"/>
+                <output expression="&quot;Imposto de renda : &quot; &amp; imposto[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="div" type="Integer" variable="div">
+        <parameters>
+            <parameter name="a" type="Integer" array="False"/>
+            <parameter name="b" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="div" type="Integer" array="False" size=""/>
+            <declare name="sum" type="Real" array="False" size=""/>
+            <assign variable="sum" expression="0"/>
+            <assign variable="div" expression="0"/>
+            <while expression="(sum + b) &lt;= a">
+                <assign variable="sum" expression="sum + b"/>
+                <assign variable="div" expression="div + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

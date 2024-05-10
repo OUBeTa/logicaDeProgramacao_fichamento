@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 12:32:59 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjEwOjQ0OjAzICI7MjE2OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjEyOjMyOjU5ICI7NDsyMjkw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, searchA, searchB" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="2"/>
+            <declare name="arq" type="String" array="True" size="records * 5"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com n&#250;mero de identidade [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arq[i * 5]"/>
+                <output expression="&quot;Entre com nome [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arq[i * 5 + 1]"/>
+                <output expression="&quot;Entre com altura [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arq[i * 5 + 2]"/>
+                <output expression="&quot;Entre com sexo (m/f)[&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arq[i * 5 + 3]"/>
+                <output expression="&quot;Entre com idade [&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arq[i * 5 + 4]"/>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;//====== COME&#199;O EXPEDI&#199;&#194;O =======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Escolha um registro (1 - &quot;&amp;records&amp;&quot;) : &quot;" newline="True"/>
+            <input variable="searchA"/>
+            <if expression="(searchA &lt;= records) and (searchA &gt;= 0)">
+                <then/>
+                <else>
+                    <while expression="!((searchA &lt;= records) and (searchA &gt; 0))">
+                        <output expression="&quot;Entrada [&quot;&amp;i + 1&amp;&quot;] inv&#225;lida, tente novamente.&quot;" newline="True"/>
+                        <input variable="searchA"/>
+                    </while>
+                </else>
+            </if>
+            <output expression="&quot;Escolha um segundo registro (1 - &quot;&amp;records&amp;&quot;) : &quot;" newline="True"/>
+            <input variable="searchB"/>
+            <if expression="(searchB &lt;= records) and (searchB &gt;= 0)">
+                <then/>
+                <else>
+                    <while expression="!((searchB &lt;= records) and (searchB &gt; 0))">
+                        <output expression="&quot;Entrada [&quot;&amp;i + 1&amp;&quot;] inv&#225;lida, tente novamente.&quot;" newline="True"/>
+                        <input variable="searchB"/>
+                    </while>
+                </else>
+            </if>
+            <output expression="&quot;&quot;" newline="True"/>
+            <while expression="(searchA != 0) and (searchB != 0)">
+                <if expression="arq[(searchA - 1) * 5] == arq[(searchB - 1) * 5]">
+                    <then>
+                        <output expression="&quot;[N&#250;mero de indentidade] : &quot; &amp; arq[(searchA - 1) * 5] &amp; &quot; == &quot; &amp; arq[(searchB - 1) * 5]" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="arq[(searchA - 1) * 5 + 1] == arq[(searchB - 1) * 5 + 1]">
+                    <then>
+                        <output expression="&quot;[Nome] : &quot; &amp; arq[(searchA - 1) * 5 + 1] &amp; &quot; == &quot; &amp; arq[(searchB - 1) * 5 + 1]" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="arq[(searchA - 1) * 5 + 2] == arq[(searchB - 1) * 5 + 2]">
+                    <then>
+                        <output expression="&quot;[Altura] : &quot; &amp; arq[(searchA - 1) * 5 + 2] &amp; &quot; == &quot; &amp; arq[(searchB - 1) * 5 + 2]" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="arq[(searchA - 1) * 5 + 3] == arq[(searchB - 1) * 5 + 3]">
+                    <then>
+                        <output expression="&quot;[Sexo] : &quot; &amp; arq[(searchA - 1) * 5 + 3] &amp; &quot; == &quot; &amp; arq[(searchB - 1) * 5 + 3]" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="arq[(searchA - 1)* 5 + 4] == arq[(searchB - 1) * 5 + 4]">
+                    <then>
+                        <output expression="&quot;[Idade] : &quot; &amp; arq[(searchA - 1) * 5 + 4] &amp; &quot; == &quot; &amp; arq[(searchB - 1) * 5 + 4]" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <output expression="&quot;&quot;" newline="True"/>
+                <output expression="&quot;Escolha um registro (1 - &quot;&amp;records&amp;&quot;) : &quot;" newline="True"/>
+                <input variable="searchA"/>
+                <if expression="(searchA &lt;= records) and (searchA &gt;= 0)">
+                    <then/>
+                    <else>
+                        <while expression="!((searchA &lt;= records) and (searchA &gt; 0))">
+                            <output expression="&quot;Entrada [&quot;&amp;i + 1&amp;&quot;] inv&#225;lida, tente novamente.&quot;" newline="True"/>
+                            <input variable="searchA"/>
+                        </while>
+                    </else>
+                </if>
+                <output expression="&quot;Escolha um segundo registro (1 - &quot;&amp;records&amp;&quot;) : &quot;" newline="True"/>
+                <input variable="searchB"/>
+                <if expression="(searchB &lt;= records) and (searchB &gt;= 0)">
+                    <then/>
+                    <else>
+                        <while expression="!((searchB &lt;= records) and (searchB &gt; 0))">
+                            <output expression="&quot;Entrada [&quot;&amp;i + 1&amp;&quot;] inv&#225;lida, tente novamente.&quot;" newline="True"/>
+                            <input variable="searchB"/>
+                        </while>
+                    </else>
+                </if>
+                <output expression="&quot;&quot;" newline="True"/>
+            </while>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;//====== FIM EXPEDI&#199;&#194;O ======//&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,48 @@
+inicio
+    inteiro records <- 10
+    vetor caractere codigo[records]
+    vetor caractere porte[records]
+    vetor inteiro funcionarios[records]
+    
+    inteiro gr <- 0
+    inteiro me <- 0
+    inteiro pe <- 0
+    inteiro mi <- 0
+    
+    caractere grCode
+    caractere meCode
+    caractere peCode
+    caractere miCode
+    
+    inteiro i
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com porte da empresa número ", i + 1, " (grande[gr] média[me] pequena[pe] micro[mi])")
+        leia(porte[i])
+        
+        escreva("Entrar com código da empresa número ", i + 1)
+        leia(codigo[i])
+        
+        escreva("Entrar com número de funcionários da empresa número ", i + 1)
+        leia(funcionarios[i])
+        
+        se porte[i] = "gr" e funcionarios[i] > gr então
+            grCode <- codigo[i]
+            gr <- funcionarios[i]
+        senao se porte[i] = "me" e funcionarios[i] > me então
+            meCode <- codigo[i]
+            me <- funcionarios[i]
+        senao se porte[i] = "pe" e funcionarios[i] > pe então
+            peCode <- codigo[i]
+            pe <- funcionarios[i]
+        senao se porte[i] = "mi" e funcionarios[i] > mi então
+            miCode <- codigo[i]
+            mi <- funcionarios[i]
+        fimse
+    fimpara
+    
+    escreva("Maior empresa de grande porte: ", grCode, " com ", gr, " funcionários")
+    escreva("Maior empresa de médio porte: ", meCode, " com ", me, " funcionários")
+    escreva("Maior empresa de pequeno porte: ", peCode, " com ", pe, " funcionários")
+    escreva("Maior empresa de micro porte: ", miCode, " com ", mi, " funcionários")
+fim

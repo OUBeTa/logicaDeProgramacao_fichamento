@@ -1,0 +1,50 @@
+inicio
+classe RegEmbarque:
+	idade: inteiro = nenhum
+	numPas: inteiro = nenhum
+	nome: cadeia = nenhum
+	cidade: cadeia = nenhum
+	origem: cadeia = nenhum
+	destino: cadeia = nenhum
+    método regData(self, attrName, value):
+        se hasattr(self, attrName) então
+            setattr(self, attrName, value)
+        fimse
+    fim método
+
+inteiro records = 10
+vetor de inteiro idadeV[10]
+vetor de RegEmbarque vetEmbarque[10]
+real media
+inteiro count = 0
+
+para i de 0 até records - 1 passo 1 faça
+    count <- count + 1
+    escreva("Entre com idade do indivíduo ", i + 1)
+    vetEmbarque[i].regData("idade", inteiro(leia()))
+    
+    escreva("Entre com código da viagem do indivíduo ", i + 1)
+    vetEmbarque[i].regData("numPas", inteiro(leia()))
+    
+    escreva("Entre com nome do indivíduo ", i + 1)
+    vetEmbarque[i].regData("nome", leia())
+    
+    escreva("Entre com cidade de origem do indivíduo ", i + 1)
+    vetEmbarque[i].regData("cidade", leia())
+    
+    escreva("Entre com origem da viagem do indivíduo ", i + 1)
+    vetEmbarque[i].regData("origem", leia())
+    
+    escreva("Entre com destino da viagem do indivíduo ", i + 1)
+    vetEmbarque[i].regData("destino", leia())
+fimpara
+
+para i de 0 até records - 1 passo 1 faça
+    idadeV[i] <- vetEmbarque[i].idade
+fimpara
+
+media <- soma(idadeV) / count
+
+escreva("\nA média das idades dos passageiros é: ", media)
+
+fim

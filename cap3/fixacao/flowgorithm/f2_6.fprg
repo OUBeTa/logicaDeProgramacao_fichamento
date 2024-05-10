@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-07 10:05:57 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA5OjU2OjE3ICI7MjE4Mw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjA1OjU3ICI7MTsyMjgx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="cod" type="Integer" array="False" size=""/>
+            <output expression="&quot;Escolha o c&#243;digo do produto (1 | 15)&quot;" newline="True"/>
+            <input variable="cod"/>
+            <if expression="cod == 1">
+                <then>
+                    <output expression="&quot;Alimento n&#227;o-perec&#237;vel&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="cod &gt;= 2 and cod &lt;= 4">
+                        <then>
+                            <output expression="&quot;Alimento perec&#237;vel&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="cod == 5 or cod == 6">
+                                <then>
+                                    <output expression="&quot;Vestu&#225;rio&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="cod == 7">
+                                        <then>
+                                            <output expression="&quot;Higiene pessoal&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="cod &gt;= 8 and cod &lt;= 15">
+                                                <then>
+                                                    <output expression="&quot;Limpeza e utens&#237;lios dom&#233;sticos&quot;" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;C&#243;digo inv&#225;lido&quot;" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

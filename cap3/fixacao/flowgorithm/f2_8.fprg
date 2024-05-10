@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-07 10:26:18 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjEyOjM5ICI7MjE3MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjI2OjE4ICI7MTsyMjgx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="p, np" type="Real" array="False" size=""/>
+            <declare name="cod" type="Integer" array="False" size=""/>
+            <output expression="&quot;Insira o valor do produto &#233; o c&#243;digo de condi&#231;&#227;o de pagamento (1 | 4) em sequ&#234;ncia&quot;" newline="True"/>
+            <input variable="p"/>
+            <input variable="cod"/>
+            <if expression="cod == 1">
+                <then>
+                    <assign variable="np" expression="p * 0.90"/>
+                    <output expression="&quot;Pre&#231;o &#224; vista com desconto : &quot; &amp; np" newline="True"/>
+                </then>
+                <else>
+                    <if expression="cod == 2">
+                        <then>
+                            <assign variable="np" expression="p * 0.95"/>
+                            <output expression="&quot;Pre&#231;o no cart&#227;o com desconto : &quot; &amp; np" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="cod == 3">
+                                <then>
+                                    <assign variable="np" expression="p / 2"/>
+                                    <output expression="&quot;Duas parcelas de : &quot; &amp; np" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="cod == 4">
+                                        <then>
+                                            <assign variable="np" expression="(p * 1.10) / 3"/>
+                                            <output expression="&quot;Tr&#234;s parcelas de : &quot;&amp; np" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;C&#243;digo inexistente&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

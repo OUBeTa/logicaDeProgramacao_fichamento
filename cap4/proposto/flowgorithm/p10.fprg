@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 07:58:49 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA2OjIwOjQ0ICI7MjE3MA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA2OjI3OjE0ICI7Njtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDM6NDI6MDMgIjsyXzRhLmZwcmc7NTM0Mg=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjA2OjQ2OjI1ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDY6MjA6NDQgIjsyXzRiLmZwcmc7NTM0NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA3OjE0OjI5ICI7Mjtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNTsiMDY6NTU6MzMgIjtwMTAuZnByZzs1MjY4"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA3OjE4OjAwICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDY6MjA6NDQgIjtsYWJlbC5mcHJnOzU1NTY="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA3OjU4OjQ5ICI7MTI7MjM0Ng=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, j, records, sOdd" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vI, vII, vIII, vIV, vV, target, sRow, sColl" type="Integer" array="True" size="records"/>
+            <assign variable="sOdd" expression="0"/>
+            <call expression="initVI(sColl,0,0)"/>
+            <call expression="initVI(sRow,0,0)"/>
+            <call expression="initVI(target,0,0)"/>
+            <call expression="initVI(vI,0,0)"/>
+            <call expression="initVI(vII,0,0)"/>
+            <call expression="initVI(vIII,0,0)"/>
+            <call expression="initVI(vIV,0,0)"/>
+            <call expression="initVI(vV,0,0)"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="i == 0">
+                    <then>
+                        <call expression="cloneVI(vI,target)"/>
+                    </then>
+                    <else>
+                        <if expression="i == 1">
+                            <then>
+                                <call expression="cloneVI(vII,target)"/>
+                            </then>
+                            <else>
+                                <if expression="i == 2">
+                                    <then>
+                                        <call expression="cloneVI(vIII,target)"/>
+                                    </then>
+                                    <else>
+                                        <if expression="i == 3">
+                                            <then>
+                                                <call expression="cloneVI(vIV,target)"/>
+                                            </then>
+                                            <else>
+                                                <call expression="cloneVI(vIV,target)"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <output expression="&quot;Entrar com [&quot; &amp; i &amp; &quot;][&quot; &amp; j &amp; &quot;]&quot;" newline="True"/>
+                    <input variable="target[j]"/>
+                </for>
+                <if expression="i == 0">
+                    <then>
+                        <call expression="cloneVI(target,vI)"/>
+                    </then>
+                    <else>
+                        <if expression="i == 1">
+                            <then>
+                                <call expression="cloneVI(target,vII)"/>
+                            </then>
+                            <else>
+                                <if expression="i == 2">
+                                    <then>
+                                        <call expression="cloneVI(target,vIII)"/>
+                                    </then>
+                                    <else>
+                                        <if expression="i == 3">
+                                            <then>
+                                                <call expression="cloneVI(target,vIV)"/>
+                                            </then>
+                                            <else>
+                                                <call expression="cloneVI(target,vV)"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <call expression="printVI(vI)"/>
+            <call expression="printVI(vII)"/>
+            <call expression="printVI(vIII)"/>
+            <call expression="printVI(vIV)"/>
+            <call expression="printVI(vV)"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="sColl[i]" expression="vI[i] + vII[i] + vIII[i] + vIV[i] + vV[i]"/>
+                <if expression="i == 0">
+                    <then>
+                        <call expression="cloneVI(vI,target)"/>
+                    </then>
+                    <else>
+                        <if expression="i == 1">
+                            <then>
+                                <call expression="cloneVI(vII,target)"/>
+                            </then>
+                            <else>
+                                <if expression="i == 2">
+                                    <then>
+                                        <call expression="cloneVI(vIII,target)"/>
+                                    </then>
+                                    <else>
+                                        <if expression="i == 3">
+                                            <then>
+                                                <call expression="cloneVI(vIV,target)"/>
+                                            </then>
+                                            <else>
+                                                <call expression="cloneVI(vIV,target)"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="target[j] % 2 == 1">
+                        <then>
+                            <assign variable="sOdd" expression="sOdd + target[j]"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <assign variable="sRow[i]" expression="sRow[i] + target[j]"/>
+                </for>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Soma da coluna n&quot; &amp; i &amp; &quot; : &quot; &amp; sColl[i]" newline="True"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Soma da linha n&quot; &amp; i &amp; &quot; : &quot; &amp; sRow[i]" newline="True"/>
+            </for>
+            <output expression="&quot;Soma de todos os n&#250;meros &#237;mpares : &quot; &amp; sOdd" newline="True"/>
+        </body>
+    </function>
+    <function name="cloneVI" type="None" variable="">
+        <parameters>
+            <parameter name="M" type="Integer" array="True"/>
+            <parameter name="CLONE" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <if expression="Size(M) &lt;= Size(CLONE)">
+                <then>
+                    <call expression="initVI(CLONE,0,0)"/>
+                    <for variable="i" start="0" end="Size(M) - 1" direction="inc" step="1">
+                        <assign variable="CLONE[i]" expression="M[i]"/>
+                    </for>
+                </then>
+                <else>
+                    <output expression="&quot;[Error : cloneVI] size of vectors are not compatible&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="cloneVR" type="None" variable="">
+        <parameters>
+            <parameter name="V" type="Real" array="True"/>
+            <parameter name="CLONE" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <if expression="Size(V) &lt;= Size(CLONE)">
+                <then>
+                    <call expression="initVI(CLONE,0,0)"/>
+                    <for variable="i" start="0" end="Size(V) - 1" direction="inc" step="1">
+                        <assign variable="CLONE[i]" expression="V[i]"/>
+                    </for>
+                </then>
+                <else>
+                    <output expression="&quot;[Error : cloneVI] size of vectors are not compatible&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="initVI" type="None" variable="">
+        <parameters>
+            <parameter name="M" type="Integer" array="True"/>
+            <parameter name="start" type="Integer" array="False"/>
+            <parameter name="end" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i, j" type="Real" array="False" size=""/>
+            <if expression="(start &lt;= 0) and (end &lt;= 0)">
+                <then>
+                    <for variable="i" start="0" end="Size(M) - 1" direction="inc" step="1">
+                        <assign variable="M[i]" expression="0"/>
+                    </for>
+                </then>
+                <else>
+                    <assign variable="j" expression="start"/>
+                    <for variable="i" start="0" end="Size(M) - 1" direction="inc" step="1">
+                        <assign variable="M[i]" expression="j"/>
+                        <if expression="j &lt; end">
+                            <then>
+                                <assign variable="j" expression="j + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="initVR" type="None" variable="">
+        <parameters>
+            <parameter name="M" type="Real" array="True"/>
+            <parameter name="start" type="Integer" array="False"/>
+            <parameter name="end" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i, j" type="Real" array="False" size=""/>
+            <if expression="(start &lt;= 0) and (end &lt;= 0)">
+                <then>
+                    <for variable="i" start="0" end="Size(M) - 1" direction="inc" step="1">
+                        <assign variable="M[i]" expression="0"/>
+                    </for>
+                </then>
+                <else>
+                    <assign variable="j" expression="start"/>
+                    <for variable="i" start="0" end="Size(M) - 1" direction="inc" step="1">
+                        <assign variable="M[i]" expression="j"/>
+                        <if expression="j &lt; end">
+                            <then>
+                                <assign variable="j" expression="j + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="printVI" type="None" variable="">
+        <parameters>
+            <parameter name="M" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(M) - 1" direction="inc" step="1">
+                <if expression="i == 0">
+                    <then>
+                        <output expression="&quot;[&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i &lt; (Size(M) - 1)">
+                    <then>
+                        <output expression="M[i] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i == (Size(M) - 1)">
+                    <then>
+                        <output expression="M[i] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="printVR" type="None" variable="">
+        <parameters>
+            <parameter name="M" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="Size(M) - 1" direction="inc" step="1">
+                <if expression="i == 0">
+                    <then>
+                        <output expression="&quot;[&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i &lt; (Size(M) - 1)">
+                    <then>
+                        <output expression="M[i] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="i == (Size(M) - 1)">
+                    <then>
+                        <output expression="M[i] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

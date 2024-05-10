@@ -1,0 +1,92 @@
+inicio
+    função dp(a):
+        real soma, dp, media, sqrt
+        
+        soma <- 0
+        dp <- 0
+        
+        para i de 0 até comprimento(a) - 1 passo 1 faça
+            soma <- soma + a[i]
+        fimpara
+        
+        media <- soma / comprimento(a)
+        
+        para i de 0 até comprimento(a) - 1 passo 1 faça
+            dp <- dp + abs(a[i] - media) * abs(a[i] - media) / comprimento(a)
+        fimpara
+        
+        escreva("[Desvio padrão] -> ", sqrt(abs(dp)))
+    fim função
+    
+    função media(a):
+        inteiro count
+        real soma
+        
+        count <- 0
+        soma <- 0
+        
+        para i de 0 até comprimento(a) - 1 passo 1 faça
+            soma <- soma + a[i]
+            count <- count + 1
+        fimpara
+        
+        escreva("[Média] -> ", soma / count)
+    fim função
+    
+    função ngtv2zero(a):
+        vetor de real clone[comprimento(a)]
+        
+        para i de 0 até comprimento(a) - 1 passo 1 faça
+            se a[i] > 0 então
+                clone[i] <- a[i]
+            senão
+                clone[i] <- 0
+            fimse
+        fimpara
+        
+        escreva("[n > 0 -> n == 0] : ", clone)
+    fim função
+    
+    função func_print(a):
+        para i de 0 até comprimento(a) - 1 passo 1 faça
+            escreva("[", i, "] -> ", a[i])
+        fimpara
+    fim função
+    
+    função soma(a):
+        real soma
+        
+        soma <- 0
+        
+        para i de 0 até comprimento(a) - 1 passo 1 faça
+            soma <- soma + a[i]
+        fimpara
+        
+        escreva("[Soma] -> ", soma)
+    fim função
+    
+    inteiro records, i
+    vetor de real vLido[records]
+    
+    records <- 5
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com valor real para vLido[", i, "]")
+        leia vLido[i]
+    fimpara
+    
+    escreva("\n\n//====== Valores ======//\n")
+    func_print(vLido)
+    
+    escreva("\n//====== soma dos valores ======//\n")
+    soma(vLido)
+    
+    escreva("\n//====== média entre os valores ======//\n")
+    media(vLido)
+    
+    escreva("\n//====== desvio padrão entre valores ======//\n")
+    dp(vLido)
+    
+    escreva("\n//====== valores negativos zerados ======//\n")
+    ngtv2zero(vLido)
+fim

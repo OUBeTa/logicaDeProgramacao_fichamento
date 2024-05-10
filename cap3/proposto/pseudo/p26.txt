@@ -1,0 +1,15 @@
+inicio
+    real resultado <- 0
+    inteiro i
+    real termo
+    
+    para i de 1 até 10 passo 1 faça
+        termo <- i / (i * i)
+        se i % 2 = 0 então
+            termo <- termo * -1
+        fimse
+        resultado <- resultado + termo
+    fimpara
+    
+    escreva("S = 1/1 - 2/4 + 3/9 - 4/16 + 5/25 - 6/36 ... - 10/100")
+    escreva("S

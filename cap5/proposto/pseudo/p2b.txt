@@ -1,0 +1,67 @@
+inicio
+    inteiro records = 2
+    vetor de cadeia arquivoStr[records * 2]
+    vetor de inteiro arquivoInt[records * 4]
+    vetor de cadeia meses[12] <- ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+    
+    escreva("//====== INICIANDO REGISTRO EM ARQUIVOS ======//")
+    escreva("")
+    escreva("")
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com nome do sócio [", i + 1, "]")
+        leia arquivoStr[i * 2]
+        
+        escreva("Entrar com n° do sócio [", i + 1, "]")
+        leia arquivoInt[i * 4]
+        
+        escreva("Entrar com endereço do sócio [", i + 1, "]")
+        leia arquivoStr[i * 2 + 1]
+        
+        escreva("Entrar com data de nascimento do sócio (ano) [", i + 1, "]")
+        leia arquivoInt[i * 4 + 1]
+        
+        escreva("Entrar com data de nascimento do sócio (mês [1-12]) [", i + 1, "]")
+        leia arquivoInt[i * 4 + 2]
+        
+        enquanto não (arquivoInt[i * 4 + 2] < 13 e arquivoInt[i * 4 + 2] > 0) faça
+            escreva("Mês [", arquivoInt[i * 4 + 2], "] inválido. Tente novamente (1-12)")
+            leia arquivoInt[i * 4 + 2]
+        fimenquanto
+        
+        se arquivoInt[i * 4 + 2] em [1, 3, 5, 7, 8, 10, 12] então
+            diasMes <- 31
+        senão se arquivoInt[i * 4 + 2] = 2 então
+            se (arquivoInt[i * 4 + 1] % 4 = 0 e arquivoInt[i * 4 + 1] % 100 ≠ 0) ou arquivoInt[i * 4 + 1] % 400 = 0 então
+                diasMes <- 29
+            senão
+                diasMes <- 28
+            fimse
+        senão
+            diasMes <- 30
+        fimse
+        
+        escreva("Entrar com data de nascimento do sócio (dia [1-", diasMes, "]) [", i + 1, "]")
+        leia arquivoInt[i * 4 + 3]
+        
+        enquanto não (arquivoInt[i * 4 + 3] <= diasMes e arquivoInt[i * 4 + 3] > 0) faça
+            escreva("Dia [", arquivoInt[i * 4 + 3], "] inválido. Tente novamente (1-", diasMes, ")")
+            leia arquivoInt[i * 4 + 3]
+        fimenquanto
+        
+        escreva("")
+        escreva("")
+    fimpara
+    
+    escreva("//====== FIM REGISTRO EM ARQUIVOS ======//")
+    escreva("")
+    escreva("")
+    
+    para i de 0 até records - 1 passo 1 faça
+        meses[arquivoInt[i * 4 + 2] * 2 + 1] <- meses[arquivoInt[i * 4 + 2] * 2 + 1] + "+"
+    fimpara
+    
+    para i de 0 até 11 passo 1 faça
+        escreva("Sócios nascidos em [", meses[i], "] : ", comprimento(meses[i + 1]))
+    fimpara
+fim

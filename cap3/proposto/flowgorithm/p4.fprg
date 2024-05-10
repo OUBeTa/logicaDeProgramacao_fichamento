@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-25 01:29:38 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjA4OjE3ICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjAxOjI5OjM4ICI7MTsyMjg3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="capacidadeTotal, litrosAbastecidos, km, auto, litrosRestantes, consumo" type="Real" array="False" size=""/>
+            <output expression="&quot;entrar com capacidade total do tanque&quot;" newline="True"/>
+            <input variable="capacidadeTotal"/>
+            <output expression="&quot;Entrar com quantia abastecida no total&quot;" newline="True"/>
+            <input variable="litrosAbastecidos"/>
+            <output expression="&quot;entrar com quilometragem percorrida&quot;" newline="True"/>
+            <input variable="km"/>
+            <assign variable="consumo" expression="km/litrosAbastecidos"/>
+            <assign variable="litrosRestantes" expression="capacidadeTotal - litrosAbastecidos"/>
+            <assign variable="auto" expression="consumo * litrosRestantes"/>
+            <output expression="&quot;consumo total: &quot; &amp; ToFixed(consumo,2) &amp; &quot;km/l&quot;" newline="True"/>
+            <output expression="&quot;Autonomia restante : &quot; &amp;  ToFixed(auto,2) &amp; &quot;km&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

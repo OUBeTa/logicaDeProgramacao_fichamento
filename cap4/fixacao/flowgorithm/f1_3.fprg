@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-02 06:16:07 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA0OjU2OjE3ICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA0OjU2OjIwICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNC0yNDsiMDU6MzI6MjcgIjsxXzIuZnByZzs1MjQw"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjA2OjE2OjA3ICI7MTsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, mid, left, right" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="v1, v2" type="Integer" array="True" size="records"/>
+            <declare name="vResultado" type="Real" array="True" size="records"/>
+            <assign variable="mid" expression="records / 2"/>
+            <assign variable="left" expression="mid - 1"/>
+            <assign variable="right" expression="mid"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com v1[&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="v1[i]"/>
+                <output expression="&quot;Entre com v2[&quot;&amp;i+1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="v2[i]"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="vResultado[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="v2[i] != 0">
+                    <then>
+                        <if expression="i % 2 == 0">
+                            <then>
+                                <assign variable="vResultado[right]" expression="v1[i] * (1/v2[i])"/>
+                                <assign variable="right" expression="right + 1"/>
+                            </then>
+                            <else>
+                                <assign variable="vResultado[left]" expression="v1[i] * (1/v2[i])"/>
+                                <assign variable="left" expression="left - 1"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;n&quot; &amp; i+1 &amp; &quot; : &quot; &amp; vResultado[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

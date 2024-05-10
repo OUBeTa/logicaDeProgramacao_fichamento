@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 05:25:28 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA1OjA3OjUzICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA1OjI1OjI4ICI7MTsyMjg1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c, v" type="Integer" array="False" size=""/>
+            <assign variable="a" expression="1"/>
+            <assign variable="b" expression="1"/>
+            <output expression="&quot;Fibonacci n 1 : 1&quot;" newline="True"/>
+            <output expression="&quot;Fibonacci n 2 : 1&quot;" newline="True"/>
+            <for variable="v" start="3" end="20" direction="inc" step="1">
+                <assign variable="c" expression="a + b"/>
+                <output expression="&quot;Fibonacci n &quot; &amp; v &amp; &quot; : &quot; &amp; c" newline="True"/>
+                <assign variable="a" expression="b"/>
+                <assign variable="b" expression="c"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

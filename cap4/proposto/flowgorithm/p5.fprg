@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-08 02:23:48 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjExOjQ0OjU1ICI7MjE3NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEyOjA2OjM3ICI7Mjtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMTA6NTM6MTcgIjtwNC5mcHJnOzUyMTM="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDg7IjAyOjIzOjQ4ICI7NDsyMjg4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="4"/>
+            <declare name="vName" type="String" array="True" size="records"/>
+            <declare name="vCusto, vPreco, vPorcentagem" type="Real" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entra com nome do produto n&quot; &amp; i+1" newline="True"/>
+                <input variable="vName[i]"/>
+                <output expression="&quot;Entra com custo do produto n&quot; &amp; i+1" newline="True"/>
+                <input variable="vCusto[i]"/>
+                <output expression="&quot;Entrar com pre&#231;o do procuto n&quot; &amp; i+1" newline="True"/>
+                <input variable="vPreco[i]"/>
+                <assign variable="vPorcentagem[i]" expression="Abs((( vCusto[i] - vPreco[i])/vCusto[i]) * 100 )"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="vPreco[i] == vCusto[i]">
+                    <then>
+                        <output expression="&quot;[&quot;&amp; vName[i] &amp;&quot;] : (pre&#231;o/custo) [&quot; &amp; vCusto[i] &amp; &quot;/&quot; &amp; vPreco[i] &amp; &quot;] -&gt; 0% de lucro&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <if expression="vPreco[i] &lt; vCusto[i]">
+                            <then>
+                                <output expression="&quot;[&quot;&amp; vName[i] &amp;&quot;] : (pre&#231;o/custo) [&quot; &amp; vCusto[i] &amp; &quot;/&quot; &amp; vPreco[i] &amp; &quot;] -&gt; &quot; &amp; ToFixed(vPorcentagem[i],2) &amp; &quot;% de preju&#237;zo&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;[&quot;&amp; vName[i] &amp;&quot;] : (pre&#231;o/custo) [&quot; &amp; vCusto[i] &amp; &quot;/&quot; &amp; vPreco[i] &amp; &quot;] -&gt; &quot; &amp; ToFixed(vPorcentagem[i],2) &amp; &quot;% de lucro&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Lucro &lt; 10%&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="(vCusto[i] &lt; vPreco[i]) and (vPorcentagem[i] &lt; 10)">
+                    <then>
+                        <output expression="&quot;[&quot; &amp; vName[i] &amp; &quot;] : (&quot;&amp; vPorcentagem[i] &amp;&quot;%)&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Lucro &gt; 10% &lt; 30%&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="(vCusto[i] &lt; vPreco[i]) and (vPorcentagem[i] &gt; 10 and vPorcentagem[i] &lt; 30)">
+                    <then>
+                        <output expression="&quot;[&quot; &amp; vName[i] &amp; &quot;] : (&quot;&amp; vPorcentagem[i] &amp;&quot;%)&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Lucro &gt; 30%&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="(vCusto[i] &lt; vPreco[i]) and (vPorcentagem[i] &gt; 30)">
+                    <then>
+                        <output expression="&quot;[&quot; &amp; vName[i] &amp; &quot;] : (&quot;&amp; vPorcentagem[i] &amp;&quot;%)&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

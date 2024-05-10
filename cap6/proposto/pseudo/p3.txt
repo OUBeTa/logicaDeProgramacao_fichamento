@@ -1,0 +1,19 @@
+inicio
+inteiro count, a, b
+
+count <- 0
+
+escreva("Entrar com divisor")
+leia a
+
+escreva("Entrar com dividendo")
+leia b
+
+enquanto a >= b faça
+    a <- a - b
+    count <- count + 1
+fimenquanto
+
+escreva("Divisão inteira: ", count)
+
+fim

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-07 09:47:55 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA5OjQwOjA3ICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA5OjQ3OjU1ICI7MTsyMjkz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="h, p" type="Real" array="False" size=""/>
+            <declare name="s" type="String" array="False" size=""/>
+            <output expression="&quot;Defina o sexo do indiv&#237;duo (M/F)&quot;" newline="True"/>
+            <input variable="s"/>
+            <output expression="&quot;Defina a altura do indiv&#237;duo&quot;" newline="True"/>
+            <input variable="h"/>
+            <if expression="s = &quot;M&quot; or s = &quot;m&quot;">
+                <then>
+                    <assign variable="p" expression="(72.7 * h) - 58"/>
+                </then>
+                <else>
+                    <assign variable="p" expression="(62.1 * h) - 44.7"/>
+                </else>
+            </if>
+            <output expression="&quot;O peso recomendado para um indiv&#237;duo deste sexo &#233;: &quot; &amp; p" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

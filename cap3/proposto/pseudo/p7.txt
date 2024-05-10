@@ -1,0 +1,13 @@
+inicio
+    vetor texto meses[12] <- ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
+    
+    inteiro mes
+    escreva("Entre com número referente a um mês (1-12)")
+    leia(mes)
+    
+    se mes >= 1 e mes <= 12 então
+        escreva("O mês número ", mes, " é o mês de ", meses[mes - 1])
+    senao
+        escreva("Mês inválido")
+    fimse
+fim

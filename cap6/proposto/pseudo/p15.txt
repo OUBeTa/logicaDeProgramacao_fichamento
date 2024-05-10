@@ -1,0 +1,33 @@
+inicio
+função round(num, decimalPlaces):
+real factor, numMulti, rounded
+
+    factor <- 10 ^ decimalPlaces
+    
+    numMulti <- num * factor
+    
+    se num >= 0 então
+        numMulti <- numMulti + 0.5
+    senão
+        numMulti <- numMulti - 0.5
+    fimse
+    
+    rounded <- numMulti // 1
+    
+    rounded <- rounded / factor
+    
+    retornar rounded
+fim função
+
+real a
+inteiro c
+
+escreva("Entrar com número real")
+leia a
+
+escreva("Entrar com número de casas decimais para arredondar")
+leia c
+
+escreva("round(", a, ",", c, ") = ", round(a, c))
+
+fim

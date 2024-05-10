@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-07 09:55:43 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA5OjQ3OjU5ICI7MjE4OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjA5OjU1OjQzICI7MTsyMjg5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, a, ano" type="Integer" array="False" size=""/>
+            <output expression="&quot;Insira o ano atual&quot;" newline="True"/>
+            <input variable="ano"/>
+            <output expression="&quot;Qual o ano de nascimento do indiv&#237;duo?&quot;" newline="True"/>
+            <input variable="a"/>
+            <assign variable="i" expression="ano - a"/>
+            <if expression="i &gt;= 18">
+                <then>
+                    <output expression="&quot;Voc&#234; j&#225; pode prestar habilita&#231;&#227;o&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="i &gt;= 16">
+                        <then>
+                            <output expression="&quot;Voc&#234; j&#225; pode fzer seu t&#237;tulo de eleitor&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Voc&#234; ainda &#233; menor de idade&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

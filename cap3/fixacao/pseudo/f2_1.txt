@@ -1,0 +1,22 @@
+inicio
+    real p
+    real h
+    
+    escreva("Entrar com peso")
+    leia(p)
+    
+    escreva("Entrar com altura")
+    leia(h)
+    
+    real imc <- p / (h * h)
+    
+    se imc < 18.5 então
+        escreva("Condição: abaixo do peso")
+    senao se imc >= 18.5 e imc < 25 então
+        escreva("Condição: peso normal")
+    senao se imc >= 25 e imc < 30 então
+        escreva("Condição: acima do peso")
+    senao
+        escreva("Condição: obeso")
+    fimse
+fim

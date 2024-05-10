@@ -1,0 +1,72 @@
+inicio
+    funcao fixDecimal(valor, digitos)
+        retorno formatar("%.*f", digitos, valor)
+    fimfuncao
+    
+    funcao orderList(v)
+        booleano isOrdered <- falso
+        inteiro aux
+        
+        enquanto não isOrdered faça
+            isOrdered <- verdadeiro
+            
+            para i de 0 até comprimento(v) - 2 passo 1 faça
+                se v[i] > v[i + 1] então
+                    aux <- v[i]
+                    v[i] <- v[i + 1]
+                    v[i + 1] <- aux
+                    isOrdered <- falso
+                fimse
+            fimpara
+        fimenquanto
+    fimfuncao
+    
+    inteiro records <- 10
+    vetor real altura[records]
+    
+    inteiro counter <- 1
+    inteiro maiorSeq <- 1
+    real media <- 0.0
+    real soma <- 0.0
+    real dp <- 0.0
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com altura n", i + 1)
+        leia(altura[i])
+        media <- media + altura[i]
+    fimpara
+    
+    orderList(altura)
+    
+    media <- media / records
+    
+    para i de 0 até records - 1 passo 1 faça
+        soma <- soma + ((altura[i] - media) ** 2) / records
+    fimpara
+    
+    dp <- raiz(soma)
+    
+    real current <- altura[0]
+    
+    para i de 0 até records - 1 passo 1 faça
+        se altura[i + 1] = current então
+            counter <- counter + 1
+        senao
+            se maiorSeq < counter então
+                moda <- current
+                maiorSeq <- counter
+            fimse
+            
+            current <- altura[i + 1]
+            counter <- 1
+        fimse
+    fimpara
+    
+    real mediana <- (altura[records // 2] + altura[(records - 1) // 2]) / 2
+    
+    escreva("Média das alturas: ", fixDecimal(media, 3))
+    escreva("Desvio padrão entre as alturas: ", fixDecimal(dp, 3))
+    escreva("Moda entre as alturas: [", moda, "] ocorrência", se maiorSeq = 1 então "" senao "s", " -> ", maiorSeq)
+    escreva("Mediana entre as alturas: ", fixDecimal(mediana, 2))
+fim
+

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-07 10:35:12 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjI2OjQxICI7MjE2OQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjMxOjEwICI7Mjtyc2FsZDtPVUJFVEE7MjAyNC0wMy0wNzsiMTA6MTI6MzkgIjs0NTAw"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjM1OjEyICI7MTsyMjc1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="x, y" type="Integer" array="False" size=""/>
+            <declare name="s" type="String" array="False" size=""/>
+            <declare name="r" type="Real" array="False" size=""/>
+            <input variable="x"/>
+            <input variable="s"/>
+            <input variable="y"/>
+            <if expression="s == &quot;+&quot;">
+                <then>
+                    <assign variable="r" expression="x + y"/>
+                    <output expression="&quot;A soma resulta em : &quot; &amp; r" newline="True"/>
+                </then>
+                <else>
+                    <if expression="s == &quot;-&quot;">
+                        <then>
+                            <assign variable="r" expression="x - y"/>
+                            <output expression="&quot;A subtra&#231;&#227;o resulta em : &quot; &amp; r" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="s == &quot;*&quot;">
+                                <then>
+                                    <assign variable="r" expression="x * y"/>
+                                    <output expression="&quot;A multiplica&#231;&#227;o resulta em : &quot; &amp; r" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="s == &quot;/&quot;">
+                                        <then>
+                                            <if expression="y = 0">
+                                                <then>
+                                                    <output expression="&quot;Denominador nulo!&quot;" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="r" expression="x / y"/>
+                                                    <output expression="&quot;A divis&#227;o resulta em : &quot; &amp; r" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;Opera&#231;&#227;o inexistente!&quot;" newline="True"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

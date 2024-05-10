@@ -1,0 +1,24 @@
+inicio
+função factorial(num):
+se não num <= 1 então
+i <- num * factorial(num - 1)
+senão
+i <- 1
+fimse
+
+kotlin
+
+    retornar i
+fim função
+
+inteiro a, b
+
+escreva("Entre com número total de elementos")
+leia a
+
+escreva("Entra com quantia selecionada de elementos")
+leia b
+
+escreva("Número de combinações possíveis entre [", b, "] de [", a, "] elementos : ", factorial(a) // (factorial(b) * factorial(a - b)))
+
+fim

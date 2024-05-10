@@ -1,0 +1,134 @@
+inicio
+    classe Elemento:
+        atributo name
+        atributo proximo
+
+        método __init__(self, name):
+            self.name <- name
+            self.proximo <- nenhum
+        fim método
+
+    classe Lista:
+        atributo head
+
+        método __init__(self):
+            self.head <- nenhum
+        fim método
+
+        função rtnList(self):
+            corrente <- self.head
+            cadeia a <- ""
+            
+            enquanto corrente faça
+                a <- a + corrente.name + "\n"
+                corrente <- corrente.proximo
+            fimenquanto
+            
+            retornar a
+        fim função
+
+        função insert_name(self, nNome):
+            new_Elemento <- Elemento(nNome)
+            
+            se não self.head ou self.head.name > nNome então
+                new_Elemento.proximo <- self.head
+                self.head <- new_Elemento
+                retornar
+            fimse
+            
+            corrente <- self.head
+            
+            enquanto corrente.proximo e corrente.proximo.name < nNome faça
+                corrente <- corrente.proximo
+            fimenquanto
+            
+            new_Elemento.proximo <- corrente.proximo
+            corrente.proximo <- new_Elemento
+        fim função
+
+        função delete_name(self, target_name):
+            corrente <- self.head
+            anterior <- nenhum
+            
+            enquanto corrente faça
+                se corrente.name = target_name então
+                    se anterior então
+                        anterior.proximo <- corrente.proximo
+                    senão
+                        self.head <- corrente.proximo
+                    fimse
+                    retornar verdadeiro
+                fimse
+                
+                anterior <- corrente
+                corrente <- corrente.proximo
+            fimenquanto
+            
+            retornar falso
+        fim função
+
+        função update_name(self, old_name, nNome):
+            se self.delete_name(old_name) então
+                self.insert_name(nNome)
+                retornar verdadeiro
+            fimse
+            retornar falso
+        fim função
+
+    lista nl <- Lista()
+    cadeia desire, desireName, oldName, newReg <- ""
+    
+    escreva("\n//====== COMEÇO REGISTRO ======//\n")
+    
+    enquanto newReg.minúscula() != "x" faça
+        newReg <- leia("Registre um novo nome (X para sair)\n")
+        
+        se newReg.minúscula() != "x" então
+            nl.insert_name(newReg)
+            escreva("\nNome [", newReg, "] registrado com sucesso!\n")
+        fimse
+    fimenquanto
+    
+    escreva("\n//====== FIM REGISTRO ======//\n")
+    escreva("lista antes de qualquer alteração")
+    escreva(nl.rtnList())
+    
+    escreva("\n//====== COMEÇO EXPEDIÇÃO ======//\n")
+    
+    desire <- inteiro(leia("Deseja deletar ou alterar um registro? (1 - 2 [0 para sair])\n"))
+    
+    enquanto não (desire < 3 e desire >= 0) faça
+        desire <- inteiro(leia("Índice inválido! Tente novamente. (deletar -> 0 | alterar -> 1)\n"))
+    fimenquanto
+    
+    enquanto desire != 0 faça
+        se desire = 1 então
+            desireName <- leia("Qual nome deseja deletar?\n")
+            
+            enquanto não (desireName em nl.rtnList().separar_por("\n")) faça
+                desireName <- leia("Nome não consta na lista, tente novamente\n")
+            fimenquanto
+            
+            nl.delete_name(desireName)
+        fimse
+        
+        se desire = 2 então
+            oldName <- leia("Qual nome deve ser substituído?\n")
+            
+            enquanto não (oldName em nl.rtnList().separar_por("\n")) faça
+                oldName <- leia("Nome não consta na lista para ser substituído, tente novamente\n")
+            fimenquanto
+            
+            desireName <- leia("Entre com novo valor para este registro\n")
+            
+            nl.update_name(oldName, desireName)
+            escreva("[", oldName, "] alterado para [", desireName, "] com sucesso!")
+        fimse
+        
+        desire <- inteiro(leia("Deseja deletar ou alterar um registro? (1 - 2 [0 para sair])\n"))
+    fimenquanto
+    
+    escreva("\n//====== FIM EXPEDIÇÃO ======//\n")
+    escreva("lista depois de alterações")
+    escreva(nl.rtnList())
+fim

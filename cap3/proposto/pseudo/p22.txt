@@ -1,0 +1,10 @@
+inicio
+    para d1 de 1 até 6 passo 1 faça
+        para d2 de 1 até 6 passo 1 faça
+            escreva(d1, "-", d2)
+            se d1 + d2 = 7 então
+                escreva(d1, " + ", d2, " = 7")
+            fimse
+        fimpara
+    fimpara
+fim

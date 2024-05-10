@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 02:07:05 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjM5OjMzICI7MjE3Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjQ5OjQzICI7Mjtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDE6MzM6MjEgIjtmNF8yLmZwcmc7NTM0OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjA3OjA1ICI7MzsyMjgx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num, reverse, dig, oldNum, sum, newNum" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="num"/>
+            <assign variable="oldNum" expression="num"/>
+            <if expression="(num &gt; 1000) and (num &lt;= 99999)">
+                <then/>
+                <else>
+                    <while expression="!((num &gt; 1000) and (num &lt;= 99999))">
+                        <output expression="&quot;N&#250;mero deve possuir exatos cinco d&#237;gitos&quot;" newline="True"/>
+                        <input variable="num"/>
+                    </while>
+                </else>
+            </if>
+            <assign variable="reverse" expression="0"/>
+            <while expression="num != 0">
+                <assign variable="dig" expression="num % 10"/>
+                <assign variable="reverse" expression="reverse * 10 + dig"/>
+                <assign variable="num" expression="div(num,10)"/>
+            </while>
+            <assign variable="newNum" expression="oldNum + reverse"/>
+            <assign variable="sum" expression="((newNum % 10) * 6) + ((div(newNum,10) % 10)*5) + ((div(newNum,100) % 10)*4) + ((div(newNum,1000) % 10)*3) + ((div(newNum,10000) % 10)*2) + ((div(newNum,100000) % 10)*1)"/>
+            <output expression="&quot;[&quot; &amp; oldNum &amp; &quot;] -&gt; &quot; &amp; (sum % 10)" newline="True"/>
+        </body>
+    </function>
+    <function name="div" type="Integer" variable="i">
+        <parameters>
+            <parameter name="a" type="Integer" array="False"/>
+            <parameter name="b" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <while expression="a &gt;= b">
+                <assign variable="a" expression="a - b"/>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

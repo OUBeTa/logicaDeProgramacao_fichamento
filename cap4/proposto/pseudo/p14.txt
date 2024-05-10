@@ -1,0 +1,43 @@
+inicio
+    inteiro records <- 5
+    vetor inteiro vLido[records * records]
+    vetor inteiro vResult[records * records]
+    
+    inteiro i
+    inteiro j
+    
+    funcao printMatrix(M)
+        para i de 0 até records - 1 passo 1 faça
+            para j de 0 até records - 1 passo 1 faça
+                se j = records - 1 então
+                    se M[i * records + j] = 0 então
+                        escreva(" | - | ")
+                    senao
+                        escreva(" | ", M[i * records + j], " | ")
+                    fimse
+                senao
+                    se M[i * records + j] = 0 então
+                        escreva(" | - | ", sem nova linha)
+                    senao
+                        escreva(" | ", M[i * records + j], " | ", sem nova linha)
+                    fimse
+                fimse
+            fimpara
+        fimpara
+        escreva("")
+    fimfuncao
+    
+    para i de 0 até records - 1 passo 1 faça
+        para j de 0 até records - 1 passo 1 faça
+            escreva("Entrar com [", i, "][", j, "]")
+            leia(vLido[i * records + j])
+            vResult[j * records + i] <- vLido[i * records + j]
+        fimpara
+    fimpara
+    
+    escreva("Matriz inicial")
+    printMatrix(vLido)
+    
+    escreva("Matriz rotacionada 90 graus")
+    printMatrix(vResult)
+fim

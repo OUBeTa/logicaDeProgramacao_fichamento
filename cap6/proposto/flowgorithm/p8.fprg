@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 02:03:39 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjUzOjM3ICI7MjE3Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjU4OjQwICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDE6MjY6NDcgIjtwMy5mcHJnOzUyMTg="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjAzOjM5ICI7MzsyMjg0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, x, y, i, aa, bb, aux" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="a"/>
+            <assign variable="aa" expression="a"/>
+            <assign variable="x" expression="a"/>
+            <output expression="&quot;Entrar com n&#250;mero inteiro&quot;" newline="True"/>
+            <input variable="b"/>
+            <assign variable="bb" expression="b"/>
+            <assign variable="y" expression="b"/>
+            <while expression="y != 0">
+                <assign variable="aux" expression="y"/>
+                <assign variable="y" expression="a % y"/>
+                <assign variable="a" expression="aux"/>
+            </while>
+            <output expression="&quot;m&#225;ximo m&#250;ltiplo comum entre &quot;&amp;aa&amp;&quot; e &quot;&amp;bb&amp;&quot; : &quot; &amp; div((aa * bb),a)" newline="True"/>
+        </body>
+    </function>
+    <function name="div" type="Integer" variable="i">
+        <parameters>
+            <parameter name="a" type="Integer" array="False"/>
+            <parameter name="b" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <while expression="a &gt;= b">
+                <assign variable="a" expression="a - b"/>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-02 02:35:03 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjEyOjIyOjA0ICI7MjE2Mw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjEyOjI1OjEyICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wMTsiMTE6MzY6MjcgIjs0NTAz"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDI7IjAyOjM1OjAzICI7MjsyMjc0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, maiorIotimo, maiorIruim" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="diferenca" type="Real" array="False" size=""/>
+            <declare name="idade, notaCount, nota" type="Integer" array="True" size="records"/>
+            <declare name="maiorIdade" type="Integer" array="True" size="5"/>
+            <declare name="porcentual" type="Real" array="True" size="records"/>
+            <assign variable="maiorIotimo" expression="0"/>
+            <assign variable="maiorIruim" expression="0"/>
+            <for variable="i" start="0" end="4" direction="inc" step="1">
+                <assign variable="notaCount[i]" expression="0"/>
+                <assign variable="porcentual[i]" expression="0"/>
+                <assign variable="maiorIdade[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com idade do indiv&#237;duo n&quot; &amp; i+1" newline="True"/>
+                <input variable="idade[i]"/>
+                <output expression="&quot;Entrar com nota dada pelo indiv&#237;duo n&quot; &amp; i+1 &amp; &quot; (1-5)&quot;" newline="True"/>
+                <input variable="nota[i]"/>
+                <assign variable="notaCount[nota[i] - 1]" expression="notaCount[nota[i] - 1] + 1"/>
+                <if expression="maiorIdade[nota[i] - 1] &lt; idade[i]">
+                    <then>
+                        <assign variable="maiorIdade[nota[i] - 1]" expression="idade[i]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <assign variable="porcentual[0]" expression="(notaCount[4]/records)*100"/>
+            <assign variable="porcentual[1]" expression="(notaCount[3]/records)*100"/>
+            <assign variable="porcentual[2]" expression="(notaCount[2]/records)*100"/>
+            <assign variable="porcentual[3]" expression="(notaCount[1]/records)*100"/>
+            <assign variable="porcentual[4]" expression="(notaCount[0]/records)*100"/>
+            <assign variable="diferenca" expression="(Abs(((porcentual[1] / 100) * records) -((porcentual[2] / 100) * records)) / records) * 100"/>
+            <output expression="&quot;Notas A (&quot; &amp; notaCount[4] &amp; &quot;/&quot; &amp; records &amp; &quot;): &quot; &amp; porcentual[0] &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Diferen&#231;a porcentual entre respostas boas (&quot;&amp; notaCount[3] &amp;&quot;/&quot;&amp; records &amp; &quot;) e respostas regulares (&quot;&amp; notaCount[2] &amp;&quot;/&quot;&amp; records &amp; &quot;) : &quot; &amp; diferenca &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Respostas p&#233;ssimas (&quot; &amp; notaCount[0]&amp; &quot;/&quot; &amp; records &amp; &quot;) : &quot; &amp; porcentual[4] &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Maior idade de resposta p&#233;ssima : &quot; &amp; maiorIdade[0]" newline="True"/>
+            <output expression="&quot;A diferen&#231;a de idade entre a maior idade que respondeu Otimo &quot; &amp; maiorIdade[4] &amp; &quot; e a maior idade que respondeu Ruim (&quot; &amp; maiorIdade[1] &amp; &quot;) : &quot; &amp; Abs(maiorIDade[4] - maiorIDade[1])" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

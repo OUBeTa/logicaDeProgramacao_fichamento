@@ -1,0 +1,117 @@
+inicio
+    classe VideoLocadora:
+        atributo filmes
+        atributo dias_semana
+        
+        método __init__(self):
+            self.filmes <- {}
+            self.dias_semana <- ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
+        fim método
+        
+        função addReserva(self, titulo, cliente, dia):
+            se titulo não em self.filmes então
+                self.filmes[titulo] <- {dia: [] para dia em self.dias_semana}
+            fimse
+            
+            adicionar cliente a self.filmes[titulo][dia]
+            escreva("Reserva adicionada: ", cliente, " reservou '", titulo, "' para ", dia, ".")
+        fim função
+        
+        função rmvReserva(self, titulo, dia):
+            se titulo não em self.filmes então
+                escreva("O filme '", titulo, "' não foi encontrado.")
+                retornar
+            fimse
+            
+            se dia não em self.filmes[titulo] então
+                escreva("O dia '", dia, "' não é válido.")
+                retornar
+            fimse
+            
+            se comprimento(self.filmes[titulo][dia]) = 0 então
+                escreva("Não há reservas para '", titulo, "' em '", dia, "'.")
+                retornar
+            fimse
+            
+            cliente <- remover o primeiro elemento de self.filmes[titulo][dia]
+            escreva("Reserva removida: ", cliente, " alugou '", titulo, "' em ", dia, ".")
+        fim função
+        
+        função listReservas(self, titulo):
+            se titulo não em self.filmes então
+                escreva("O filme '", titulo, "' não foi encontrado.")
+                retornar
+            fimse
+            
+            escreva("Reservas para '", titulo, "':")
+            para cada dia em self.dias_semana faça
+                clientes <- self.filmes[titulo][dia]
+                escreva("Dia ", capitalizar(dia), ": ", clientes se clientes ≠ vazio senão "Nenhuma reserva")
+            fimpara
+        fim função
+    fim classe
+    
+    videolocadora <- VideoLocadora()
+    
+    videolocadora.addReserva("O Poderoso Chefão", "Carlos", "segunda")
+    videolocadora.addReserva("O Poderoso Chefão", "Maria", "terça")
+    videolocadora.addReserva("O Poderoso Chefão", "José", "segunda")
+    videolocadora.addReserva("Interstelar", "Antônio", "segunda")
+    videolocadora.addReserva("Brilho eterno de uma mente sem lembranças", "Vincent", "sexta")
+    videolocadora.addReserva("Ponyo", "Steven", "quarta")
+    
+    videolocadora.listReservas("O Poderoso Chefão")
+    escreva("\n")
+    videolocadora.listReservas("Ponyo")
+    escreva("\n")
+    videolocadora.listReservas("Interstelar")
+    escreva("\n")
+    
+    videolocadora.rmvReserva("O Poderoso Chefão", "segunda")
+    escreva("\n")
+    
+    escreva("\n//====== COMEÇO REGISTRO ======//\n")
+    
+    enquanto verdadeiro faça
+        escreva("\n\nEscolha uma opção:")
+        escreva("1. Adicionar uma reserva")
+        escreva("2. Remover uma reserva")
+        escreva("3. Listar reservas de um filme")
+        escreva("4. Sair")
+        
+        opcao <- leia("\nDigite sua escolha (1, 2, 3 ou 4):\n")
+        
+        se opcao = "1" então
+            titulo <- leia("Digite o título do filme:\n")
+            cliente <- leia("Digite o nome do cliente:\n")
+            dia <- leia("Escolha o dia da semana para a reserva (segunda a domingo):\n").minúscula()
+                
+            videolocadora.addReserva(titulo, cliente, dia)
+        
+        senão se opcao = "2" então
+            titulo <- leia("Digite o título do filme:\n")
+            dia <- leia("Escolha o dia da semana para remover a reserva (segunda a domingo):\n").minúscula()
+                
+            videolocadora.rmvReserva(titulo, dia)
+        
+        senão se opcao = "3" então
+            titulo <- leia("Digite o título do filme:\n")    
+            videolocadora.listReservas(titulo)
+        
+        senão se opcao = "4" então
+            escreva("\n//====== Fim do questionário ======//\n")
+            interrompa
+        
+        senão
+            escreva("Opção inválida. Tente novamente.\n")
+        fimse
+    fimenquanto
+    
+    escreva("\n//====== FIM REGISTRO ======//\n")
+    
+    escreva("//=== FILMES ===//\n")
+    
+    para cada i em VideoLocadora.filmes faça
+        escreva(i, "\n")
+    fimpara
+fim

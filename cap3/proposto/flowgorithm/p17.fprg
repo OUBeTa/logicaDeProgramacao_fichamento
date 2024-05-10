@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 11:44:59 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA4OjA3OjQ0ICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjExOjQ0OjU5ICI7MjsyMjkw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="termA, termB, aux" type="Integer" array="False" size=""/>
+            <declare name="control" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entre com primeiro termo&quot;" newline="True"/>
+            <input variable="termA"/>
+            <output expression="&quot;Entre com segundo termo&quot;" newline="True"/>
+            <input variable="termB"/>
+            <assign variable="aux" expression="0"/>
+            <output expression="&quot;termo 1 : &quot; &amp; termA" newline="True"/>
+            <output expression="&quot;termo 2 : &quot; &amp; termB" newline="True"/>
+            <for variable="control" start="3" end="20" direction="inc" step="1">
+                <assign variable="aux" expression="termA + termB"/>
+                <assign variable="termA" expression="termB"/>
+                <assign variable="termB" expression="aux"/>
+                <output expression="&quot;termo &quot; &amp; control &amp; &quot; : &quot; &amp; aux" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

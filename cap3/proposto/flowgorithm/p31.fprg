@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-01 05:49:48 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjA0OjA2OjU4ICI7MjE3NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjA1OjQ5OjQ4ICI7MTsyMjg5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, maiorIdade, mCountA, fCountA, mCountB, fCountB" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="sexo, olho, cabelo" type="String" array="True" size="records"/>
+            <declare name="idade" type="Integer" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com sexo do indiv&#237;duo &quot; &amp; i + 1 &amp; &quot; (m/f)&quot;" newline="True"/>
+                <input variable="sexo[i]"/>
+                <output expression="&quot;Entrar com cor dos olhos de indiv&#237;duo &quot; &amp; i + 1 &amp; &quot; (c - &gt; castanho / v -&gt; verde / a -&gt; azul)&quot;" newline="True"/>
+                <input variable="olho[i]"/>
+                <output expression="&quot;Entrar com cor do cabelo do indiv&#237;duo &quot; &amp; i + 1 &amp; &quot; (l -&gt; loiro / c -&gt; castanho / p -&gt; preto)&quot;" newline="True"/>
+                <input variable="cabelo[i]"/>
+                <output expression="&quot;Entrar com idade do indiv&#237;duo &quot; &amp; i + 1" newline="True"/>
+                <input variable="idade[i]"/>
+            </for>
+            <assign variable="maiorIdade" expression="idade[0]"/>
+            <assign variable="mCountA" expression="0"/>
+            <assign variable="fCountA" expression="0"/>
+            <assign variable="mCountB" expression="0"/>
+            <assign variable="fCountB" expression="0"/>
+            <for variable="i" start="0" end="records - 2" direction="inc" step="1">
+                <if expression="idade[i + 1] &gt; maiorIdade">
+                    <then>
+                        <assign variable="maiorIdade" expression="idade[i + 1]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="sexo[i] == &quot;m&quot;">
+                    <then>
+                        <assign variable="mCountA" expression="mCountA + 1"/>
+                        <if expression="(idade[i] &gt;= 18) and (idade[i] &lt;= 35)">
+                            <then>
+                                <assign variable="mCountB" expression="mCountB + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="fCountA" expression="fCountA + 1"/>
+                        <if expression="(idade[i] &gt;= 18) and (idade[i] &lt;= 35) and (olho[i] == &quot;v&quot;) and (cabelo[i] == &quot;l&quot;)">
+                            <then>
+                                <assign variable="fCountB" expression="fCountB + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;Maior idade entre os habitantes : &quot; &amp; maiorIdade" newline="True"/>
+            <output expression="&quot;Porcentagem entre os indiv&#237;duos do sexo masculino, cuja idade est&#225; entre 18 e 35 anos (&quot; &amp; mCountB &amp; &quot;/&quot; &amp; mCountA&amp; &quot;) : &quot; &amp; ToFixed((mCountB/mCountA)*100,2) &amp; &quot;%&quot;" newline="True"/>
+            <output expression="&quot;a porcentagem do total de indiv&#237;duos do sexo feminino entre 18 e 35 anos, e que tenham olhos verdes e cabelos loiros (&quot; &amp; fCountB &amp; &quot;/&quot; &amp; mCountA + fCountA &amp; &quot;) : &quot; &amp; ToFixed((fCountB/(mCountA + fCountA))*100,2) &amp; &quot;%&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

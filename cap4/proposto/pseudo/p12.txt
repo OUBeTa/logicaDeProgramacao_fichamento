@@ -1,0 +1,81 @@
+inicio
+    inteiro records <- 5
+    vetor inteiro vLido[records * records]
+    vetor inteiro target[records * records]
+    vetor inteiro a[records * records]
+    vetor inteiro b[records * records]
+    vetor inteiro c[records * records]
+    vetor inteiro d[records * records]
+    vetor inteiro e[records * records]
+    vetor inteiro f[records * records]
+    vetor inteiro g[records * records]
+    vetor inteiro h[records * records]
+    
+    inteiro i
+    inteiro j
+    
+    funcao printMatrix(M)
+        para i de 0 até records - 1 passo 1 faça
+            para j de 0 até records - 1 passo 1 faça
+                se j = records - 1 então
+                    se M[i * records + j] = 0 então
+                        escreva(" | - | ")
+                    senao
+                        escreva(" | ", M[i * records + j], " | ")
+                    fimse
+                senao
+                    se M[i * records + j] = 0 então
+                        escreva(" | - | ", sem nova linha)
+                    senao
+                        escreva(" | ", M[i * records + j], " | ", sem nova linha)
+                    fimse
+                fimse
+            fimpara
+        fimpara
+        escreva("")
+    fimfuncao
+    
+    para i de 0 até records - 1 passo 1 faça
+        para j de 0 até records - 1 passo 1 faça
+            escreva("Entre com [", i, "][", j, "]")
+            leia(vLido[i * records + j])
+        fimpara
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        para j de 0 até records - 1 passo 1 faça
+            a[i * records + j] <- se j = i então vLido[i * records + j] senao 0 fimse
+            b[i * records + j] <- se j > i então vLido[i * records + j] senao 0 fimse
+            c[i * records + j] <- se j < i então vLido[i * records + j] senao 0 fimse
+            d[i * records + j] <- se j != i então vLido[i * records + j] senao 0 fimse
+            e[i * records + j] <- se j + i = records - 1 então vLido[i * records + j] senao 0 fimse
+            f[i * records + j] <- se j + i < records - 1 então vLido[i * records + j] senao 0 fimse
+            g[i * records + j] <- se j + i > records - 1 então vLido[i * records + j] senao 0 fimse
+            h[i * records + j] <- se j + i != records - 1 então vLido[i * records + j] senao 0 fimse
+        fimpara
+    fimpara
+    
+    escreva("Diagonal principal")
+    printMatrix(a)
+    
+    escreva("\nTriângulo superior à diagonal principal")
+    printMatrix(b)
+    
+    escreva("\nTriângulo inferior à diagonal principal")
+    printMatrix(c)
+    
+    escreva("\nTudo exceto a diagonal principal")
+    printMatrix(d)
+    
+    escreva("\nDiagonal secundária")
+    printMatrix(e)
+    
+    escreva("\nTriângulo superior à diagonal secundária")
+    printMatrix(f)
+    
+    escreva("\nTriângulo inferior à diagonal secundária")
+    printMatrix(g)
+    
+    escreva("\nTudo exceto a diagonal secundária")
+    printMatrix(h)
+fim

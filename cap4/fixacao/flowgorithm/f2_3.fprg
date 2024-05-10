@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-03 01:27:24 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDM7IjAxOjE3OjA4ICI7MjE3MA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDM7IjAxOjI3OjI0ICI7MTsyMjc3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, aux" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vLido" type="Integer" array="True" size="records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com item n&#250;mero &quot; &amp; i + 1" newline="True"/>
+                <input variable="vLido[i]"/>
+            </for>
+            <assign variable="aux" expression="vLido[records - 1]"/>
+            <for variable="i" start="records - 1" end="1" direction="dec" step="1">
+                <assign variable="vLido[i]" expression="vLido[i - 1]"/>
+            </for>
+            <assign variable="vLido[0]" expression="aux"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;(&quot; &amp; vLido[i] &amp; &quot;)&quot;" newline="False"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

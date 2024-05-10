@@ -1,0 +1,21 @@
+inicio
+inteiro a, b, c
+
+escreva("Entrar com divisor")
+leia a
+
+c <- a
+b <- 6
+
+enquanto a >= b faça
+    a <- a - b
+fimenquanto
+
+se a = 0 então
+    escreva(c, " é divisível por 6")
+senão
+    escreva(c, " não é divisível por 6")
+fimse
+
+fim
+fim

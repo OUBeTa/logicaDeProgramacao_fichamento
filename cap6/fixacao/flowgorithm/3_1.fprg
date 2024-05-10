@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-06 10:44:02 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjEwOjM0OjAxICI7MjE2NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjEwOjM5OjQwICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNjsiMDY6NTA6NTAgIjtwMmMuZnByZzs1MzA5"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjEwOjQ0OjAyICI7MTsyMjc1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entre com A&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Entre com B&quot;" newline="True"/>
+            <input variable="b"/>
+            <output expression="&quot;Entrar com c&quot;" newline="True"/>
+            <input variable="c"/>
+            <output expression="&quot;lista original : [&quot; &amp;a&amp; &quot;,&quot; &amp;b&amp; &quot;,&quot; &amp;c&amp; &quot;]&quot;" newline="True"/>
+            <if expression="(a &lt; c) and (b &lt; c)">
+                <then>
+                    <output expression="&quot;lista ordenada : [&quot; &amp;a&amp; &quot;,&quot; &amp;b&amp; &quot;,&quot; &amp;c&amp; &quot;]&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="(a &lt; c) and (c &lt; b)">
+                <then>
+                    <output expression="&quot;lista ordenada : [&quot; &amp;a&amp; &quot;,&quot; &amp;c&amp; &quot;,&quot; &amp;b&amp; &quot;]&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="(b &lt; a) and (a &lt; c)">
+                <then>
+                    <output expression="&quot;lista ordenada : [&quot; &amp;b&amp; &quot;,&quot; &amp;a&amp; &quot;,&quot; &amp;c&amp; &quot;]&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="(b &lt; c) and (c &lt; a)">
+                <then>
+                    <output expression="&quot;lista ordenada : [&quot; &amp;b&amp; &quot;,&quot; &amp;c&amp; &quot;,&quot; &amp;a&amp; &quot;]&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="(c &lt; a) and (a &lt; b)">
+                <then>
+                    <output expression="&quot;lista ordenada : [&quot; &amp;c&amp; &quot;,&quot; &amp;a&amp; &quot;,&quot; &amp;c&amp; &quot;]&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="(c &lt; b) and (b &lt; a)">
+                <then>
+                    <output expression="&quot;lista ordenada : [&quot; &amp;c&amp; &quot;,&quot; &amp;b&amp; &quot;,&quot; &amp;a&amp; &quot;]&quot;" newline="True"/>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

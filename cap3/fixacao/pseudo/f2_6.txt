@@ -1,0 +1,20 @@
+inicio
+    inteiro cod
+    
+    escreva("Escolha o código do produto (1 | 15)")
+    leia(cod)
+    
+    se cod = 1 então
+        escreva("Alimento não-perecível")
+    senao se cod >= 2 e cod <= 4 então
+        escreva("Alimento perecível")
+    senao se cod = 5 ou cod = 6 então
+        escreva("Vestuário")
+    senao se cod = 7 então
+        escreva("Higiene pessoal")
+    senao se cod >= 8 e cod <= 15 então
+        escreva("Limpeza e utensílios domésticos")
+    senao
+        escreva("Código inválido")
+    fimse
+fim

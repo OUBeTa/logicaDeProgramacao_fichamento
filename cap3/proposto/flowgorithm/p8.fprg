@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-25 04:48:14 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA0OjE3OjUzICI7MjE3Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA0OjQ4OjE0ICI7MTsyMjg1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="dia, mes, ano" type="Integer" array="False" size=""/>
+            <declare name="dataValida" type="Boolean" array="False" size=""/>
+            <assign variable="dataValida" expression="true"/>
+            <output expression="&quot;entre com dia (1-31)&quot;" newline="True"/>
+            <input variable="dia"/>
+            <output expression="&quot;entre com m&#234;s (1-12)&quot;" newline="True"/>
+            <input variable="mes"/>
+            <output expression="&quot;entre com ano&quot;" newline="True"/>
+            <input variable="ano"/>
+            <if expression="not((dia &lt;= 0 or dia &gt; 31) or (mes &lt;= 0 or mes &gt; 12) or (ano &lt;= 0))">
+                <then>
+                    <if expression="mes == 2">
+                        <then>
+                            <if expression="(ano % 4 == 0) and ((ano % 100 != 0) or (ano % 400 == 0))">
+                                <then>
+                                    <if expression="(dia &gt;= 1) and (dia &lt;= 29)">
+                                        <then/>
+                                        <else>
+                                            <assign variable="dataValida" expression="false"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="(dia &gt;= 1) and (dia &lt;= 28)">
+                                        <then/>
+                                        <else>
+                                            <assign variable="dataValida" expression="false"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="(mes == 4) or (mes == 6) or (mes == 9) or (mes == 11)">
+                                <then>
+                                    <if expression="(dia &gt;= 1) and (dia &lt;= 30)">
+                                        <then/>
+                                        <else>
+                                            <assign variable="dataValida" expression="false"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="(dia &gt;= 1) and (dia &lt;= 31)">
+                                        <then/>
+                                        <else>
+                                            <assign variable="dataValida" expression="false"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <assign variable="dataValida" expression="false"/>
+                </else>
+            </if>
+            <if expression="dataValida">
+                <then>
+                    <output expression="&quot;Data &quot; &amp; dia &amp; &quot;/&quot; &amp; mes &amp; &quot;/&quot; &amp; ano &amp; &quot; &#233; v&#225;lida&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Data &quot; &amp; dia &amp; &quot;/&quot; &amp; mes &amp; &quot;/&quot; &amp; ano &amp; &quot; &#233; inv&#225;lida&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

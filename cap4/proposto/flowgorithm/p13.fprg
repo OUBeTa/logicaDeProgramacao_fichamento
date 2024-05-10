@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 11:50:29 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEwOjQ2OjIzICI7MjE3MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEwOjQ5OjMzICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMDY6MjA6NDQgIjtwMTEuZnByZzs1MjU4"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjExOjUwOjI5ICI7MjsyMjgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j, aux" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vLido, vResult" type="Integer" array="True" size="records * records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <output expression="&quot;Entre com [&quot;&amp;i&amp;&quot;][&quot;&amp;j&amp;&quot;]&quot;" newline="True"/>
+                    <input variable="vLido[i * records + j]"/>
+                    <assign variable="vResult[i * records + j]" expression="0"/>
+                </for>
+            </for>
+            <output expression="&quot;Matrix inicial&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="aux" expression="vLido[j * records + 1]"/>
+                <assign variable="vLido[j * records + 1]" expression="vLido[j * records + 4]"/>
+                <assign variable="vLido[j * records + 4]" expression="aux"/>
+            </for>
+            <output expression="&quot;Swaping 1st coll and 2nd coll&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <assign variable="aux" expression="vLido[i * records + i]"/>
+                    <assign variable="vLido[i * records + i]" expression="vLido[i * records + (records - i - 1)]"/>
+                    <assign variable="vLido[i * records + (records - i - 1)]" expression="aux"/>
+                </for>
+            </for>
+            <output expression="&quot;Swaping diagonal principal e diagonal secund&#225;ria&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

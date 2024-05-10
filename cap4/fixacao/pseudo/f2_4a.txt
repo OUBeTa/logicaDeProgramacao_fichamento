@@ -1,0 +1,41 @@
+inicio
+    inteiro records <- 4
+    matriz inteiro matrix[records][records]
+    
+    inteiro i
+    inteiro j
+    
+    para i de 0 até records - 1 passo 1 faça
+        para j de 0 até records - 1 passo 1 faça
+            se i = j então
+                matrix[i][j] <- 0
+            senao
+                escreva("Entrar com valor para [", i, "][", j, "]")
+                leia(matrix[i][j])
+            fimse
+        fimpara
+    fimpara
+    
+    inteiro li
+    inteiro lj
+    
+    escreva("Entre com localidade I")
+    leia(li)
+    
+    escreva("Entre com localidade J")
+    leia(lj)
+    
+    enquanto li != lj faça
+        escreva("Distância entre a localidade ", li, " e ", lj, " : ", matrix[li][lj])
+        
+        escreva("Entre com localidade I")
+        leia(li)
+        
+        escreva("Entre com localidade J")
+        leia(lj)
+    fimenquanto
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva(matrix[i])
+    fimpara
+fim

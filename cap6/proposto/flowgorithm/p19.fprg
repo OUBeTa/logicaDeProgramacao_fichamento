@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 09:42:47 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjA4OjM4OjM4ICI7MjE4Nw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjA4OjUyOjI4ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDE6Mzk6MzMgIjtmNF8zLmZwcmc7NTM2MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjA4OjU2OjAzICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDE6MjY6NDcgIjtwMy5mcHJnOzUyMjI="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjA5OjQyOjQ3ICI7ODsyMjk4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j, account" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="accountNum" type="Integer" array="True" size="records"/>
+            <declare name="arqStr" type="String" array="True" size="records * 2"/>
+            <declare name="arqFlt" type="Real" array="True" size="records * 4"/>
+            <for variable="i" start="0" end="Size(accountNum) - 1" direction="inc" step="1">
+                <assign variable="accountNum[i]" expression="0"/>
+            </for>
+            <output expression="&quot;//====== INICIO REGISTROS ======//&quot;" newline="True"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com nome [&quot;&amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                <input variable="arqStr[i * 2]"/>
+                <output expression="&quot;Entrar com ag&#234;ncia&quot;" newline="True"/>
+                <input variable="arqStr[i * 2 + 1]"/>
+                <output expression="&quot;Entrar com n&#250;mero do cheque&quot;" newline="True"/>
+                <input variable="arqFlt[i * 4]"/>
+                <output expression="&quot;Entrar com n&#250;mero da conta corrente&quot;" newline="True"/>
+                <input variable="arqFlt[i * 4 + 1]"/>
+                <if expression="(arqFlt[i * 4 + 1] &gt; 10000) and (arqFlt[i * 4 + 1] &lt;= 99999)">
+                    <then/>
+                    <else>
+                        <while expression="!((arqFlt[i * 4 + 1] &gt; 10000) and (arqFlt[i * 4 + 1] &lt;= 99999))">
+                            <output expression="&quot;O n&#250;mero da conta corrente deve ter exatamente cinco d&#237;gitos. Tente novamente&quot;" newline="True"/>
+                            <input variable="arqFlt[i * 4 + 1]"/>
+                        </while>
+                    </else>
+                </if>
+                <output expression="&quot;Entrar com valor do cheque&quot;" newline="True"/>
+                <input variable="arqFlt[i * 4 + 2]"/>
+                <assign variable="arqFlt[i * 4 + 3]" expression="inCode(arqFlt[i * 4 + 1])"/>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <call expression="print(arqStr,arqFlt)"/>
+            <output expression="&quot;&quot;" newline="True"/>
+            <while expression="account != 0">
+                <output expression="&quot;Entre com n&#250;mero de conta para exibir  valor total dos cheques&quot;" newline="True"/>
+                <input variable="account"/>
+                <output expression="&quot;[Valor total dos cheques (&quot;&amp;account&amp;&quot;)] -&gt; &quot; &amp; sumCheq(account,arqFlt)" newline="True"/>
+            </while>
+        </body>
+    </function>
+    <function name="div" type="Integer" variable="count">
+        <parameters>
+            <parameter name="a" type="Integer" array="False"/>
+            <parameter name="b" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <while expression="a &gt;= b">
+                <assign variable="a" expression="a - b"/>
+                <assign variable="count" expression="count + 1"/>
+            </while>
+        </body>
+    </function>
+    <function name="inCode" type="Integer" variable="sum">
+        <parameters>
+            <parameter name="num" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="sum, reverse, dig, oldNum, newNum" type="Integer" array="False" size=""/>
+            <assign variable="oldNum" expression="num"/>
+            <assign variable="reverse" expression="0"/>
+            <while expression="num != 0">
+                <assign variable="dig" expression="num % 10"/>
+                <assign variable="reverse" expression="reverse * 10 + dig"/>
+                <assign variable="num" expression="div(num,10)"/>
+            </while>
+            <assign variable="newNum" expression="oldNum + reverse"/>
+            <assign variable="sum" expression="((newNum % 10) * 6) + ((div(newNum,10) % 10)*5) + ((div(newNum,100) % 10)*4) + ((div(newNum,1000) % 10)*3) + ((div(newNum,10000) % 10)*2) + ((div(newNum,100000) % 10)*1)"/>
+            <assign variable="sum" expression="sum % 10"/>
+        </body>
+    </function>
+    <function name="print" type="None" variable="">
+        <parameters>
+            <parameter name="arqStr" type="String" array="True"/>
+            <parameter name="arqFlt" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="records, i" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="Size(arqStr) / 2"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;[Nome] -&gt; &quot; &amp; arqStr[i * 2]" newline="True"/>
+                <output expression="&quot;[Ag&#234;ncia] -&gt; &quot; &amp; arqStr[i * 2 + 1]" newline="True"/>
+                <output expression="&quot;[N&#250;mero do cheque] -&gt; &quot;  &amp; arqFlt[i * 4]" newline="True"/>
+                <output expression="&quot;[N&#250;mero da conta corrente] -&gt; &quot; &amp; arqFlt[i * 4 + 1]" newline="True"/>
+                <output expression="&quot;[Valor do cheque] -&gt; &quot; &amp; arqFlt[i * 4 + 2]" newline="True"/>
+                <output expression="&quot;[D&#237;gito verificador] -&gt; &quot; &amp; arqFlt[i * 4 + 3]" newline="True"/>
+                <output expression="&quot;&quot;" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="sumCheq" type="Real" variable="sum">
+        <parameters>
+            <parameter name="accountNum" type="Integer" array="False"/>
+            <parameter name="arqFlt" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="sum" type="Real" array="False" size=""/>
+            <assign variable="sum" expression="0"/>
+            <for variable="i" start="0" end="Size(arqFlt) - 1" direction="inc" step="4">
+                <if expression="arqFlt[i + 1] == accountNum">
+                    <then>
+                        <assign variable="sum" expression="sum + arqFlt[i + 2]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

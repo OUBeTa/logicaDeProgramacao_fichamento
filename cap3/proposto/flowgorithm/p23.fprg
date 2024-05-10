@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-30 10:32:30 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjEwOjA3OjQxICI7MjE2NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjEwOjMyOjMwICI7MTsyMjY5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, control, count" type="Integer" array="False" size=""/>
+            <declare name="isPrime" type="Boolean" array="False" size=""/>
+            <assign variable="isPrime" expression="true"/>
+            <output expression="&quot;Entre com primeiro n&#250;mero&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Entre com segundo n&#250;mero&quot;" newline="True"/>
+            <input variable="b"/>
+            <assign variable="count" expression="0"/>
+            <for variable="a" start="a + 1" end="b - 1" direction="inc" step="1">
+                <assign variable="isPrime" expression="true"/>
+                <for variable="control" start="2" end="a * a" direction="inc" step="1">
+                    <if expression="control == a">
+                        <then/>
+                        <else>
+                            <if expression="a % (control) == 0">
+                                <then>
+                                    <assign variable="isPrime" expression="false"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </for>
+                <if expression="isPrime">
+                    <then>
+                        <assign variable="count" expression="count + 1"/>
+                        <output expression="a" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="count &amp; &quot; n&#250;meros primos no total!&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

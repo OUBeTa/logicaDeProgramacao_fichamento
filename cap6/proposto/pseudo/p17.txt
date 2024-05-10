@@ -1,0 +1,43 @@
+inicio
+inteiro a, tAnterior, tAtual, i
+inteiro pTermo
+
+escreva("Entre com a quantia de termos fibonacci a serem exibidos")
+leia a
+
+se a ≠ 0 então
+    tAnterior <- 1
+    tAtual <- 1
+    
+    escreva("f", a, " -> [", fim="")
+    
+    se a = 1 então
+        escreva("1", fim="")
+    senão se a = 2 então
+        escreva("1,1", fim="")
+    senão se a >= 2 então
+        escreva("1,1,", fim="")
+    fimse
+    
+    i <- 2
+    
+    enquanto i < a faça
+        pTermo <- tAnterior + tAtual
+        
+        se i + 1 = a então
+            escreva(pTermo, fim="")
+        senão
+            escreva(pTermo, ",", fim="")
+        fimse
+        
+        tAnterior <- tAtual
+        tAtual <- pTermo
+        i <- i + 1
+    fimenquanto
+senão
+    escreva("[", fim="")
+fimse
+
+escreva("]")
+
+fim

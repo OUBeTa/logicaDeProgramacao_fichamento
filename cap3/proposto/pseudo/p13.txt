@@ -1,0 +1,19 @@
+inicio
+    inteiro a, b, r
+    
+    escreva("Entrar com primeiro número inteiro")
+    leia a
+    
+    escreva("Entrar com segundo número inteiro")
+    leia b
+    
+    escreva("O MDC entre ", a, " e ", b, " é: ")
+    
+    enquanto b ≠ 0 faça
+        r <- a % b
+        a <- b
+        b <- r
+    fimenquanto
+    
+    escreva(a)
+fim

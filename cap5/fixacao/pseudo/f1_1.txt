@@ -1,0 +1,55 @@
+inicio
+inteiro records = 10
+vetor de cadeia vName[records]
+vetor de cadeia vAutor[records]
+vetor de cadeia vAssunto[records]
+vetor de booleano vDoado[records]
+vetor de inteiro vCode[records]
+vetor de inteiro vPag[records]
+inteiro i
+
+para i de 0 até records - 1 passo 1 faça
+    escreva("Entre com código do livro n°", i + 1)
+    leia vCode[i]
+    
+    escreva("Entre com (Doado?) n°", i + 1)
+    leia vDoado[i]
+    
+    escreva("Entre com assunto do livro n°", i + 1)
+    leia vAssunto[i]
+    
+    escreva("Entre com nome do autor de livro n°", i + 1)
+    leia vAutor[i]
+    
+    escreva("Entre com nome do livro n°", i + 1)
+    leia vName[i]
+    
+    escreva("Entre com número de páginas de livro n°", i + 1)
+    leia vPag[i]
+fimpara
+
+escreva("Qual assunto você procura dentre os livros da biblioteca?")
+leia desire
+
+escreva("Lista de livros deste assunto disponíveis")
+escreva("//====================//")
+
+para i de 0 até records - 1 passo 1 faça
+    se vAssunto[i] = desire então
+        escreva("[nome] : ", vName[i])
+        escreva("[Autor] : ", vAutor[i])
+        escreva("[Assunto] : ", vAssunto[i])
+        escreva("[n/Paginas] : ", vPag[i])
+        
+        se vDoado[i] então
+            escreva("[doado] : sim")
+        senão
+            escreva("[doado] : não")
+        fimse
+        
+        escreva("[código] : ", vCode[i])
+        escreva("//====================//")
+    fimse
+fimpara
+
+fim

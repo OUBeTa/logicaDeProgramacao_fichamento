@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 03:27:31 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjI1OjIwICI7MjE2OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjMyOjExICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNzsiMDE6MjY6NDcgIjtwMy5mcHJnOzUyMDk="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAzOjI3OjMxICI7NDsyMjg0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a" type="Real" array="False" size=""/>
+            <declare name="c" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com n&#250;mero real&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Entrar com n&#250;mero de casa decimais para arredondar&quot;" newline="True"/>
+            <input variable="c"/>
+            <output expression="&quot;round(&quot;&amp;a&amp;&quot;,&quot;&amp;c&amp;&quot;) = &quot; &amp; round(a,c)" newline="True"/>
+        </body>
+    </function>
+    <function name="div" type="Integer" variable="count">
+        <parameters>
+            <parameter name="a" type="Integer" array="False"/>
+            <parameter name="b" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="count, sign" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <if expression="b == 0">
+                <then/>
+                <else>
+                    <if expression="(a &lt; 0) != (b &lt; 0)">
+                        <then>
+                            <assign variable="sign" expression="-1"/>
+                        </then>
+                        <else>
+                            <assign variable="sign" expression="1"/>
+                        </else>
+                    </if>
+                    <while expression="a &gt;= b">
+                        <assign variable="a" expression="a - b"/>
+                        <assign variable="count" expression="count + 1"/>
+                    </while>
+                </else>
+            </if>
+            <assign variable="count" expression="count * sign"/>
+        </body>
+    </function>
+    <function name="round" type="Real" variable="rounded">
+        <parameters>
+            <parameter name="num" type="Real" array="False"/>
+            <parameter name="decimalPlaces" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="rounded, factor, numMulti" type="Real" array="False" size=""/>
+            <declare name="sign, roundedNum" type="Integer" array="False" size=""/>
+            <assign variable="factor" expression="10 ^ decimalPlaces"/>
+            <assign variable="numMulti" expression="num * factor"/>
+            <if expression="num &gt;= 0">
+                <then>
+                    <assign variable="numMulti" expression="numMulti + 0.5"/>
+                </then>
+                <else>
+                    <assign variable="numMulti" expression="numMulti - 0.5"/>
+                </else>
+            </if>
+            <assign variable="rounded" expression="div(numMulti,1)"/>
+            <assign variable="rounded" expression="rounded / factor"/>
+        </body>
+    </function>
+</flowgorithm>

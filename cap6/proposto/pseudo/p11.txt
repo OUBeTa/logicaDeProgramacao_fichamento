@@ -1,0 +1,15 @@
+inicio
+real a, result
+
+escreva("Entre com número real")
+leia a
+
+se a < 0 então
+    result <- a * -1
+senão
+    result <- a
+fimse
+
+escreva("| ", a, " | -> | ", result, " |")
+
+fim

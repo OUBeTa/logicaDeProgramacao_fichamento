@@ -1,0 +1,29 @@
+inicio
+    inteiro records, i
+    vetor de cadeia paises[3]
+    vetor de inteiro mO[3], mP[3], mB[3]
+    
+    records <- 3
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com país número ", i + 1)
+        leia paises[i]
+        
+        escreva("Medalhas de ouro do país : | ", paises[i], " |")
+        leia mO[i]
+        
+        escreva("Medalhas de prata do país : | ", paises[i], " |")
+        leia mP[i]
+        
+        escreva("Medalhas de bronze do país : | ", paises[i], " |")
+        leia mB[i]
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("País : ", paises[i])
+        escreva("ouro : ", mO[i])
+        escreva("prata : ", mP[i])
+        escreva("bronze : ", mB[i])
+        escreva("TOTAL | ", paises[i], " | ", mO[i] * 3 + mP[i] * 2 + mB[i])
+    fimpara
+fim

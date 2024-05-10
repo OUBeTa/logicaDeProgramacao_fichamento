@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-07 10:41:47 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjM1OjM2ICI7MjE3Mw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjEwOjQxOjQ3ICI7MTsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="p, h, imc" type="Real" array="False" size=""/>
+            <input variable="p"/>
+            <input variable="h"/>
+            <assign variable="imc" expression="p / (h*h)"/>
+            <if expression="imc &lt; 18.5">
+                <then>
+                    <output expression="&quot;Condi&#231;&#227;o: abaixo do peso&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="imc &gt;= 18.5 and imc &lt; 25">
+                        <then>
+                            <output expression="&quot;Condi&#231;&#227;o: peso normal&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="imc &gt;= 25 and imc &lt; 30">
+                                <then>
+                                    <output expression="&quot;Condi&#231;&#227;o : acima do peso&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Condi&#231;&#227;o: obeso&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

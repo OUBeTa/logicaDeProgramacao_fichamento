@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-08 12:01:15 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA1OjMyOjI3ICI7MjE3NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDg7IjEyOjAxOjE1ICI7MjsyMjc3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="20"/>
+            <declare name="v1" type="Integer" array="True" size="records"/>
+            <declare name="v2" type="Integer" array="True" size="records"/>
+            <declare name="vOper" type="String" array="True" size="records"/>
+            <declare name="vResults" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="records -1" direction="inc" step="1">
+                <output expression="&quot;entre com primeiro operando inteiro&quot;" newline="True"/>
+                <input variable="v1[i]"/>
+                <output expression="&quot;entre com operador (+  -  *  /)&quot;" newline="True"/>
+                <input variable="vOper[i]"/>
+                <output expression="&quot;entre com segundo operando inteiro&quot;" newline="True"/>
+                <input variable="v2[i]"/>
+            </for>
+            <for variable="i" start="0" end="records -1" direction="inc" step="1">
+                <output expression="&quot;Opera&#231;&#227;o &quot; &amp; ToString(i+1) &amp; &quot; (&quot; &amp; v1[i] &amp; vOper[i] &amp; v2[i] &amp; &quot;) : &quot; &amp; calc(v1[i],vOper[i],v2[i])" newline="True"/>
+            </for>
+        </body>
+    </function>
+    <function name="calc" type="Real" variable="num">
+        <parameters>
+            <parameter name="n1" type="Integer" array="False"/>
+            <parameter name="operator" type="String" array="False"/>
+            <parameter name="n2" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="invalidOperator" type="Boolean" array="False" size=""/>
+            <declare name="num" type="Real" array="False" size=""/>
+            <if expression="operator == &quot;+&quot;">
+                <then>
+                    <assign variable="num" expression="n1 + n2"/>
+                </then>
+                <else>
+                    <if expression="operator == &quot;-&quot;">
+                        <then>
+                            <assign variable="num" expression="n1 - n2"/>
+                        </then>
+                        <else>
+                            <if expression="operator == &quot;/&quot;">
+                                <then>
+                                    <assign variable="num" expression="n1 / n2"/>
+                                </then>
+                                <else>
+                                    <if expression="operator == &quot;*&quot;">
+                                        <then>
+                                            <assign variable="num" expression="n1 * n2"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="invalidOperator" expression="1"/>
+                                            <assign variable="num" expression="0"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

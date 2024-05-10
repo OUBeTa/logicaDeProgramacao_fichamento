@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 06:55:29 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA2OjI5OjAyICI7MjE3NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA2OjQ1OjIzICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMTA6Mjc6MTggIjtwNi5mcHJnOzUyMTc="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA2OjU1OjI5ICI7MzsyMjky"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, counter, maiorSeq" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="altura" type="Real" array="True" size="records"/>
+            <declare name="soma, media, mo, me, current, dp" type="Real" array="False" size=""/>
+            <assign variable="counter" expression="1"/>
+            <assign variable="maiorSeq" expression="1"/>
+            <assign variable="soma" expression="0"/>
+            <assign variable="media" expression="0"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com altura n&quot; &amp; i + 1" newline="True"/>
+                <input variable="altura[i]"/>
+                <assign variable="media" expression="media + altura[i]"/>
+            </for>
+            <call expression="orderList(altura)"/>
+            <assign variable="media" expression="media / records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="soma" expression="soma + (Abs ( (altura[i] - media) * (altura[i] - media) / records))"/>
+            </for>
+            <assign variable="dp" expression="Sqrt(soma)"/>
+            <assign variable="current" expression="altura[0]"/>
+            <for variable="i" start="0" end="records - 2" direction="inc" step="1">
+                <if expression="altura[i + 1] == current">
+                    <then>
+                        <assign variable="counter" expression="counter + 1"/>
+                    </then>
+                    <else>
+                        <if expression="maiorSeq &lt; counter">
+                            <then>
+                                <assign variable="mo" expression="current"/>
+                                <assign variable="maiorSeq" expression="counter"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <assign variable="current" expression="altura[i + 1]"/>
+                        <assign variable="counter" expression="1"/>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;M&#233;dia das alturas : &quot; &amp; ToFixed(media,3)" newline="True"/>
+            <output expression="&quot;Desvio padr&#227;o entre as alturas : &quot; &amp; ToFixed(dp,3)" newline="True"/>
+            <output expression="&quot;moda entre as alturas : &quot; &amp; mo &amp; &quot; (occor&#234;ncias -&gt;&quot; &amp; maiorSeq &amp; &quot;)&quot;" newline="True"/>
+            <output expression="&quot;Mediana entre as alturas : &quot; &amp; ToFixed((((altura[Size(altura) / 2]) ) + (altura[Size(altura) / 2]) - 1) / 2,2)" newline="True"/>
+        </body>
+    </function>
+    <function name="orderList" type="None" variable="">
+        <parameters>
+            <parameter name="v" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="aux" type="Real" array="False" size=""/>
+            <declare name="isOrdered" type="Boolean" array="False" size=""/>
+            <assign variable="isOrdered" expression="false"/>
+            <assign variable="aux" expression="0"/>
+            <while expression="!isOrdered">
+                <assign variable="isOrdered" expression="True"/>
+                <for variable="i" start="0" end="Size(V) - 2" direction="inc" step="1">
+                    <if expression="V[i] &gt; V[i + 1]">
+                        <then>
+                            <assign variable="aux" expression="V[i]"/>
+                            <assign variable="V[i]" expression="V[i+1]"/>
+                            <assign variable="V[i+1]" expression="aux"/>
+                            <assign variable="isOrdered" expression="False"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

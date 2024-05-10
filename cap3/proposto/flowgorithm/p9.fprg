@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-25 05:22:00 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA0OjQ4OjM5ICI7MjE4NA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA1OjIyOjAwICI7MTsyMjcz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="mes, dia" type="Integer" array="False" size=""/>
+            <declare name="signo" type="String" array="False" size=""/>
+            <output expression="&quot;Entrar com m&#234;s de nascimento (1-12)&quot;" newline="True"/>
+            <input variable="mes"/>
+            <output expression="&quot;Entrar com dia de nascimento (0-31)&quot;" newline="True"/>
+            <input variable="dia"/>
+            <if expression="mes == 1">
+                <then>
+                    <if expression="(dia &gt;= 1) and (dia &lt;= 19)">
+                        <then>
+                            <assign variable="signo" expression="&quot;capric&#243;rnio&quot;"/>
+                        </then>
+                        <else>
+                            <assign variable="signo" expression="&quot;aqu&#225;rio&quot;"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="mes == 2">
+                        <then>
+                            <if expression="(dia &gt;= 1) and (dia &lt;= 18)">
+                                <then>
+                                    <assign variable="signo" expression="&quot;aqu&#225;rio&quot;"/>
+                                </then>
+                                <else>
+                                    <assign variable="signo" expression="&quot;peixes&quot;"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="mes == 3">
+                                <then>
+                                    <if expression="(dia &gt;= 1) and (dia &lt;= 20)">
+                                        <then>
+                                            <assign variable="signo" expression="&quot;peixes&quot;"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="signo" expression="&quot;&#225;ries&quot;"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="mes == 4">
+                                        <then>
+                                            <if expression="(dia &gt;= 1) and (dia &lt;= 20)">
+                                                <then>
+                                                    <assign variable="signo" expression="&quot;&#225;ries&quot;"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="signo" expression="&quot;touro&quot;"/>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <if expression="mes == 5">
+                                                <then>
+                                                    <if expression="(dia &gt;= 1) and (dia &lt;= 19)">
+                                                        <then>
+                                                            <assign variable="signo" expression="&quot;touro&quot;"/>
+                                                        </then>
+                                                        <else>
+                                                            <assign variable="signo" expression="&quot;gemeos&quot;"/>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                                <else>
+                                                    <if expression="mes == 6">
+                                                        <then>
+                                                            <if expression="(dia &gt;= 1) and (dia &lt;= 20)">
+                                                                <then>
+                                                                    <assign variable="signo" expression="&quot;g&#234;meos&quot;"/>
+                                                                </then>
+                                                                <else>
+                                                                    <assign variable="signo" expression="&quot;C&#226;ncer&quot;"/>
+                                                                </else>
+                                                            </if>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="mes == 7">
+                                                                <then>
+                                                                    <if expression="(dia &gt;= 1) and (dia &lt;= 22)">
+                                                                        <then>
+                                                                            <assign variable="signo" expression="&quot;c&#226;ncer&quot;"/>
+                                                                        </then>
+                                                                        <else>
+                                                                            <assign variable="signo" expression="&quot;le&#227;o&quot;"/>
+                                                                        </else>
+                                                                    </if>
+                                                                </then>
+                                                                <else>
+                                                                    <if expression="mes == 8">
+                                                                        <then>
+                                                                            <if expression="(dia &gt;= 1) and (dia &lt;= 22)">
+                                                                                <then>
+                                                                                    <assign variable="signo" expression="&quot;le&#227;o&quot;"/>
+                                                                                </then>
+                                                                                <else>
+                                                                                    <assign variable="signo" expression="&quot;virgem&quot;"/>
+                                                                                </else>
+                                                                            </if>
+                                                                        </then>
+                                                                        <else>
+                                                                            <if expression="mes == 9">
+                                                                                <then>
+                                                                                    <if expression="(dia &gt;= 1) and (dia &lt;= 22)">
+                                                                                        <then>
+                                                                                            <assign variable="signo" expression="&quot;virgem&quot;"/>
+                                                                                        </then>
+                                                                                        <else>
+                                                                                            <assign variable="signo" expression="&quot;libra&quot;"/>
+                                                                                        </else>
+                                                                                    </if>
+                                                                                </then>
+                                                                                <else>
+                                                                                    <if expression="mes == 10">
+                                                                                        <then>
+                                                                                            <if expression="(dia &gt;= 1) and (dia &lt;= 22)">
+                                                                                                <then>
+                                                                                                    <assign variable="signo" expression="&quot;libra&quot;"/>
+                                                                                                </then>
+                                                                                                <else>
+                                                                                                    <assign variable="signo" expression="&quot;escorpi&#227;o&quot;"/>
+                                                                                                </else>
+                                                                                            </if>
+                                                                                        </then>
+                                                                                        <else>
+                                                                                            <if expression="mes == 11">
+                                                                                                <then>
+                                                                                                    <if expression="(dia &gt;= 1) and (dia &lt;= 21)">
+                                                                                                        <then>
+                                                                                                            <assign variable="signo" expression="&quot;escorpi&#227;o&quot;"/>
+                                                                                                        </then>
+                                                                                                        <else>
+                                                                                                            <assign variable="signo" expression="&quot;sagit&#225;rio&quot;"/>
+                                                                                                        </else>
+                                                                                                    </if>
+                                                                                                </then>
+                                                                                                <else>
+                                                                                                    <if expression="mes == 12">
+                                                                                                        <then>
+                                                                                                            <if expression="(dia &gt;= 1) and (dia &lt;= 21)">
+                                                                                                                <then>
+                                                                                                                    <assign variable="signo" expression="&quot;sagit&#225;rio&quot;"/>
+                                                                                                                </then>
+                                                                                                                <else>
+                                                                                                                    <assign variable="signo" expression="&quot;capric&#243;rnio&quot;"/>
+                                                                                                                </else>
+                                                                                                            </if>
+                                                                                                        </then>
+                                                                                                        <else>
+                                                                                                            <assign variable="signo" expression="&quot;inv&#225;lido&quot;"/>
+                                                                                                        </else>
+                                                                                                    </if>
+                                                                                                </else>
+                                                                                            </if>
+                                                                                        </else>
+                                                                                    </if>
+                                                                                </else>
+                                                                            </if>
+                                                                        </else>
+                                                                    </if>
+                                                                </else>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;signo : &quot; &amp; signo" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

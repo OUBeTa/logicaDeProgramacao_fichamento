@@ -1,0 +1,25 @@
+inicio
+    funcao toFixed(valor, digitos)
+        retorno formatar("%.*f", digitos, valor)
+    fimfuncao
+    
+    real capacidadeTotal
+    real litrosAbastecidos
+    real km
+    
+    escreva("Entrar com capacidade total do tanque")
+    leia(capacidadeTotal)
+    
+    escreva("Entrar com quantia abastecida no total")
+    leia(litrosAbastecidos)
+    
+    escreva("Entrar com quilometragem percorrida")
+    leia(km)
+    
+    real consumo <- km / litrosAbastecidos
+    real litrosRestantes <- capacidadeTotal - litrosAbastecidos
+    real auto <- consumo * litrosRestantes
+    
+    escreva("Consumo total: ", toFixed(consumo, 2), " km/l")
+    escreva("Autonomia restante: ", toFixed(auto, 2), " km")
+fim

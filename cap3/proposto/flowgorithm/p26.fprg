@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-01 12:48:10 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjEyOjQyOjQzICI7MjE2Nw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDE7IjEyOjQ4OjEwICI7MTsyMjc1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="result, term" type="Real" array="False" size=""/>
+            <assign variable="result" expression="0"/>
+            <for variable="i" start="1" end="10" direction="inc" step="1">
+                <assign variable="term" expression="i / (i * i)"/>
+                <if expression="i % 2 == 0">
+                    <then>
+                        <assign variable="term" expression="term * (-1)"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="result" expression="result + term"/>
+            </for>
+            <output expression="&quot;S = 1/ 1 - 2/4 + 3/9 - 4/ 16 + 5/25 - 6/36 ... - 10/ 100&quot;" newline="True"/>
+            <output expression="&quot;S = &quot; &amp; result" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

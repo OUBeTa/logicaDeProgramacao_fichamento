@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-06 02:30:59 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjEyOjUxOjUxICI7MjE3MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDY7IjAyOjMwOjU5ICI7ODsyMjkw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j, arq, count, indexA, indexB, index" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="arquivo1" type="String" array="True" size="3 * records"/>
+            <declare name="arquivo2" type="String" array="True" size="6 * records"/>
+            <assign variable="indexA" expression="0"/>
+            <assign variable="indexB" expression="0"/>
+            <assign variable="count" expression="0"/>
+            <for variable="i" start="0" end="Size(arquivo1) - 1" direction="inc" step="1">
+                <assign variable="arquivo1[i]" expression="&quot;&quot;"/>
+            </for>
+            <for variable="i" start="0" end="Size(arquivo2) - 1" direction="inc" step="1">
+                <assign variable="arquivo2[i]" expression="&quot;-&quot;"/>
+            </for>
+            <output expression="&quot;//====== INICIANDO REGISTRO EM ARQUIVOS ======//&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Registrar em arquivo (1 - 2): &quot;" newline="True"/>
+                <input variable="arq"/>
+                <if expression="(arq &lt; 3) and (arq &gt; 0)">
+                    <then/>
+                    <else>
+                        <while expression="!((arq &lt; 3) and (arq &gt; 0))">
+                            <output expression="&quot;Arquivo [&quot; &amp; arq &amp; &quot;] inv&#225;lido. Tente novamente&quot;" newline="True"/>
+                            <input variable="arq"/>
+                        </while>
+                    </else>
+                </if>
+                <if expression="arq == 1">
+                    <then>
+                        <output expression="&quot;Entrar com nome [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo1[indexA * 3]"/>
+                        <output expression="&quot;Entrar com endere&#231;o [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo1[indexA * 3 + 1]"/>
+                        <output expression="&quot;Entrar com telefone [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo1[indexA * 3 + 2]"/>
+                        <assign variable="indexA" expression="indexA + 1"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Entrar com nome [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo2[indexB * 6]"/>
+                        <output expression="&quot;Entrar com endere&#231;o [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo2[indexB * 6 + 1]"/>
+                        <output expression="&quot;Entrar com cidade [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo2[indexB * 6 + 2]"/>
+                        <output expression="&quot;Entrar com bairro [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo2[indexB * 6 + 3]"/>
+                        <output expression="&quot;Entrar com cep [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo2[indexB * 6 + 4]"/>
+                        <output expression="&quot;Entrar com data de nascimento [indiv&#237;duo n&quot; &amp;i + 1&amp;&quot;]&quot;" newline="True"/>
+                        <input variable="arquivo2[indexB * 6 + 5]"/>
+                        <assign variable="indexB" expression="indexB + 1"/>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;//====== FIM REGISTRO EM ARQUIVOS ======//&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="(arquivo1[i * 3] == arquivo2[i * 6]) and (arquivo1[i * 3 + 1] == arquivo2[i * 6 + 1])">
+                    <then>
+                        <assign variable="count" expression="count + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <if expression="count &gt; 0">
+                <then>
+                    <declare name="arquivoMerge" type="String" array="True" size="7 * count"/>
+                    <assign variable="index" expression="0"/>
+                    <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                        <if expression="(arquivo1[i * 3] == arquivo2[i * 6]) and (arquivo1[i * 3 + 1] == arquivo2[i * 6 + 1])">
+                            <then>
+                                <assign variable="arquivoMerge[index * 7]" expression="arquivo1[i * 3]"/>
+                                <assign variable="arquivoMerge[index * 7 + 1]" expression="arquivo1[i * 3 + 1]"/>
+                                <assign variable="arquivoMerge[index * 7 + 2]" expression="arquivo1[i * 3 + 2]"/>
+                                <assign variable="arquivoMerge[index * 7 + 3]" expression="arquivo2[i * 6 + 2]"/>
+                                <assign variable="arquivoMerge[index * 7 + 4]" expression="arquivo2[i * 6 + 3]"/>
+                                <assign variable="arquivoMerge[index * 7 + 5]" expression="arquivo2[i * 6 + 4]"/>
+                                <assign variable="arquivoMerge[index * 7 + 6]" expression="arquivo2[i * 6 + 5]"/>
+                                <assign variable="index" expression="index + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                    <output expression="&quot;Registros correspondentes&quot;" newline="True"/>
+                    <for variable="i" start="0" end="index - 1" direction="inc" step="1">
+                        <output expression="&quot;//===============//&quot;" newline="True"/>
+                        <output expression="&quot;[Registro] : &quot; &amp; i + 1" newline="True"/>
+                        <output expression="&quot;[Nome] : &quot; &amp; arquivoMerge[i*7]" newline="True"/>
+                        <output expression="&quot;[Endere&#231;o] : &quot; &amp; arquivoMerge[i*7 + 1]" newline="True"/>
+                        <output expression="&quot;[Telefone] : &quot; &amp; arquivoMerge[i*7+2]" newline="True"/>
+                        <output expression="&quot;[Cidade] : &quot; &amp; arquivoMerge[i*7+3]" newline="True"/>
+                        <output expression="&quot;[Bairro] : &quot; &amp; arquivoMerge[i*7+4]" newline="True"/>
+                        <output expression="&quot;[Cep] : &quot; &amp; arquivoMerge[i*7+5]" newline="True"/>
+                        <output expression="&quot;[Nascimento] : &quot; &amp; arquivoMerge[i*7+6]" newline="True"/>
+                    </for>
+                </then>
+                <else>
+                    <output expression="&quot;Nenhum registro correspondente&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

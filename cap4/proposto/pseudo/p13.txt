@@ -1,0 +1,55 @@
+inicio
+    inteiro records <- 5
+    vetor inteiro vLido[records * records]
+    
+    inteiro i
+    inteiro j
+    
+    funcao printMatrix(M)
+        para i de 0 até records - 1 passo 1 faça
+            para j de 0 até records - 1 passo 1 faça
+                se j = records - 1 então
+                    se M[i * records + j] = 0 então
+                        escreva(" | - | ")
+                    senao
+                        escreva(" | ", M[i * records + j], " | ")
+                    fimse
+                senao
+                    se M[i * records + j] = 0 então
+                        escreva(" | - | ", sem nova linha)
+                    senao
+                        escreva(" | ", M[i * records + j], " | ", sem nova linha)
+                    fimse
+                fimse
+            fimpara
+        fimpara
+    fimfuncao
+    
+    para i de 0 até records - 1 passo 1 faça
+        para j de 0 até records - 1 passo 1 faça
+            escreva("Entre com [", i, "][", j, "]: ")
+            leia(vLido[i * records + j])
+        fimpara
+    fimpara
+    
+    escreva("Matriz inicial")
+    printMatrix(vLido)
+    
+    para j de 0 até records - 1 passo 1 faça
+        aux <- vLido[j * records + 1]
+        vLido[j * records + 1] <- vLido[j * records + 4]
+        vLido[j * records + 4] <- aux
+    fimpara
+    
+    escreva("\nTrocando 2ª coluna e 5ª coluna")
+    printMatrix(vLido)
+    
+    para i de 0 até records - 1 passo 1 faça
+        aux <- vLido[i * records + i]
+        vLido[i * records + i] <- vLido[i * records + (records - i - 1)]
+        vLido[i * records + (records - i - 1)] <- aux
+    fimpara
+    
+    escreva("\nTrocando diagonal principal e diagonal secundária")
+    printMatrix(vLido)
+fim

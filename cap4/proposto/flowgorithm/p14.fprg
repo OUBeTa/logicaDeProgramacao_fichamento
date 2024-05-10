@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 12:01:19 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjExOjUwOjMxICI7MjE2Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjExOjU3OjU5ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNTsiMTA6NDY6MjMgIjtwMTMuZnByZzs1MjY5"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjEyOjAxOjE5ICI7MzsyMjc5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="5"/>
+            <declare name="vLido, vResult" type="Integer" array="True" size="records * records"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <output expression="&quot;Entrar com [&quot;&amp;i&amp;&quot;][&quot;&amp;j&amp;&quot;]&quot;" newline="True"/>
+                    <input variable="vLido[i * records + j]"/>
+                    <assign variable="vResult[j * records + i]" expression="vLido[i * records + j]"/>
+                </for>
+            </for>
+            <output expression="&quot;Matriz inicial&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; vLido[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+            <output expression="&quot;Matriz rotacionada 90 graus&quot;" newline="True"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="j == records - 1">
+                        <then>
+                            <output expression="&quot; | &quot; &amp; vResult[i * records + j] &amp; &quot; | &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot; | &quot; &amp; vResult[i * records + j] &amp; &quot; | &quot;" newline="False"/>
+                        </else>
+                    </if>
+                </for>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

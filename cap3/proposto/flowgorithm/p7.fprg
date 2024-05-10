@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-25 04:17:21 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA0OjA5OjI3ICI7MjE3OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA0OjA5OjI5ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNC0yNTsiMDE6Mjk6NDAgIjtwNS5mcHJnOzUyMjA="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjU7IjA0OjE3OjIxICI7MTsyMjc5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="mes" type="Integer" array="False" size=""/>
+            <declare name="meses" type="String" array="True" size="12"/>
+            <assign variable="meses[0]" expression="&quot;janeiro&quot;"/>
+            <assign variable="meses[1]" expression="&quot;fevereiro&quot;"/>
+            <assign variable="meses[2]" expression="&quot;mar&#231;o&quot;"/>
+            <assign variable="meses[3]" expression="&quot;abril&quot;"/>
+            <assign variable="meses[4]" expression="&quot;maio&quot;"/>
+            <assign variable="meses[5]" expression="&quot;junho&quot;"/>
+            <assign variable="meses[6]" expression="&quot;julho&quot;"/>
+            <assign variable="meses[7]" expression="&quot;agosto&quot;"/>
+            <assign variable="meses[8]" expression="&quot;setembro&quot;"/>
+            <assign variable="meses[9]" expression="&quot;outubro&quot;"/>
+            <assign variable="meses[10]" expression="&quot;novembro&quot;"/>
+            <assign variable="meses[11]" expression="&quot;dezembro&quot;"/>
+            <output expression="&quot;entre com n&#250;mero referente a um m&#234;s (1-12)&quot;" newline="True"/>
+            <input variable="mes"/>
+            <if expression="mes &gt;= 1 and mes &lt;= 12">
+                <then>
+                    <output expression="&quot;o m&#234;s n&#250;mero &quot; &amp; mes &amp; &quot; &#233; o m&#234;s de &quot; &amp; meses[mes - 1]" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;m&#234;s inv&#225;lido&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

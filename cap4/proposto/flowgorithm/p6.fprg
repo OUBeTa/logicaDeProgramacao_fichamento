@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-04 11:10:54 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjEwOjI3OjE4ICI7MjE3Mw=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjExOjAwOjE0ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNDsiMTA6MTE6NDQgIjtwMy5mcHJnOzUxOTI="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDQ7IjExOjEwOjU0ICI7MzsyMjc2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j, current" type="Integer" array="False" size=""/>
+            <declare name="result" type="String" array="False" size=""/>
+            <assign variable="records" expression="20"/>
+            <declare name="v1, v2" type="Integer" array="True" size="records"/>
+            <assign variable="current" expression="0"/>
+            <assign variable="result" expression="&quot;&quot;"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com v1[&quot; &amp; i &amp; &quot;]&quot;" newline="True"/>
+                <input variable="v1[i]"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entre com v2[&quot; &amp; i &amp; &quot;]&quot;" newline="True"/>
+                <input variable="v2[i]"/>
+            </for>
+            <call expression="orderList(v1)"/>
+            <call expression="orderList(v2)"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                    <if expression="(v1[i] ==  v2[j]) and (v1[i] != current)">
+                        <then>
+                            <if expression="j == 0">
+                                <then>
+                                    <assign variable="result" expression="result &amp; &quot;[&quot;"/>
+                                </then>
+                                <else/>
+                            </if>
+                            <if expression="j &lt; records - 1">
+                                <then>
+                                    <assign variable="result" expression="result &amp; v1[i] &amp; &quot;,&quot;"/>
+                                </then>
+                                <else/>
+                            </if>
+                            <if expression="j == records - 1">
+                                <then>
+                                    <assign variable="result" expression="result &amp; v1[i] &amp; &quot;]&quot;"/>
+                                </then>
+                                <else/>
+                            </if>
+                            <assign variable="current" expression="v1[i]"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+            <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="j == 0">
+                    <then>
+                        <output expression="&quot;A = [&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="j &lt; records - 1">
+                    <then>
+                        <output expression="v1[j] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="j == records - 1">
+                    <then>
+                        <output expression="v1[j] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="j" start="0" end="records - 1" direction="inc" step="1">
+                <if expression="j == 0">
+                    <then>
+                        <output expression="&quot;B = [&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="j &lt; records - 1">
+                    <then>
+                        <output expression="v2[j] &amp; &quot;,&quot;" newline="False"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="j == records - 1">
+                    <then>
+                        <output expression="v2[j] &amp; &quot;]&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;Repetidos : &quot; &amp; result" newline="True"/>
+        </body>
+    </function>
+    <function name="orderList" type="None" variable="">
+        <parameters>
+            <parameter name="V" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="i, aux" type="Integer" array="False" size=""/>
+            <declare name="isOrdered" type="Boolean" array="False" size=""/>
+            <assign variable="isOrdered" expression="false"/>
+            <assign variable="aux" expression="0"/>
+            <while expression="!isOrdered">
+                <assign variable="isOrdered" expression="True"/>
+                <for variable="i" start="0" end="Size(V) - 2" direction="inc" step="1">
+                    <if expression="V[i] &gt; V[i + 1]">
+                        <then>
+                            <assign variable="aux" expression="V[i]"/>
+                            <assign variable="V[i]" expression="V[i+1]"/>
+                            <assign variable="V[i+1]" expression="aux"/>
+                            <assign variable="isOrdered" expression="False"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

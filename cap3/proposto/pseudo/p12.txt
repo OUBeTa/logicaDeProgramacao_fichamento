@@ -1,0 +1,112 @@
+inicio
+    escreva("Animais possíveis: leão, cavalo, humano, macaco, morcego, baleia, avestruz, pinguim, pato, águia, tartaruga, crocodilo e cobra")
+    
+    inteiro mamifero
+    escreva("É mamífero? (0-1)")
+    leia mamifero
+    
+    se mamifero = 1 então
+        inteiro quadrupede
+        escreva("É quadrúpede?")
+        leia quadrupede
+        
+        se quadrupede = 1 então
+            inteiro carnivoro
+            escreva("É carnívoro?")
+            leia carnivoro
+            
+            se carnivoro = 1 então
+                finalAnimal <- "leão"
+            senão
+                finalAnimal <- "Cavalo"
+            fimse
+            
+        senão
+            inteiro bipede
+            escreva("É bípede?")
+            leia bipede
+            
+            se bipede = 1 então
+                inteiro onivoro
+                escreva("É onívoro?")
+                leia onivoro
+                
+                se onivoro = 1 então
+                    finalAnimal <- "Humano"
+                senão
+                    finalAnimal <- "Macaco"
+                fimse
+                
+            senão
+                inteiro voador
+                escreva("É voador?")
+                leia voador
+                
+                se voador = 1 então
+                    finalAnimal <- "Morcego"
+                senão
+                    finalAnimal <- "Baleia"
+                fimse
+            fimse
+            
+        fimse
+        
+    senão
+        inteiro ave
+        escreva("É uma ave?")
+        leia ave
+        
+        se ave = 1 então
+            inteiro voador
+            escreva("É voadora?")
+            leia voador
+            
+            se voador = 1 então
+                inteiro nadador
+                escreva("É nadador?")
+                leia nadador
+                
+                se nadador = 1 então
+                    finalAnimal <- "Pato"
+                senão
+                    finalAnimal <- "Águia"
+                fimse
+                
+            senão
+                inteiro tropical
+                escreva("É tropical?")
+                leia tropical
+                
+                se tropical = 1 então
+                    finalAnimal <- "Avestruz"
+                senão
+                    finalAnimal <- "pinguim"
+                fimse
+                
+            fimse
+            
+        senão
+            inteiro cCasco
+            escreva("Possui casco?")
+            leia cCasco
+            
+            se cCasco = 1 então
+                finalAnimal <- "Tartaruga"
+            senão
+                inteiro carnivoro
+                escreva("É carnívoro?")
+                leia carnivoro
+                
+                se carnivoro = 1 então
+                    finalAnimal <- "Crocodilo"
+                senão
+                    finalAnimal <- "Cobra"
+                fimse
+            fimse
+            
+        fimse
+        
+    fimse
+    
+    escreva("O animal é: ", finalAnimal)
+fim

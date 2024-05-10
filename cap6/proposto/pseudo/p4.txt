@@ -1,0 +1,17 @@
+inicio
+inteiro result, a
+
+sql
+
+result <- 0
+
+escreva("Entre com número inteiro")
+leia a
+
+enquanto result * result <= a faça
+    result <- result + 1
+fimenquanto
+
+escreva("Raiz inteira de ", a, " : ", result - 1)
+
+fim

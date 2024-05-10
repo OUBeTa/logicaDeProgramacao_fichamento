@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 04:50:33 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDY7IjA5OjEyOjQ1ICI7MjE3NQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjUwOjMzICI7MzsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c, d, x1, x2, parteReal, parteImaginaria" type="Real" array="False" size=""/>
+            <input variable="a"/>
+            <input variable="b"/>
+            <input variable="c"/>
+            <assign variable="d" expression="(b * b) - (4 * a * c)"/>
+            <if expression="d &lt;= 0">
+                <then>
+                    <if expression="d == 0">
+                        <then>
+                            <output expression="&quot;Raiz &#250;nica : &quot; &amp; ToString(-b / (2 * a))" newline="True"/>
+                        </then>
+                        <else>
+                            <assign variable="parteReal" expression="-b / (2 * a)"/>
+                            <assign variable="parteImaginaria" expression="Sqrt(-d) / (2 * a)"/>
+                            <output expression="&quot;Raiz 1 : &quot; &amp; parteReal &amp; &quot; + &quot; &amp; ToFixed(parteImaginaria,2) &amp; &quot;i&quot;" newline="True"/>
+                            <output expression="&quot;Raiz 2 : &quot; &amp; parteReal &amp; &quot; - &quot; &amp; ToFixed(parteImaginaria,2) &amp; &quot;i&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <assign variable="x1" expression="(-b + d) / (2*a)"/>
+                    <assign variable="x2" expression="(-b - d) / (2*a)"/>
+                    <output expression="&quot;Raiz 1 : &quot; &amp; x1" newline="True"/>
+                    <output expression="&quot;Raiz 2 : &quot; &amp; x2" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

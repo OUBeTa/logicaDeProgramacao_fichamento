@@ -1,0 +1,22 @@
+inicio
+    inteiro records <- 5
+    vetor inteiro vLido[records]
+    
+    inteiro i
+    inteiro aux
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entrar com item número ", i + 1)
+        leia(vLido[i])
+    fimpara
+    
+    aux <- vLido[records - 1]
+    
+    para i de records - 1 até 1 passo -1 faça
+        vLido[i] <- vLido[i - 1]
+    fimpara
+    
+    vLido[0] <- aux
+    
+    escreva("Lista rotacionada para a direita: ", vLido)
+fim

@@ -1,0 +1,18 @@
+inicio
+    inteiro n
+    escreva("Entre com valor inteiro")
+    leia(n)
+    
+    inteiro r <- 0
+    
+    enquanto verdadeiro faça
+        r <- r + 1
+        se r * r > n então
+            pare
+        fimse
+    fimenquanto
+    
+    r <- r - 1
+    
+    escreva("O inteiro aproximado da raiz de ", n, " é ", r)
+fim

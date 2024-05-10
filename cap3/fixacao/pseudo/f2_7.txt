@@ -1,0 +1,18 @@
+inicio
+    inteiro i
+    
+    escreva("Qual a idade do nadador?")
+    leia(i)
+    
+    se i >= 5 e i <= 7 então
+        escreva("Infantil A")
+    senao se i >= 8 e i <= 10 então
+        escreva("Infantil B")
+    senao se i >= 11 e i <= 13 então
+        escreva("Juvenil A")
+    senao se i >= 14 e i <= 17 então
+        escreva("Juvenil B")
+    senao se i >= 18 então
+        escreva("Adulto")
+    fimse
+fim

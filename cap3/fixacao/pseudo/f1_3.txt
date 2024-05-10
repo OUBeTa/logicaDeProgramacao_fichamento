@@ -1,0 +1,10 @@
+inicio
+    real r
+    
+    escreva("Insira o raio da esfera")
+    leia(r)
+    
+    real v <- (4 / 3) * 3.1416 * r ** 3
+    
+    escreva("O volume de uma esfera com raio ", r, " é ", v)
+fim

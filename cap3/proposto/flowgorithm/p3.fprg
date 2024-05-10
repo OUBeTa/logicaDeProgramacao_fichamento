@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 04:04:18 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjAxOjAzOjE2ICI7MjE2Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjA0OjE4ICI7MzsyMjgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num" type="Integer" array="False" size=""/>
+            <declare name="unidade, dezena, centena" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com n&#250;mero inteiro de tr&#234;s d&#237;gitos&quot;" newline="True"/>
+            <input variable="num"/>
+            <assign variable="unidade" expression="num % 10"/>
+            <assign variable="dezena" expression="((num - unidade) / 10) % 10"/>
+            <assign variable="centena" expression="((num - dezena) / 100) % 10"/>
+            <output expression="&quot;unidades : &quot; &amp; unidade" newline="True"/>
+            <output expression="&quot;Dezenas : &quot; &amp; dezena" newline="True"/>
+            <output expression="&quot;Centenas : &quot; &amp; centena" newline="True"/>
+            <output expression="unidade &amp; dezena &amp; centena" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

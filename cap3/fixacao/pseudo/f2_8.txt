@@ -1,0 +1,28 @@
+inicio
+    real p
+    inteiro cod
+    
+    escreva("Insira o valor do produto")
+    leia(p)
+    
+    escreva("Insira a condição de pagamento")
+    leia(cod)
+    
+    real np
+    
+    se cod = 1 então
+        np <- p * 0.9
+        escreva("Preço à vista com desconto: ", np)
+    senao se cod = 2 então
+        np <- p * 0.95
+        escreva("Preço no cartão com desconto: ", np)
+    senao se cod = 3 então
+        np <- p / 2
+        escreva("Duas parcelas de: ", np)
+    senao se cod = 4 então
+        np <- p * 1.1 / 3
+        escreva("Três parcelas de: ", np)
+    senao
+        escreva("Código inexistente")
+    fimse
+fim

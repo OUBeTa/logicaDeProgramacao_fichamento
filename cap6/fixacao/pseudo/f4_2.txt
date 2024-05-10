@@ -1,0 +1,25 @@
+inicio
+inteiro num, reverse, dig, sign
+
+reverse <- 0
+
+escreva("Entrar com número inteiro")
+leia num
+
+se num < 0 então
+    sign <- -1
+senão
+    sign <- 1
+fimse
+
+num <- valor absoluto de num
+
+enquanto num ≠ 0 faça
+    dig <- num % 10
+    reverse <- reverse * 10 + dig
+    num <- num // 10
+fimenquanto
+
+escreva(reverse * sign)
+
+fim

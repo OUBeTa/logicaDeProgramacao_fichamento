@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-30 08:47:12 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA4OjIzOjM4ICI7MjE3Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMzA7IjA4OjQ3OjEyICI7MTsyMjgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, menor, maior, control" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="10"/>
+            <declare name="inputV" type="Integer" array="True" size="records"/>
+            <for variable="control" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;valor n&#250;mero : &quot; &amp; ToString(control + 1)" newline="True"/>
+                <input variable="inputV[control]"/>
+            </for>
+            <assign variable="menor" expression="inputV[0]"/>
+            <assign variable="maior" expression="inputV[0]"/>
+            <for variable="control" start="0" end="records - 2" direction="inc" step="1">
+                <if expression="inputV[control + 1] &lt; menor">
+                    <then>
+                        <assign variable="menor" expression="inputV[control + 1]"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="inputV[control + 1] &gt; maior">
+                    <then>
+                        <assign variable="maior" expression="inputV[control + 1]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;O maior valor do conjunto dado &#233; : &quot; &amp; maior" newline="True"/>
+            <output expression="&quot;O menor valor do conjunto dado &#233; : &quot; &amp; menor" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

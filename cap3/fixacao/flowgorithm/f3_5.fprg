@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 05:07:50 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjU5OjA5ICI7MjE4Mg=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA1OjA3OjUwICI7MTsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, f, v" type="Integer" array="False" size=""/>
+            <output expression="&quot;entre com n inteiro&quot;" newline="True"/>
+            <input variable="n"/>
+            <if expression="n == 0">
+                <then>
+                    <output expression="&quot;fatorial de n : 0&quot;" newline="True"/>
+                </then>
+                <else>
+                    <assign variable="f" expression="1"/>
+                    <for variable="v" start="1" end="n" direction="inc" step="1">
+                        <assign variable="f" expression="f * v"/>
+                    </for>
+                    <output expression="&quot;fatorian de n : &quot; &amp; f" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

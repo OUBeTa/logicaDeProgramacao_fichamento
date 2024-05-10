@@ -1,0 +1,44 @@
+inicio
+inteiro records = 2
+inteiro soma = 0
+vetor de cadeia arquivoStr[records * 3]
+vetor de inteiro arquivoInt[records * 3]
+
+escreva("//====== INICIANDO REGISTRO EM ARQUIVOS ======//")
+escreva("")
+escreva("")
+
+para i de 0 até records - 1 passo 1 faça
+    escreva("Entrar com nome do sócio [", i + 1, "]")
+    leia arquivoStr[i * 3]
+    
+    escreva("Entrar com n° do sócio [", i + 1, "]")
+    leia arquivoInt[i * 3]
+    
+    escreva("Entrar com número de dependentes do sócio [", i + 1, "]")
+    leia arquivoInt[i * 3 + 1]
+    
+    escreva("Entrar com endereço do sócio [", i + 1, "]")
+    leia arquivoStr[i * 3 + 1]
+    
+    escreva("Entrar com data de associação do sócio [", i + 1, "]")
+    leia arquivoStr[i * 3 + 2]
+    
+    escreva("Entrar com valor da mensalidade do sócio [", i + 1, "]")
+    leia arquivoInt[i * 3 + 2]
+    
+    escreva("")
+    escreva("")
+fimpara
+
+escreva("//====== FIM REGISTRO EM ARQUIVOS ======//")
+escreva("")
+escreva("")
+
+para i de 0 até records - 1 passo 1 faça
+    soma <- soma + (1 + arquivoInt[i * 3 + 1])
+fimpara
+
+escreva("Número total de possíveis frequentadores do clube: ", soma)
+
+fim

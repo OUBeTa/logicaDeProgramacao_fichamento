@@ -1,0 +1,1 @@
+print(f"O monge deverá receber {((2^63) - 1)} grãos, isto é, 18,446,744,073,709,551,615 grãos no total")

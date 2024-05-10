@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-27 04:46:30 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA0OjExOjIwICI7MjE2Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjc7IjA0OjQ2OjMwICI7MTsyMjgz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="mamifero, ave, reptil, quadrupede, bipede, voador, aquatico, nadador, rapina, cCasco, carnivoro, sPatas, herbivoro, onivoro, frutivoro, tropical, polar, finalAnimal" type="String" array="False" size=""/>
+            <output expression="&quot;Animais poss&#237;veis: le&#227;o, cavalo, humano, macaco, morcego, baleia, avestruz, pinguim, pato, &#225;guia, tartaruga, crcodilo e cobra&quot;" newline="True"/>
+            <output expression="&quot;&#232; mamifero? (s-n)&quot;" newline="True"/>
+            <input variable="mamifero"/>
+            <if expression="mamifero == &quot;s&quot;">
+                <then>
+                    <output expression="&quot;&#233; quadrupede?&quot;" newline="True"/>
+                    <input variable="quadrupede"/>
+                    <if expression="quadrupede == &quot;s&quot;">
+                        <then>
+                            <output expression="&quot;&#233; carn&#237;voro?&quot;" newline="True"/>
+                            <input variable="carnivoro"/>
+                            <if expression="carnivoro == &quot;s&quot;">
+                                <then>
+                                    <assign variable="finalAnimal" expression="&quot;le&#227;o&quot;"/>
+                                </then>
+                                <else>
+                                    <assign variable="finalAnimal" expression="&quot;Cavalo&quot;"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;&#233; b&#237;pede?&quot;" newline="True"/>
+                            <input variable="bipede"/>
+                            <if expression="bipede == &quot;s&quot;">
+                                <then>
+                                    <output expression="&quot;&#233; on&#237;voro?&quot;" newline="True"/>
+                                    <input variable="onivoro"/>
+                                    <if expression="onivoro == &quot;s&quot;">
+                                        <then>
+                                            <assign variable="finalAnimal" expression="&quot;Humano&quot;"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="finalAnimal" expression="&quot;Macaco&quot;"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <output expression="&quot;&#233; voador?&quot;" newline="True"/>
+                                    <input variable="voador"/>
+                                    <if expression="voador == &quot;s&quot;">
+                                        <then>
+                                            <assign variable="finalAnimal" expression="&quot;Morcego&quot;"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="finalAnimal" expression="&quot;Baleia&quot;"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;&#233; uma ave?&quot;" newline="True"/>
+                    <input variable="ave"/>
+                    <if expression="ave == &quot;s&quot;">
+                        <then>
+                            <output expression="&quot;&#233; voadora?&quot;" newline="True"/>
+                            <input variable="voador"/>
+                            <if expression="voador == &quot;s&quot;">
+                                <then>
+                                    <output expression="&quot;&#233; nadador?&quot;" newline="True"/>
+                                    <input variable="nadador"/>
+                                    <if expression="nadador = &quot;s&quot;">
+                                        <then>
+                                            <assign variable="finalAnimal" expression="&quot;Pato&quot;"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="finalAnimal" expression="&quot;&#193;guia&quot;"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <output expression="&quot;&#233; tropical?&quot;" newline="True"/>
+                                    <input variable="tropical"/>
+                                    <if expression="tropical == &quot;s&quot;">
+                                        <then>
+                                            <assign variable="finalAnimal" expression="&quot;Avestruz&quot;"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="finalAnimal" expression="&quot;pinguim&quot;"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <output expression="&quot;Possui casco?&quot;" newline="True"/>
+                            <input variable="cCasco"/>
+                            <if expression="cCasco == &quot;s&quot;">
+                                <then>
+                                    <assign variable="finalAnimal" expression="&quot;Tartaruga&quot;"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;&#233; carnivoro?&quot;" newline="True"/>
+                                    <input variable="carnivoro"/>
+                                    <if expression="carnivoro == &quot;s&quot;">
+                                        <then>
+                                            <assign variable="finalAnimal" expression="&quot;Crododilo&quot;"/>
+                                        </then>
+                                        <else>
+                                            <assign variable="finalAnimal" expression="&quot;Cobra&quot;"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;O animal &#233; : &quot; &amp; finalAnimal" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

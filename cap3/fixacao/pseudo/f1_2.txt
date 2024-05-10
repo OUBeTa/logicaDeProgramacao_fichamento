@@ -1,0 +1,22 @@
+inicio
+    real x1
+    real x2
+    real y1
+    real y2
+    
+    escreva("Selecione o valor desejado para x1")
+    leia(x1)
+    
+    escreva("Selecione o valor desejado para x2")
+    leia(x2)
+    
+    escreva("Selecione o valor desejado para y1")
+    leia(y1)
+    
+    escreva("Selecione o valor desejado para y2")
+    leia(y2)
+    
+    real d <- raiz((x2 - x1) ** 2 + (y1 - y2) ** 2)
+    
+    escreva("Distância: ", d)
+fim

@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-05 08:44:10 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA1OjQ3OjE2ICI7MjE3OA=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA1OjQ3OjI5ICI7MTtyc2FsZDtPVUJFVEE7MjAyNC0wNS0wNTsiMDM6NTQ6MjAgIjsyXzEuZnByZzs1MjQ4"/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDU7IjA4OjQ0OjEwICI7MzsyMjgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="records, i, j, nNotas, group, maxIntegrantes, maxEquipes" type="Integer" array="False" size=""/>
+            <assign variable="records" expression="20"/>
+            <assign variable="nNotas" expression="2"/>
+            <assign variable="maxIntegrantes" expression="5"/>
+            <assign variable="maxEquipes" expression="4"/>
+            <declare name="vNotas" type="Real" array="True" size="records * nNotas"/>
+            <declare name="meEquipes" type="Real" array="True" size="maxEquipes"/>
+            <declare name="notaEquipes" type="Real" array="True" size="maxIntegrantes * maxEquipes"/>
+            <declare name="vName" type="String" array="True" size="records"/>
+            <declare name="medias" type="Real" array="True" size="records"/>
+            <declare name="integrantes" type="Integer" array="True" size="maxIntegrantes"/>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <assign variable="medias[i]" expression="0"/>
+                <assign variable="notaEquipes[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="maxEquipes - 1" direction="inc" step="1">
+                <assign variable="meEquipes[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="maxIntegrantes - 1" direction="inc" step="1">
+                <assign variable="integrantes[i]" expression="0"/>
+            </for>
+            <for variable="i" start="0" end="records - 1" direction="inc" step="1">
+                <output expression="&quot;Entrar com nome do aluno n&quot; &amp; i + 1" newline="True"/>
+                <input variable="vName[i]"/>
+                <output expression="&quot;Entrar com n&#250;mero do grupo em que o aluno n&quot; &amp; i + 1 &amp; &quot; est&#225; (1 - &quot;&amp;maxEquipes&amp;&quot;)&quot;" newline="True"/>
+                <input variable="group"/>
+                <if expression="!(group &lt;= maxEquipes)">
+                    <then>
+                        <while expression="!(group &lt;= maxEquipes)">
+                            <output expression="&quot;N&#227;o existe grupo n&quot; &amp; i &amp; &quot;. tente outro grupo (1 - &quot;&amp;maxEquipes&amp;&quot;)&quot;" newline="True"/>
+                            <input variable="group"/>
+                            <if expression="(group &lt; maxEquipes)">
+                                <then>
+                                    <while expression="!(integrantes[group - 1] &lt; maxIntegrantes)">
+                                        <output expression="&quot;O grupo &quot; &amp; group &amp; &quot; est&#225; cheio. Entre com ouro grupo (1 - 8 != [&quot;&amp;group&amp;&quot;] )&quot;" newline="True"/>
+                                        <if expression="group &gt; maxEquipes">
+                                            <then/>
+                                            <else/>
+                                        </if>
+                                        <input variable="group"/>
+                                    </while>
+                                </then>
+                                <else/>
+                            </if>
+                        </while>
+                    </then>
+                    <else>
+                        <while expression="!(integrantes[group - 1] &lt; maxIntegrantes)">
+                            <output expression="&quot;O grupo &quot; &amp; group &amp; &quot; est&#225; cheio. Entre com ouro grupo (1 - 8 != [&quot;&amp;group&amp;&quot;] )&quot;" newline="True"/>
+                            <if expression="group &gt; maxEquipes">
+                                <then/>
+                                <else/>
+                            </if>
+                            <input variable="group"/>
+                        </while>
+                    </else>
+                </if>
+                <for variable="j" start="0" end="nNotas - 1" direction="inc" step="1">
+                    <output expression="&quot;Entrar com nota n&quot; &amp; j+1 &amp; &quot; do aluno n&quot; &amp; i + 1" newline="True"/>
+                    <input variable="vNotas[i * nNotas + j]"/>
+                    <assign variable="medias[i]" expression="medias[i] + vNotas[i * nNotas + j]"/>
+                </for>
+                <assign variable="medias[i]" expression="medias[i] / nNotas"/>
+                <assign variable="notaEquipes[(group - 1) * maxIntegrantes + integrantes[group - 1]]" expression="medias[i]"/>
+                <assign variable="integrantes[group - 1]" expression="integrantes[group - 1] + 1"/>
+            </for>
+            <for variable="i" start="0" end="maxEquipes - 1" direction="inc" step="1">
+                <for variable="j" start="0" end="maxIntegrantes - 1" direction="inc" step="1">
+                    <assign variable="meEquipes[i]" expression="(i * nNotas + j)"/>
+                </for>
+                <assign variable="meEquipes[i]" expression="meEquipes[i] / maxIntegrantes"/>
+                <output expression="&quot;M&#233;dia da equipe n&quot; &amp; i+1 &amp; &quot; : &quot; &amp;meEquipes[i]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,135 @@
+inicio
+    classe Nomes:
+        atributo mName
+        atributo fName
+        
+        método __init__(self):
+            self.mName <- []
+            self.fName <- []
+        fim método
+        
+        função isrtMname(self, nome):
+            adicionar nome a self.mName
+        fim função
+        
+        função isrtDelMname(self, nome):
+            se nome em self.mName então
+                remover nome de self.mName
+                escreva("Nome '", nome, "' excluído.")
+            senão
+                adicionar nome a self.mName
+                escreva("Nome '", nome, "' incluído.")
+            fimse
+        fim função
+        
+        função insrtName(self, nome, sexo):
+            se sexo = "homem" então
+                adicionar nome a self.mName
+                escreva("Nome '", nome, "' incluído.")
+            senão se sexo = "mulher" então
+                adicionar nome a self.fName
+                escreva("Nome '", nome, "' incluído.")
+            senão
+                escreva("Sexo não identificado. Insira 'homem' ou 'mulher'.")
+            fimse
+        fim função
+        
+        função delName(self, nome, sexo):
+            se sexo = "homem" então
+                se nome em self.mName então
+                    remover nome de self.mName
+                    escreva("Nome '", nome, "' excluído.")
+                senão
+                    escreva("Nome '", nome, "' não encontrado.")
+                fimse
+            senão se sexo = "mulher" então
+                se nome em self.fName então
+                    remover nome de self.fName
+                    escreva("Nome '", nome, "' excluído.")
+                senão
+                    escreva("Nome '", nome, "' não encontrado.")
+                fimse
+            senão
+                escreva("Sexo não identificado. Insira 'homem' ou 'mulher'.")
+            fimse
+        fim função
+        
+        função findChangeName(self, nome_atual, sexo_atual, novo_nome, novo_sexo):
+            se sexo_atual = "homem" então
+                se nome_atual em self.mName então
+                    index <- índice de nome_atual em self.mName
+                    escreva("Nome alterado de '", nome_atual, "' para '", novo_nome, "'.")
+                    
+                    se novo_sexo = "mulher" então
+                        remover elemento do índice de self.mName
+                        adicionar novo_nome a self.fName
+                        escreva("Nome '", novo_nome, "' movido para a lista de mulheres.")
+                    fimse
+                senão
+                    escreva("Nome '", nome_atual, "' não encontrado.")
+                fimse
+            senão se sexo_atual = "mulher" então
+                se nome_atual em self.fName então
+                    index <- índice de nome_atual em self.fName
+                    escreva("Nome alterado de '", nome_atual, "' para '", novo_nome, "'.")
+                    
+                    se novo_sexo = "homem" então
+                        remover elemento do índice de self.fName
+                        adicionar novo_nome a self.mName
+                        escreva("Nome '", novo_nome, "' movido para a lista de homens.")
+                    fimse
+                senão
+                    escreva("Nome '", nome_atual, "' não encontrado.")
+                fimse
+            senão
+                escreva("Sexo não identificado. Insira 'homem' ou 'mulher'.")
+            fimse
+        fim função
+    
+    nomes <- Nomes()
+    
+    nomes.isrtMname("João")
+    nomes.isrtDelMname("Carlos")
+    nomes.isrtDelMname("Carlos")
+    nomes.insrtName("Maria", "mulher")
+    nomes.delName("Maria", "mulher")
+    nomes.findChangeName("João", "homem", "João Paulo", "homem")
+    nomes.findChangeName("João Paulo", "homem", "Joana", "mulher")
+    
+    cadeia name <- ""
+    cadeia sexo
+    
+    escreva("\n//====== COMEÇO REGISTRO ======//\n")
+    
+    enquanto verdadeiro faça
+        name <- leia("Entre com o nome para incluir (ou 'X' para sair):\n")
+        
+        se name.minúscula() = "x" então
+            interrompa
+        fimse
+        
+        sexo <- leia("Entre com o sexo associado ao nome '", name, "' ('homem' ou 'mulher'):\n").minúscula()
+        
+        se sexo = "homem" então
+            nomes.isrtMname(name)
+            escreva("Nome '", name, "' incluído na lista de homens.")
+        senão se sexo = "mulher" então
+            nomes.insrtName(name, sexo)
+            escreva("Nome '", name, "' incluído na lista de mulheres.")
+        senão
+            escreva("Sexo não identificado. Por favor, insira 'homem' ou 'mulher'.")
+        fimse
+    fimenquanto
+    
+    escreva("\n//====== FIM REGISTRO ======//\n")
+    
+    escreva("//===== Lista M =====//\n")
+    para i de nomes.mName faça
+        escreva(i)
+    fimpara
+    
+    escreva("\n//===== Lista F =====//\n")
+    para i de nomes.fName faça
+        escreva(i)
+    fimpara
+fim

@@ -1,0 +1,44 @@
+inicio
+    inteiro records <- 10
+    vetor real alturaV[records]
+    vetor real pesoV[records]
+    vetor caractere sexoV[records]
+    inteiro mCount <- 0
+    inteiro fCount <- 0
+    real alturaFsum <- 0
+    real menor
+    inteiro i
+    
+    para i de 0 até records - 1 passo 1 faça
+        escreva("Entre com o sexo do indivíduo número ", i + 1, " (m - f)")
+        leia(sexoV[i])
+        
+        escreva("Entre com o peso do indivíduo número ", i + 1)
+        leia(pesoV[i])
+        
+        escreva("Entre com a altura do indivíduo número ", i + 1)
+        leia(alturaV[i])
+    fimpara
+    
+    menor <- alturaV[0]
+    
+    para i de 0 até records - 1 passo 1 faça
+        se alturaV[i + 1] < menor então
+            menor <- alturaV[i + 1]
+        fimse
+    fimpara
+    
+    para i de 0 até records - 1 passo 1 faça
+        se sexoV[i] = "f" então
+            fCount <- fCount + 1
+            alturaFsum <- alturaFsum + alturaV[i]
+        senao
+            mCount <- mCount + 1
+        fimse
+    fimpara
+    
+    escreva("Menor altura do grupo: ", menor, " cm")
+    escreva("Altura média dos indivíduos de sexo feminino: ", alturaFsum / fCount)
+    escreva("Sexo masculino (", mCount, "): ", mCount / (mCount + fCount) * 100, "%")
+    escreva("Sexo feminino (", fCount, "): ", fCount / (mCount + fCount) * 100, "%")
+fim

@@ -1,0 +1,17 @@
+inicio
+    inteiro base, exp, result, control
+    
+    escreva("Entrar com denominador")
+    leia base
+    
+    escreva("Entrar com expoente")
+    leia exp
+    
+    result <- 1
+    
+    para control de 0 até exp - 1 passo 1 faça
+        result <- result * base
+    fimpara
+    
+    escreva(base, " ^ ", exp, " = ", result)
+fim

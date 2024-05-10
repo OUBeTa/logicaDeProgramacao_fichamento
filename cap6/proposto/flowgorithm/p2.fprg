@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-07 01:25:52 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAyOjExOjAwICI7MjE2MQ=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDUtMDc7IjAxOjI1OjUyICI7MTsyMjgw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b" type="Integer" array="False" size=""/>
+            <output expression="&quot;Entrar com divisor&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Entrar com dividendo&quot;" newline="True"/>
+            <input variable="b"/>
+            <while expression="a &gt;= b">
+                <assign variable="a" expression="a - b"/>
+            </while>
+            <output expression="&quot;Resto da divis&#227;o inteira : &quot; &amp; a" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,34 @@
+inicio
+    inteiro x
+    caractere s
+    inteiro y
+    
+    escreva("Entre com o primeiro operando")
+    leia(x)
+    
+    escreva("Entrar com operador")
+    leia(s)
+    
+    escreva("Entrar com o segundo operando")
+    leia(y)
+    
+    se s = "+" então
+        real r <- x + y
+        escreva("A soma resulta em: ", r)
+    senao se s = "-" então
+        real r <- x - y
+        escreva("A subtração resulta em: ", r)
+    senao se s = "*" então
+        real r <- x * y
+        escreva("A multiplicação resulta em: ", r)
+    senao se s = "/" então
+        se y = 0 então
+            escreva("Denominador nulo!")
+        senao
+            real r <- x / y
+            escreva("A divisão resulta em: ", r)
+        fimse
+    senao
+        escreva("Operação inexistente!")
+    fimse
+fim

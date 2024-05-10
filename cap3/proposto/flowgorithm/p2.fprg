@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="rsald"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-04-24 04:08:16 "/>
+        <attribute name="created" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDMtMDc7IjAxOjAzOjE2ICI7MjE2Ng=="/>
+        <attribute name="edited" value="cnNhbGQ7T1VCRVRBOzIwMjQtMDQtMjQ7IjA0OjA4OjE2ICI7MzsyMjg0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="r, a" type="Real" array="False" size=""/>
+            <output expression="&quot;Insira o raio da esfera&quot;" newline="True"/>
+            <input variable="r"/>
+            <assign variable="a" expression="3.1416 * (r*r)"/>
+            <output expression="&quot;A &#225;rea de um c&#237;rculo com este raio &#233; : &quot; &amp; a" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
